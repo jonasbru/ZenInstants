@@ -58,6 +58,21 @@ public class MesText extends Message {
 		this.text = txt;
 		this.imageSrc = imgSrc;
 	}
+	public String[] showToHistorial() {
+		// TODO Auto-generated method stub
+		String[] a = {this.text};
+		return a;
+	}
+	public Message getMessage() {
+		// TODO Auto-generated method stub
+		return this;
+	}
+	
+	public String[] textToHistorial(int i)
+	{
+		String[] ret = {this.text};
+		return ret;
+	}
 	
 	
 

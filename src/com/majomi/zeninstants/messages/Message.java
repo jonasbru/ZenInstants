@@ -6,7 +6,7 @@ package com.majomi.zeninstants.messages;
  * Differents kinds of messages the app can receive
  *
  */
-public class Message implements Message_Interface {
+public class Message implements Message_Interface{
 
 	private Message_Type type;
 	
@@ -27,22 +27,16 @@ public class Message implements Message_Interface {
 	{
 		return this.type;
 	}
-	
-	public void showToHistorial() {
+
+	public String[] showToHistorial() {
 		// TODO Auto-generated method stub
-		if (this.type == Message_Type.TEXT)
-		{
-			//DO SOMETHING
-		}
-		if (this.type == Message_Type.PHOTO)
-		{
-			//DO SOMETHING
-		}
-	}	
-	
-	public Message getMessage() {
-		// TODO Auto-generated method stub
-		return this;
+		String[] ret = {"hola","adios"};
+		return ret;
 	}
 
+	public Message getMessage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+		
 }

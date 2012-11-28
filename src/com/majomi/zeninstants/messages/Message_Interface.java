@@ -6,7 +6,7 @@ public interface Message_Interface {
 	/**
 	 * Show the message to historial
 	 */
-	public void showToHistorial();
+	public abstract String[] showToHistorial();
 
 	/**
 	 *  Retrieves current Message
