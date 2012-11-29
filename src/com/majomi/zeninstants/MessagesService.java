@@ -5,7 +5,8 @@ import android.content.Intent;
 import android.os.IBinder;
 
 public class MessagesService extends Service {
-		
+	TimeUtils timer = new TimeUtils();
+	
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -31,24 +32,23 @@ public class MessagesService extends Service {
 		return START_STICKY;
 	}
 	
+	/**
+	 * Send messages to the user
+	 */
 	public void startSendingMessages(){
 		for(int i = 0; i < 3; i++){
-			try {
-				synchronized (this){
-					wait(10000);
-				}
-				Intent dialogIntent = new Intent(getBaseContext(), MessageActivity.class);
-				dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				AppLog.logString("Service: Start activity");
-				getApplication().startActivity(dialogIntent);
-				
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			synchronized (this){
+				timer.noisyWait(10000);
 			}
+			Intent dialogIntent = new Intent(getBaseContext(), MessageActivity.class);
+			dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			AppLog.logString("Service: Start activity");
+			getApplication().startActivity(dialogIntent);
 			
 		}
 	}
+	
+
 
 	@Override
 	public boolean onUnbind(Intent intent) {
