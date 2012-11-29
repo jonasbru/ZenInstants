@@ -1,8 +1,10 @@
 package com.majomi.zeninstants;
 
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.Vibrator;
 
 public class MessagesService extends Service {
 	TimeUtils timer = new TimeUtils();
@@ -38,17 +40,24 @@ public class MessagesService extends Service {
 	public void startSendingMessages(){
 		for(int i = 0; i < 3; i++){
 			synchronized (this){
-				timer.noisyWait(10000);
+				timer.noisyWait(5000);
 			}
 			Intent dialogIntent = new Intent(getBaseContext(), MessageActivity.class);
 			dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			AppLog.logString("Service: Start activity");
 			getApplication().startActivity(dialogIntent);
-			
+			vibrate();
 		}
 	}
 	
+	public void vibrate(){
+		// Get instance of Vibrator from current Context
+		Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		long[] pattern = {0,300};
 
+		// Only perform this pattern one time (-1 means "do not repeat")
+		v.vibrate(pattern, -1);
+	}
 
 	@Override
 	public boolean onUnbind(Intent intent) {
@@ -59,6 +68,5 @@ public class MessagesService extends Service {
 	public IBinder onBind(Intent intent) {
 		return null;
 	}
-		
-		
+				
 }
