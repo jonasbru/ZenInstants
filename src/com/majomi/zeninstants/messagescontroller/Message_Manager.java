@@ -1,6 +1,9 @@
-package com.majomi.zeninstants.messages;
+package com.majomi.zeninstants.messagescontroller;
 
 import java.util.ArrayList;
+
+import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesentities.Message;
 
 /**
  * 
@@ -10,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Message_Manager {
 
-	private ArrayList <Message> messages;
+	private ArrayList<Message> messages;
 	static private Message_Manager messageManager = null;
 	
 	public ArrayList <Message> getMessages()
@@ -24,12 +27,12 @@ public class Message_Manager {
 	public Message_Manager(int i)
 	{
 		messages = new ArrayList<Message>();
-		messages.add(new MesText("Ut at magna vel urna dapibus vestibulum at quis lorem."));
-		messages.add(new MesText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis diam eu sem bibendum venenatis"));
-		messages.add(new MesText("Lorem ipsum dolor sit amet, consectetur adipiscing elit."));
+		messages.add(new MessageTextEntity("Ut at magna vel urna dapibus vestibulum at quis lorem."));
+		messages.add(new MessageTextEntity("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis diam eu sem bibendum venenatis"));
+		messages.add(new MessageTextEntity("Lorem ipsum dolor sit amet, consectetur adipiscing elit."));
 		for(int j = 0; j < i ; j++)
 		{
-			messages.add(new MesText("Something"));
+			messages.add(new MessageTextEntity("Something"));
 		}
 	}
 	
@@ -52,9 +55,13 @@ public class Message_Manager {
 		return messageManager;
 	}
 	
-	public String[] textToHistorial(int i)
+	public Message getMessage(int i){
+		return messages.get(i);
+	}
+	
+	public String getSummary(int i)
 	{
-		return messages.get(i).showToHistorial();
+		return ((MessageTextEntity)messages.get(i)).getSummary();
 	}
 	
 	

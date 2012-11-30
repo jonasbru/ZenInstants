@@ -6,7 +6,7 @@ package com.majomi.zeninstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.majomi.zeninstants.messages.Message_Manager;
+import com.majomi.zeninstants.messagescontroller.*;
 
 import android.app.ListActivity;
 import android.os.Bundle;
@@ -36,17 +36,17 @@ public class Historial_Activity extends ListActivity {
 	    
 	    
 	    
-	    ArrayList<String[]> list = new ArrayList<String[]>();
+	    ArrayList<String> list = new ArrayList<String>();
 	 
 	    Message_Manager messMan = Message_Manager.getMessageManager();
 	    
-	    String[] evento1 = messMan.textToHistorial(0);
+	    String evento1 = messMan.getSummary(0);
 	    list.add(evento1);
 	 
-	    String[] evento2 = messMan.textToHistorial(1);
+	    String evento2 = messMan.getSummary(1);
 	    list.add(evento2);
 	 
-	    String[] evento3 = messMan.textToHistorial(2);
+	    String evento3 = messMan.getSummary(2);
 	    list.add(evento3);
 	 
 	 
@@ -55,7 +55,7 @@ public class Historial_Activity extends ListActivity {
 	    {
 	    	HashMap<String,String> datas=new HashMap<String, String>();
 	    	
-	    	datas.put("Text", list.get(i)[0]);
+	    	datas.put("Text", list.get(i));
 	    	
 	        historial.add(datas);
 	    }
