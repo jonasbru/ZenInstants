@@ -1,43 +1,35 @@
 package com.majomi.zeninstants.messagesentities;
 
-public class MessageTextEntity implements Message{
-	private String text;
-	private String summary; // Text shown in historical
+import android.view.View;
+import android.widget.TextView;
 
-	public MessageTextEntity() {
-		this.text = new String();
-		this.summary = new String();
+import com.majomi.zeninstants.R;
+
+public class MessageTextEntity extends MessageEntity implements MessageInterface{
+	
+	public MessageTextEntity()
+	{
+		super();
 	}
 	
-	public MessageTextEntity(String text) {
-		super();
-		this.text = text;
-		if(text.length()> 40)
-			this.summary = text.substring(0, 40);
-		else
-			this.summary = text;
+	public MessageTextEntity(String a)
+	{
+		super(a);
 	}
 	
 	public MessageTextEntity(String text, String summary) {
-		super();
-		this.text = text;
-		this.summary = summary;
+		super(text, summary);
 	}
-
-	public String getText() {
-		return text;
+	
+	public int getLayout()
+	{
+		return R.layout.historial_message_text;
 	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
-
-	public String getSummary() {
-		return summary;
-	}
-
-	public void setSummary(String summary) {
-		this.summary = summary;
+	
+	public void setHistorialContent(View vi)
+	{
+		TextView summarytext = (TextView) vi.findViewById(R.id.hmtext);
+		summarytext.setText(getSummary());
 	}
 	
 }

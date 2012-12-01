@@ -2,8 +2,8 @@ package com.majomi.zeninstants.messagescontroller;
 
 import java.util.ArrayList;
 
+import com.majomi.zeninstants.messagesentities.MessageEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
-import com.majomi.zeninstants.messagesentities.Message;
 
 /**
  * 
@@ -13,12 +13,20 @@ import com.majomi.zeninstants.messagesentities.Message;
  */
 public class Message_Manager {
 
-	private ArrayList<Message> messages;
+	private ArrayList<MessageEntity> messages;
 	static private Message_Manager messageManager = null;
 	
-	public ArrayList <Message> getMessages()
+	public ArrayList <MessageEntity> getMessages()
 	{
 		return messages;
+	}
+	
+	public Message_Manager()
+	{
+		messages = new ArrayList<MessageEntity>();
+		messages.add(new MessageTextEntity("Ut at magna vel urna dapibus vestibulum at quis lorem."));
+		messages.add(new MessageTextEntity("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis diam eu sem bibendum venenatis"));
+		messages.add(new MessageTextEntity("Lorem ipsum dolor sit amet, consectetur adipiscing elit."));
 	}
 	
 	/**
@@ -26,7 +34,7 @@ public class Message_Manager {
 	 */
 	public Message_Manager(int i)
 	{
-		messages = new ArrayList<Message>();
+		messages = new ArrayList<MessageEntity>();
 		messages.add(new MessageTextEntity("Ut at magna vel urna dapibus vestibulum at quis lorem."));
 		messages.add(new MessageTextEntity("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis diam eu sem bibendum venenatis"));
 		messages.add(new MessageTextEntity("Lorem ipsum dolor sit amet, consectetur adipiscing elit."));
@@ -40,7 +48,7 @@ public class Message_Manager {
 	 * Set messages like mm
 	 * @param mm (Message_Manager)
 	 */
-	public Message_Manager(ArrayList <Message> mm)
+	public Message_Manager(ArrayList <MessageEntity> mm)
 	{
 		this.messages = mm;
 	}
@@ -55,13 +63,13 @@ public class Message_Manager {
 		return messageManager;
 	}
 	
-	public Message getMessage(int i){
+	public MessageEntity getMessage(int i){
 		return messages.get(i);
 	}
 	
 	public String getSummary(int i)
 	{
-		return ((MessageTextEntity)messages.get(i)).getSummary();
+		return (messages.get(i)).getSummary();
 	}
 	
 	

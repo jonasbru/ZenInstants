@@ -1,6 +1,6 @@
 package com.majomi.zeninstants.messagesentities;
 
-public class MessageImageEntity extends MessageTextEntity implements Message {
+public class MessageImageEntity extends MessageEntity implements MessageInterface {
 	String image;
 	
 	public MessageImageEntity(String image) {

@@ -1,6 +1,6 @@
 package com.majomi.zeninstants.messagesentities;
 
-public class MessageVideoEntity extends MessageTextEntity implements Message{
+public class MessageVideoEntity extends MessageEntity implements MessageInterface{
 	String video;
 
 	public MessageVideoEntity(String video) {

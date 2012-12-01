@@ -1,6 +1,6 @@
 package com.majomi.zeninstants.messagesentities;
 
-public class MessageSoundEntity extends MessageTextEntity implements Message{
+public class MessageSoundEntity extends MessageEntity implements MessageInterface{
 	String sound;
 
 	public MessageSoundEntity(String sound) {
