@@ -1,5 +1,6 @@
 package com.majomi.zeninstants.messagesentities;
 
+import android.app.Activity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -26,7 +27,7 @@ public class MessageTextEntity extends MessageEntity implements MessageInterface
 		return R.layout.historial_message_text;
 	}
 	
-	public void setHistorialContent(View vi)
+	public void setHistorialContent(Activity act, View vi)
 	{
 		TextView summarytext = (TextView) vi.findViewById(R.id.hmtext);
 		summarytext.setText(getSummary());

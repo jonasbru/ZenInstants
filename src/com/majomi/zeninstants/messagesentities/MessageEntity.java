@@ -1,5 +1,6 @@
 package com.majomi.zeninstants.messagesentities;
 
+import android.app.Activity;
 import android.view.View;
 
 
@@ -56,6 +57,6 @@ public class MessageEntity implements MessageInterface{
 	public int getLayout(){return -1;}
 	
 	
-	public void setHistorialContent(View vi){}
+	public void setHistorialContent(Activity act, View vi){}
 	
 }

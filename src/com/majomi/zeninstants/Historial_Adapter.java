@@ -38,7 +38,7 @@ public class Historial_Adapter extends BaseAdapter {
 		
 		LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		vi = inflater.inflate(message.getLayout(), null);
-		message.setHistorialContent(vi);
+		message.setHistorialContent(activity, vi);
 		
 		return vi;
 	}

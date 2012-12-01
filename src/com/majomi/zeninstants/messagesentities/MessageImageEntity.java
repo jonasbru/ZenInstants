@@ -1,16 +1,35 @@
 package com.majomi.zeninstants.messagesentities;
 
+import android.app.Activity;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.majomi.zeninstants.R;
+
 public class MessageImageEntity extends MessageEntity implements MessageInterface {
-	String image;
-	
-	public MessageImageEntity(String image) {
+	private String image; //src image
+	private int imageResource; 
+		
+	public MessageImageEntity(String image, String txt) {
 		super();
 		this.image = image;
+		setText(txt);
+		setSummary(txt);
+	}
+
+	public MessageImageEntity(int img)
+	{
+		super();
+		this.setImageResource(img);	
 	}
 	
-	public MessageImageEntity(String image, String text) {
-		super(text);
-		this.image = image;
+	public int getImageResource() {
+		return imageResource;
+	}
+
+	public void setImageResource(int imageResource) {
+		this.imageResource = imageResource;
 	}
 
 	public String getImage() {
@@ -20,4 +39,22 @@ public class MessageImageEntity extends MessageEntity implements MessageInterfac
 	public void setImage(String image) {
 		this.image = image;
 	}
+	
+	public int getLayout()
+	{
+		return R.layout.historial_message_image_and_text;
+	}
+	
+	public void setHistorialContent(Activity act, View vi)
+	{
+		TextView summarytext = (TextView) vi.findViewById(R.id.historial_image_text);
+		summarytext.setText(getSummary());
+		
+		this.imageResource = act.getResources().getIdentifier(
+				this.image, null, act.getPackageName());
+		
+		ImageView image = (ImageView) vi.findViewById(R.id.historial_image);
+		image.setImageDrawable(act.getResources().getDrawable(imageResource));
+	}
+
 }
