@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import com.majomi.zeninstants.messagesentities.MessageEntity;
 import com.majomi.zeninstants.messagesentities.MessageImageEntity;
+import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesentities.MessageVideoEntity;
 
 /**
  * 
@@ -27,6 +29,8 @@ public class Message_Manager {
 		messages = new ArrayList<MessageEntity>();
 		messages.add(new MessageTextEntity("Ut at magna vel urna dapibus vestibulum at quis lorem."));
 		messages.add(new MessageImageEntity("drawable/templo_cerezo", "Templo con cerezos"));
+		messages.add(new MessageVideoEntity("video", "letras random sin significado aparente"));
+		messages.add(new MessageSoundEntity("elem1", "elem2"));
 		messages.add(new MessageTextEntity("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis diam eu sem bibendum venenatis"));
 		messages.add(new MessageTextEntity("Lorem ipsum dolor sit amet, consectetur adipiscing elit."));
 	}
@@ -39,6 +43,8 @@ public class Message_Manager {
 		messages = new ArrayList<MessageEntity>();
 		messages.add(new MessageTextEntity("Ut at magna vel urna dapibus vestibulum at quis lorem."));
 		messages.add(new MessageImageEntity("drawable/templo_cerezo", "Templo con cerezos"));
+		messages.add(new MessageVideoEntity("video", "letras random sin significado aparente"));
+		messages.add(new MessageSoundEntity("elem1", "elem2"));
 		messages.add(new MessageTextEntity("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis diam eu sem bibendum venenatis"));
 		messages.add(new MessageTextEntity("Lorem ipsum dolor sit amet, consectetur adipiscing elit."));
 		for(int j = 0; j < i ; j++)

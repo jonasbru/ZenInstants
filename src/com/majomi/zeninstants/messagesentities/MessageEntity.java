@@ -1,7 +1,9 @@
 package com.majomi.zeninstants.messagesentities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class MessageEntity implements MessageInterface{
@@ -56,7 +58,10 @@ public class MessageEntity implements MessageInterface{
 	
 	public int getLayout(){return -1;}
 	
-	
 	public void setHistorialContent(Activity act, View vi){}
 	
+	public void onItemSelected(Context cxt)
+	{
+		Toast.makeText(cxt, "No video!", Toast.LENGTH_LONG).show();	
+	}
 }
