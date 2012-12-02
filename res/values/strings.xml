@@ -1,5 +1,5 @@
 <resources>
-    
+
     <string name="menu_settings">Settings</string>
     <string name="app_name">ZenInstants</string>
     <string name="hello_world">Hello world!</string>
@@ -7,5 +7,6 @@
     <string name="title_activity_tabs">ZenInstants</string>
     <string name="title_tab_settings">Settings</string>
     <string name="title_tab_historical">Historical</string>
-    
+    <string name="title_activity_message_image">MessageImageActivity</string>
+
 </resources>

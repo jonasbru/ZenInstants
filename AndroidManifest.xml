@@ -11,6 +11,28 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+         <activity
+            android:name=".MessageImageActivity"
+            android:theme="@style/ZenInstant.Message"
+            android:label="@string/title_activity_message_image" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MessageTextActivity"
+            android:label="@string/title_activity_tabs"
+            android:theme="@android:style/Theme.Dialog" >
+
+            <!-- android:theme="@android:style/Theme.Dialog""@android:style/Theme.Translucent.NoTitleBar"> -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".TabsActivity"
             android:label="@string/title_activity_tabs" >
@@ -20,6 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+       
     </application>
 
 </manifest>
