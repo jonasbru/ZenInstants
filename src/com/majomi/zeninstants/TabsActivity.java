@@ -12,7 +12,7 @@ import com.actionbarsherlock.view.MenuItem;
 
 public class TabsActivity extends SherlockFragmentActivity {
 
-    private SherlockFragment historicalFragment= new HistoricalFragment();
+    private SherlockFragment planningFragment= new PlanningFragment();
     private SherlockFragment settingsFragment= new SettingsFragment();
     
     @Override
@@ -26,13 +26,13 @@ public class TabsActivity extends SherlockFragmentActivity {
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
          
         ActionBar.Tab settingsTab = actionBar.newTab();
-        ActionBar.Tab historicalTab = actionBar.newTab();
-        historicalTab.setText(R.string.title_tab_settings);
-        settingsTab.setText(R.string.title_tab_historical);
+        ActionBar.Tab planningTab = actionBar.newTab();
+        planningTab.setText(R.string.title_tab_settings);
+        settingsTab.setText(R.string.title_tab_planning);
         settingsTab.setTabListener(new TabsListener(settingsFragment));
-        historicalTab.setTabListener(new TabsListener(historicalFragment));
+        planningTab.setTabListener(new TabsListener(planningFragment));
         
-        actionBar.addTab(historicalTab);
+        actionBar.addTab(planningTab);
         actionBar.addTab(settingsTab); 
     }
 
