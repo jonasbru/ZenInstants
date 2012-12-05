@@ -32,7 +32,7 @@ public class MessageTextActivity extends Activity {
         Message_Manager bm = Message_Manager.getMessageManager();
         MessageTextEntity b = (MessageTextEntity) bm.getMessage(msgId);
         
-        TextView text = (TextView) findViewById(R.id.MT_Text);
+        TextView text = (TextView) findViewById(R.id.Message_Text);
         text.setText(b.getText());
     }
 }

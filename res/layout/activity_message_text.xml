@@ -2,24 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1.0" >
+    android:orientation="vertical" >
 
-
-    <FrameLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_gravity="center_vertical"
-	    android:gravity="center"
-	    android:orientation="vertical">
-	    
-	    <TextView
-	        android:id="@+id/MT_Text"
+        <TextView
+	        android:id="@+id/Message_Text"
 		    android:layout_width="match_parent"
-		    android:layout_height="match_parent"
+		    android:layout_height="wrap_content"
 			android:gravity="center"
-	     	android:text="Bonjour \nle monde"
+	     	android:text="Msg not found"
 	    	tools:context=".MessageTextActivity" />
 
-	</FrameLayout>
+        <include  layout="@layout/element_message_buttons_bar" android:id="@+id/buttons" />
 
 </LinearLayout>

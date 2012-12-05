@@ -27,12 +27,12 @@
         <activity
             android:name=".MessageImageActivity"
             android:label="@string/title_activity_message_image"
-            android:theme="@style/ZenInstant.Message" >
+            android:theme="@style/ZenInstant.Dialog">
         </activity>
         <activity
             android:name=".MessageTextActivity"
             android:label="@string/title_activity_tabs"
-            android:theme="@android:style/Theme.Dialog" >
+            android:theme="@style/ZenInstant.Dialog" >
         </activity>
         
     </application>

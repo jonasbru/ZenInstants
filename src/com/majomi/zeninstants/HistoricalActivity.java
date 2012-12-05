@@ -4,7 +4,11 @@
 package com.majomi.zeninstants;
 
 import com.majomi.zeninstants.messagescontroller.Message_Manager;
+import com.majomi.zeninstants.messagesentities.MessageImageEntity;
+import com.majomi.zeninstants.messagesentities.MessageInterface;
+import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesentities.MessageVideoEntity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -37,16 +41,24 @@ public class HistoricalActivity extends Activity{
     private OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
 		@SuppressWarnings("rawtypes")
 		public void onItemClick(AdapterView parent, View v, int position, long id) {
-            
+			Intent myIntent;
 			Message_Manager msgMgr = Message_Manager.getMessageManager();
+			MessageInterface msg = msgMgr.getMessage(position);
 			
-			if (msgMgr.getMessage(position) instanceof MessageTextEntity ){
-				// Launch the activity of details of the book
-	        	Intent myIntent = new Intent( getApplicationContext(), MessageTextActivity.class);
-	        	myIntent.putExtra("MESSAGE_ID", (int)position);
-	            startActivityForResult(myIntent, 0);
+			if (msg instanceof MessageTextEntity ){
+	        	myIntent = new Intent( getApplicationContext(), MessageTextActivity.class); 	
+			}else if (msg instanceof MessageImageEntity ){
+				myIntent = new Intent( getApplicationContext(), MessageImageActivity.class);
+			}else if (msg instanceof MessageVideoEntity ){
+				myIntent = new Intent( getApplicationContext(), MessageTextActivity.class);
+			}else if (msg instanceof MessageSoundEntity ){
+				myIntent = new Intent( getApplicationContext(), MessageTextActivity.class);
+			}else{
+				myIntent = new Intent( getApplicationContext(), MessageTextActivity.class);
 			}
-        	
+			
+			myIntent.putExtra("MESSAGE_ID", (int)position);
+            startActivityForResult(myIntent, 0);
         }
     };
 }
