@@ -1,8 +1,10 @@
 package com.majomi.zeninstants.messagesentities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.majomi.zeninstants.R;
 
@@ -31,6 +33,11 @@ public class MessageTextEntity extends MessageEntity implements MessageInterface
 	{
 		TextView summarytext = (TextView) vi.findViewById(R.id.hmtext);
 		summarytext.setText(getSummary());
+	}
+	
+	public void onItemSelected(Context cxt)
+	{
+		Toast.makeText(cxt, "Text!", Toast.LENGTH_LONG).show();
 	}
 	
 }

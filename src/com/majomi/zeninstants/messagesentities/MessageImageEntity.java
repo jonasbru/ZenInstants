@@ -1,14 +1,16 @@
 package com.majomi.zeninstants.messagesentities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.majomi.zeninstants.R;
 
 public class MessageImageEntity extends MessageEntity implements MessageInterface {
-	private String image; //src image
+	private String image; //src image to drawable component
 	private int imageResource; 
 		
 	public MessageImageEntity(String image, String txt) {
@@ -57,4 +59,8 @@ public class MessageImageEntity extends MessageEntity implements MessageInterfac
 		image.setImageDrawable(act.getResources().getDrawable(imageResource));
 	}
 
+	public void onItemSelected(Context cxt)
+	{
+		Toast.makeText(cxt, "Image!", Toast.LENGTH_LONG).show();
+	}
 }
