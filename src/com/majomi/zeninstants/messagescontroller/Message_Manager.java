@@ -74,6 +74,7 @@ public class Message_Manager {
 	{
 		return (messages.get(i)).getSummary();
 	}
+
 	
 	
 }
