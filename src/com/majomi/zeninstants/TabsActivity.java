@@ -27,13 +27,14 @@ public class TabsActivity extends SherlockFragmentActivity {
          
         ActionBar.Tab settingsTab = actionBar.newTab();
         ActionBar.Tab planningTab = actionBar.newTab();
-        planningTab.setText(R.string.title_tab_settings);
-        settingsTab.setText(R.string.title_tab_planning);
+        planningTab.setText(R.string.title_tab_planning);
+        settingsTab.setText(R.string.title_tab_settings);
         settingsTab.setTabListener(new TabsListener(settingsFragment));
         planningTab.setTabListener(new TabsListener(planningFragment));
         
+        
+        actionBar.addTab(settingsTab);
         actionBar.addTab(planningTab);
-        actionBar.addTab(settingsTab); 
     }
 
     @Override
