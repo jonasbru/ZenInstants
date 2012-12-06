@@ -4,12 +4,18 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
+	//public static final String KEY_121 = "http://xx.xx.xxx.xxx/hellomysql/mysqlcon.php"; //i use my real ip here
+	public static final String KEY_121 = "http://192.168.1.138/zenManagement/index.php"; //i use my real ip here
+	TextView txt;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    	super.onCreate(savedInstanceState);
+    	
         setContentView(R.layout.activity_main);
         //Hi!! 
         AppLog.logString("Main:Starting Service");
@@ -34,3 +40,5 @@ public class MainActivity extends Activity {
     }
     
 }
+
+
