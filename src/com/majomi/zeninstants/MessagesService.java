@@ -27,7 +27,7 @@ public class MessagesService extends Service {
 		AppLog.logString("Service: Created");
 		Thread t = new Thread(){
 			public void run(){
-				startSendingMessages();
+				//startSendingMessages();
 			}
 		};
 		t.start();
