@@ -7,7 +7,7 @@ public class Settings_Manager {
 	
 	private boolean notifications_enabled;
 	private boolean text_enabled;
-	private boolean image_enabled;
+	private boolean photo_enabled;
 	private boolean music_enabled;
 	private boolean video_enabled;
 
@@ -27,27 +27,27 @@ public class Settings_Manager {
 		this.text_enabled = text_enabled;
 	}
 
-	public boolean isImage_enabled() {
-		return image_enabled;
+	public boolean isPhoto_enabled() {
+		return photo_enabled;
 	}
 
-	public void setImage_enabled(boolean image_enabled) {
-		this.image_enabled = image_enabled;
+	public void setPhoto_enabled(boolean image_enabled) {
+		this.photo_enabled = image_enabled;
 	}
 
-	private boolean isMusic_enabled() {
+	public boolean isMusic_enabled() {
 		return music_enabled;
 	}
 
-	private void setMusic_enabled(boolean music_enabled) {
+	public void setMusic_enabled(boolean music_enabled) {
 		this.music_enabled = music_enabled;
 	}
 
-	private boolean isVideo_enabled() {
+	public boolean isVideo_enabled() {
 		return video_enabled;
 	}
 
-	private void setVideo_enabled(boolean video_enabled) {
+	public void setVideo_enabled(boolean video_enabled) {
 		this.video_enabled = video_enabled;
 	}
 		
@@ -56,7 +56,7 @@ public class Settings_Manager {
 	{
 		this.setNotifications_enabled(true);
 		this.setText_enabled(true);
-		this.setImage_enabled(true);
+		this.setPhoto_enabled(true);
 		this.setMusic_enabled(true);
 		this.setVideo_enabled(true);
 	}
