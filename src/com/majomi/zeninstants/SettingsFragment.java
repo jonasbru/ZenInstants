@@ -22,24 +22,17 @@ public class SettingsFragment extends SherlockFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_settings, container, false);
         final CheckBox cben = (CheckBox) v.findViewById(R.id.cb_enable_notification);
+        CheckBox cbt = (CheckBox) v.findViewById(R.id.cb_enabletext);
+        CheckBox cbp = (CheckBox) v.findViewById(R.id.cb_enablephotos);
+        CheckBox cbm = (CheckBox) v.findViewById(R.id.cb_enablemusic);
+        CheckBox cbv = (CheckBox) v.findViewById(R.id.cb_enablevideos);
+        
     	cben.setOnClickListener(new OnClickListener() {
-     
-    	  @Override
-    	  public void onClick(View v) {
-                
-    		if (cben.isChecked()) {
-    			Toast.makeText(v.getContext(),
-    		 	   "Is checked", Toast.LENGTH_LONG).show();
-    		}
-    		else
-    		{
-    			Toast.makeText(v.getContext().getApplicationContext(),
-    	    		 	   "Is not checked", Toast.LENGTH_LONG).show();
-    		}
-     
-    	  }
+     	  @Override
+    	  public void onClick(View v) 
+     	  {
+          }
     	});
-    
         return v;
     }
     
