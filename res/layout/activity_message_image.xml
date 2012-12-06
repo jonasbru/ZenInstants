@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+	        
+        <ImageView
+	        android:id="@+id/ImageViewMessageImage"
+	        android:layout_width="match_parent"
+	        android:layout_height="220dp"
+	        android:contentDescription="Image"
+	        android:layout_gravity="center_vertical"    
+			android:scaleType="fitCenter"
+	        android:gravity="center"
+	        android:adjustViewBounds="true"
+	        android:src="@drawable/templo_cerezo" />
+
+   		<TextView
+   		    android:id="@+id/Message_Text"
+   		    android:layout_width="match_parent"
+   		    android:layout_height="wrap_content"
+   		    android:layout_gravity="center_vertical|center_horizontal"
+   		    android:gravity="center"
+   		    android:text="@string/hello_world"
+   		    android:textColor="#FFFFFF"
+   		    tools:context=".MessageImageActivity" />
+
+        <include  layout="@layout/element_message_buttons_bar" android:id="@+id/buttons" />
+
+</LinearLayout>
+ <!--android:adjustViewBounds="true" -->
