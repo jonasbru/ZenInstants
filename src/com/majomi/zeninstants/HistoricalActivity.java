@@ -3,13 +3,6 @@
  */
 package com.majomi.zeninstants;
 
-import com.majomi.zeninstants.messagescontroller.Message_Manager;
-import com.majomi.zeninstants.messagesentities.MessageImageEntity;
-import com.majomi.zeninstants.messagesentities.MessageInterface;
-import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
-import com.majomi.zeninstants.messagesentities.MessageTextEntity;
-import com.majomi.zeninstants.messagesentities.MessageVideoEntity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +10,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+
+import com.majomi.zeninstants.messagescontroller.Message_Manager;
+import com.majomi.zeninstants.messagesviews.MessageImageView;
+import com.majomi.zeninstants.messagesviews.MessageSoundView;
+import com.majomi.zeninstants.messagesviews.MessageTextView;
+import com.majomi.zeninstants.messagesviews.MessageVideoView;
+import com.majomi.zeninstants.messagesviews.MessageView;
 
 
 /**
@@ -43,18 +43,18 @@ public class HistoricalActivity extends Activity{
 		public void onItemClick(AdapterView parent, View v, int position, long id) {
 			Intent myIntent;
 			Message_Manager msgMgr = Message_Manager.getMessageManager();
-			MessageInterface msg = msgMgr.getMessage(position);
+			MessageView msg = msgMgr.getMessageView(position);
 			
-			if (msg instanceof MessageTextEntity ){
+			if (msg instanceof MessageTextView ){
 	        	myIntent = new Intent( getApplicationContext(), MessageTextActivity.class); 	
-			}else if (msg instanceof MessageImageEntity ){
+			}else if (msg instanceof MessageImageView ){
 				myIntent = new Intent( getApplicationContext(), MessageImageActivity.class);
-			}else if (msg instanceof MessageVideoEntity ){
-				myIntent = new Intent( getApplicationContext(), MessageTextActivity.class);
-			}else if (msg instanceof MessageSoundEntity ){
-				myIntent = new Intent( getApplicationContext(), MessageTextActivity.class);
+			}else if (msg instanceof MessageVideoView ){
+				myIntent = new Intent( getApplicationContext(), MessageVideoActivity.class);
+			}else if (msg instanceof MessageSoundView ){
+				myIntent = new Intent( getApplicationContext(), MessageSoundActivity.class);
 			}else{
-				myIntent = new Intent( getApplicationContext(), MessageTextActivity.class);
+				myIntent = new Intent( getApplicationContext(), MessageTextActivity.class);//Not working
 			}
 			
 			myIntent.putExtra("MESSAGE_ID", (int)position);

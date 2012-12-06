@@ -3,6 +3,7 @@ package com.majomi.zeninstants;
 
 import com.majomi.zeninstants.messagescontroller.Message_Manager;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesviews.MessageTextView;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -25,14 +26,12 @@ public class MessageTextActivity extends Activity {
     }
     
     /**
-     * Fill all the field according to the book selected
+     * Fill all the field according to the message selected
      */
     public void retreiveMessageInfo(){
     	int msgId = getIntent().getExtras().getInt("MESSAGE_ID");
         Message_Manager bm = Message_Manager.getMessageManager();
-        MessageTextEntity b = (MessageTextEntity) bm.getMessage(msgId);
-        
-        TextView text = (TextView) findViewById(R.id.Message_Text);
-        text.setText(b.getText());
+        MessageTextView b = (MessageTextView) bm.getMessageView(msgId); 
+        b.fillMessageView(this);
     }
 }

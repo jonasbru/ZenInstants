@@ -27,14 +27,31 @@
         <activity
             android:name=".MessageImageActivity"
             android:label="@string/title_activity_message_image"
-            android:theme="@style/ZenInstant.Dialog">
+            android:theme="@style/ZenInstant.Dialog" >
         </activity>
         <activity
             android:name=".MessageTextActivity"
             android:label="@string/title_activity_tabs"
             android:theme="@style/ZenInstant.Dialog" >
         </activity>
-        
+        <activity
+            android:name=".MessageVideoActivity"
+            android:label="@string/title_activity_message_video" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MessageSoundActivity"
+            android:label="@string/title_activity_message_sound" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -1,13 +1,7 @@
 package com.majomi.zeninstants.messagesentities;
 
-import android.app.Activity;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.majomi.zeninstants.R;
-
-public class MessageImageEntity extends MessageEntity implements MessageInterface {
+public class MessageImageEntity extends MessageTextEntity {
 	private String image; //src image
 	private int imageResource; 
 		
@@ -40,21 +34,4 @@ public class MessageImageEntity extends MessageEntity implements MessageInterfac
 		this.image = image;
 	}
 	
-	public int getLayout()
-	{
-		return R.layout.historial_message_image_and_text;
-	}
-	
-	public void setHistorialContent(Activity act, View vi)
-	{
-		TextView summarytext = (TextView) vi.findViewById(R.id.historial_image_text);
-		summarytext.setText(getSummary());
-		
-		this.imageResource = act.getResources().getIdentifier(
-				this.image, null, act.getPackageName());
-		
-		ImageView image = (ImageView) vi.findViewById(R.id.historial_image);
-		image.setImageDrawable(act.getResources().getDrawable(imageResource));
-	}
-
 }

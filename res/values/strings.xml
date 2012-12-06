@@ -12,5 +12,7 @@
     <string name="more_info_btn">More info</string>
     <string name="like_btn">Like</string>
     <string name="dislike_btn">Dislike</string>
+    <string name="title_activity_message_video">MessageVideoActivity</string>
+    <string name="title_activity_message_sound">MessageSoundActivity</string>
 
 </resources>

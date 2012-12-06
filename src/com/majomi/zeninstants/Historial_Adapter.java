@@ -9,7 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.majomi.zeninstants.messagescontroller.Message_Manager;
-import com.majomi.zeninstants.messagesentities.MessageEntity;
+import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesviews.MessageView;
 
 public class Historial_Adapter extends BaseAdapter {
 	protected Activity activity;
@@ -24,7 +25,7 @@ public class Historial_Adapter extends BaseAdapter {
 		 
 	
 	public Object getItem(int position) {
-		return Message_Manager.getMessageManager().getMessage(position);
+		return Message_Manager.getMessageManager().getMessageView(position);
 	}
 
 	public long getItemId(int position) {
@@ -33,13 +34,11 @@ public class Historial_Adapter extends BaseAdapter {
 			 
 	
 	public View getView(int position, View convertView, ViewGroup parent) {
-		View vi=convertView;
-		MessageEntity message = Message_Manager.getMessageManager().getMessage(position);
-		
-		LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		vi = inflater.inflate(message.getLayout(), null);
-		message.setHistorialContent(activity, vi);
+		//TODO use convertView for preformences
+		MessageView message = Message_Manager.getMessageManager().getMessageView(position);
+		View vi = message.createHistorialView(activity);
 		
 		return vi;
 	}
+
 }
