@@ -29,7 +29,7 @@ public class MessageTextActivity extends Activity {
      * Fill all the field according to the message selected
      */
     public void retreiveMessageInfo(){
-    	int msgId = getIntent().getExtras().getInt("MESSAGE_ID");
+		int msgId = getIntent().getExtras().getInt("MESSAGE_ID");
         Message_Manager bm = Message_Manager.getMessageManager();
         MessageTextView b = (MessageTextView) bm.getMessageView(msgId); 
         b.fillMessageView(this);

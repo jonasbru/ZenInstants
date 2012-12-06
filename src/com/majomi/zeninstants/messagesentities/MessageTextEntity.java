@@ -1,16 +1,12 @@
 package com.majomi.zeninstants.messagesentities;
 
-import com.majomi.zeninstants.R;
-
-import android.app.Activity;
-import android.view.View;
-import android.widget.TextView;
 
 
 public class MessageTextEntity {
 	protected long id;
 	private String text;
 	private String summary; // Text shown in historical
+	private String urlMoreInfo;
 	
 	
 	public MessageTextEntity() {
@@ -58,6 +54,15 @@ public class MessageTextEntity {
 	}
 	
 	public int getLayout(){return -1;}
+
+	public String getUrlMoreInfo() {
+		return urlMoreInfo;
+	}
+
+	public void setUrlMoreInfo(String urlMoreInfo) {
+		this.urlMoreInfo = urlMoreInfo;
+	}
+	
 	
 /*	
 	public void setHistorialContent(Activity act, View vi)

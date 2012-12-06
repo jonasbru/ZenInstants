@@ -6,6 +6,7 @@ package com.majomi.zeninstants;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -30,7 +31,9 @@ public class HistoricalActivity extends Activity{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.historial_layout);
+		
 		ListView lv = (ListView) findViewById(R.id.historial_list);
 		lv.setOnItemClickListener(mMessageClickedHandler);
 	 	Historial_Adapter adapter = new Historial_Adapter(this);
@@ -44,7 +47,7 @@ public class HistoricalActivity extends Activity{
 			Intent myIntent;
 			Message_Manager msgMgr = Message_Manager.getMessageManager();
 			MessageView msg = msgMgr.getMessageView(position);
-			
+
 			if (msg instanceof MessageTextView ){
 	        	myIntent = new Intent( getApplicationContext(), MessageTextActivity.class); 	
 			}else if (msg instanceof MessageImageView ){
