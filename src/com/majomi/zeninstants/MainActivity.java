@@ -18,19 +18,6 @@ public class MainActivity extends Activity {
     	
         setContentView(R.layout.activity_main);
         
-        // Create a crude view - this should really be set via the layout resources 
-        // but since its an example saves declaring them in the XML. 
-        LinearLayout rootLayout = new LinearLayout(getApplicationContext()); 
-        txt = new TextView(getApplicationContext()); 
-        rootLayout.addView(txt); 
-        setContentView(rootLayout); 
-
-        // Set the text and call the connect function. 
-        txt.setText("Connecting...");
-
-//        NetworkManager.updatePhrases(txt);
-        NetworkManager.pushNote(txt);
-//        txt.setText("Resultat : "+ );
     }
 
     @Override
