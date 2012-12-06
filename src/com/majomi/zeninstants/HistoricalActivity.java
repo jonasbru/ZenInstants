@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -35,7 +37,19 @@ public class HistoricalActivity extends Activity{
 		lv.setOnItemClickListener(mMessageClickedHandler);
 	 	Historial_Adapter adapter = new Historial_Adapter(this);
 	 	lv.setAdapter(adapter);
+	 	
+	 	Button myBtn=(Button) findViewById(R.id.hl_settings_button);
+	    
+	      myBtn.setOnClickListener(
+	    		  new View.OnClickListener() {
+	    			  public void onClick(View v) {
+	    				  Intent i = new Intent(getApplicationContext(), TabsActivity.class);
+	    				  startActivity(i);
+	    			  }
+	    		  });
 	}
+	
+	
 	
 	// Create a message handling witch manage the selection an item.
     private OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {

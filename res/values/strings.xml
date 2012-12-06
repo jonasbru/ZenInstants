@@ -14,5 +14,6 @@
     <string name="dislike_btn">Dislike</string>
     <string name="title_activity_message_video">MessageVideoActivity</string>
     <string name="title_activity_message_sound">MessageSoundActivity</string>
+    <string name="historialmayus">HISTORIAL</string>
 
 </resources>
