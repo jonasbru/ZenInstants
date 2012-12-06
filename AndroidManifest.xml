@@ -32,7 +32,7 @@
         <activity
             android:name=".MessageTextActivity"
             android:label="@string/title_activity_tabs"
-            android:theme="@style/ZenInstant.Dialog" >
+            android:theme="@style/ZenInstant.Message" >
         </activity>
         <activity
             android:name=".MessageVideoActivity"

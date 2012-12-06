@@ -54,7 +54,7 @@ public class HistoricalActivity extends Activity{
 			}else if (msg instanceof MessageSoundView ){
 				myIntent = new Intent( getApplicationContext(), MessageSoundActivity.class);
 			}else{
-				myIntent = new Intent( getApplicationContext(), MessageTextActivity.class);//Not working
+				myIntent = new Intent( getApplicationContext(), MessageTextActivity.class);//Not working anymore
 			}
 			
 			myIntent.putExtra("MESSAGE_ID", (int)position);

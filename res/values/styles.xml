@@ -1,28 +1,38 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="AppTheme" parent="android:Theme.Black" />
     
-    <style name="ZenInstant">
+    <style name="ZenInstant" >
 		<item name="android:colorForeground">#fff</item>
 	</style>
 	
-    <style name="ZenInstant.Dialog" parent="@android:style/Theme.Dialog">
+    <style name="ZenInstant.Dialog">
     	<item name="android:windowTitleStyle">@style/ZenInstant.Dialog.Title</item>
     </style>
     
-    <style name="ZenInstant.Message">
-		<item name="android:windowIsTranslucent">true</item>
+    <style name="ZenInstant.Message" parent="Theme.Sherlock.NoActionBar">
+
+	</style>
+	<!-- 
+	        <item name="android:textAppearance">@style/ZenInstant.Message.TextFont</item>
 		<item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
 		<item name ="android:windowBackground">@color/fuzzy</item>
 		<item name="android:windowNoTitle">true</item>
-	</style>
-	
+		 -->
 		
 	<style name="ZenInstant.Dialog.Title" parent="@android:style/TextAppearance.DialogWindowTitle">
 		<item name="android:gravity">center_horizontal</item>
 	</style>
     
     <color name="fuzzy">#7F000000</color>
+    
+    <style name="ZenInstant.Message.TextFont" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#DCDCDC</item>
+        <item name="android:typeface">normal</item> 
+    </style>
+    
 
 
 </resources>
