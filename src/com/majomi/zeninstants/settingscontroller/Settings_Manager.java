@@ -11,6 +11,27 @@ public class Settings_Manager {
 	private boolean music_enabled;
 	private boolean video_enabled;
 
+	private Settings_Manager()
+	{
+		this.setNotifications_enabled(true);
+		this.setText_enabled(true);
+		this.setPhoto_enabled(true);
+		this.setMusic_enabled(true);
+		this.setVideo_enabled(true);
+	}
+	
+	/**
+	 * Singleton method
+	 * @return Settings_Manager
+	 */
+	static public Settings_Manager getSettingsManager()
+	{
+		if(settingsManager == null) settingsManager = new Settings_Manager();
+		return settingsManager;
+	}
+
+	
+	
 	public boolean isNotifications_enabled() {
 		return notifications_enabled;
 	}
@@ -52,25 +73,7 @@ public class Settings_Manager {
 	}
 		
 	
-	public Settings_Manager()
-	{
-		this.setNotifications_enabled(true);
-		this.setText_enabled(true);
-		this.setPhoto_enabled(true);
-		this.setMusic_enabled(true);
-		this.setVideo_enabled(true);
-	}
 	
-	/**
-	 * Singleton method
-	 * @return Message_Manager
-	 */
-	static public Settings_Manager getSettingsManager()
-	{
-		if(settingsManager == null) settingsManager = new Settings_Manager();
-		return settingsManager;
-	}
-
 
 	
 

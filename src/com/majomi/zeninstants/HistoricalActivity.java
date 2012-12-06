@@ -32,6 +32,7 @@ public class HistoricalActivity extends Activity{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setTheme(R.style.Theme_Sherlock);
 		setContentView(R.layout.historial_layout);
 		ListView lv = (ListView) findViewById(R.id.historial_list);
 		lv.setOnItemClickListener(mMessageClickedHandler);
