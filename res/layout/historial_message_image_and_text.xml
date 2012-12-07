@@ -5,14 +5,14 @@
 
         <ImageView
             android:id="@+id/historial_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:src="@drawable/ic_action_search" />
 
         <TextView
             android:id="@+id/historial_image_text"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
     </LinearLayout>

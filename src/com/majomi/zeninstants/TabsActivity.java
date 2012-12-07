@@ -43,7 +43,7 @@ public class TabsActivity extends SherlockFragmentActivity {
         return true;
     }
     
- public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         
         //respond to menu item selection
     	switch (item.getItemId()) {

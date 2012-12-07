@@ -10,6 +10,8 @@ public class Settings_Manager {
 	private boolean photo_enabled;
 	private boolean music_enabled;
 	private boolean video_enabled;
+	
+	private int notificationsPerDay;
 
 	private Settings_Manager()
 	{
@@ -18,6 +20,7 @@ public class Settings_Manager {
 		this.setPhoto_enabled(true);
 		this.setMusic_enabled(true);
 		this.setVideo_enabled(true);
+		this.setNotificationsPerDay(3);
 	}
 	
 	/**
@@ -70,6 +73,14 @@ public class Settings_Manager {
 
 	public void setVideo_enabled(boolean video_enabled) {
 		this.video_enabled = video_enabled;
+	}
+
+	public int getNotificationsPerDay() {
+		return notificationsPerDay;
+	}
+
+	public void setNotificationsPerDay(int notificationsPerDay) {
+		this.notificationsPerDay = notificationsPerDay;
 	}
 		
 	
