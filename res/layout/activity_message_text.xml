@@ -15,9 +15,10 @@
         
 	        <TextView
 	            android:id="@+id/Message_Title"
-	            android:layout_width="match_parent"
+	            android:layout_width="fill_parent"
 	            android:layout_height="wrap_content"	            
 	            android:gravity="center"
+	            android:layout_gravity="fill_horizontal"
 	            android:text="ZenInstants"
 	            style="@style/ZenInstant.Message.Title" />
 
@@ -43,10 +44,10 @@
 				</LinearLayout>
 	        </ScrollView>
 	        <include
-	            android:layout_below="@id/scroll"	
 				android:id="@+id/buttons"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:layout_gravity="fill_horizontal"
 				android:layout_marginBottom="3dp"
     			android:layout_marginTop="3dp"
 				layout="@layout/element_message_buttons_bar" />

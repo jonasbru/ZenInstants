@@ -30,12 +30,11 @@ public class MessageTextActivity extends Activity {
     	Display display = getWindowManager().getDefaultDisplay(); 
         int width = display.getWidth();  // deprecated
         int height = display.getHeight();
-        TextView msgScroll = (TextView) findViewById(R.id.Message_Text);
-        msgScroll.setMaxWidth((int) (width*0.85));
         RelativeLayout globalLayout = (RelativeLayout) findViewById(R.id.Message_Main_Layout);
-        globalLayout.setPadding(0, (int)(height*0.07), 0,(int) (height*0.07));
-     
+        globalLayout.setPadding((int) (width*0.04), (int)(height*0.07), (int) (width*0.04),(int) (height*0.07));
         
+        TextView text = (TextView) findViewById(R.id.Message_Text);
+        text.setMinWidth((int)(290));//Hack for very small message
     }
 
     @Override

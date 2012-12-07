@@ -54,9 +54,9 @@
 	                android:text="@string/bla" />
 				</LinearLayout>
 	        </ScrollView>
-	        <include
-	            android:layout_below="@id/scroll"	
+	        <include	
 				android:id="@+id/buttons"
+				android:layout_gravity="center"
 				android:layout_marginBottom="3dp"
     			android:layout_marginTop="3dp"
 				android:layout_width="match_parent"
