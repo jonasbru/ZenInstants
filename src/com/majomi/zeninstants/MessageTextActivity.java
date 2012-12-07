@@ -11,7 +11,11 @@ import android.graphics.Point;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Display;
 import android.view.Menu;
+import android.view.ViewGroup.MarginLayoutParams;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -19,16 +23,19 @@ public class MessageTextActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message_text);
-        retreiveMessageInfo();
-        Display display = getWindowManager().getDefaultDisplay(); 
+    	super.onCreate(savedInstanceState);
+    	setContentView(R.layout.activity_message_text);
+    	retreiveMessageInfo();
+    	
+    	Display display = getWindowManager().getDefaultDisplay(); 
         int width = display.getWidth();  // deprecated
         int height = display.getHeight();
         TextView msgScroll = (TextView) findViewById(R.id.Message_Text);
-        msgScroll.setMovementMethod(ScrollingMovementMethod.getInstance());
-        msgScroll.setMaxHeight((int)(height*0.65));
-        msgScroll.setMaxWidth((int) (width*0.8));
+        msgScroll.setMaxWidth((int) (width*0.85));
+        RelativeLayout globalLayout = (RelativeLayout) findViewById(R.id.Message_Main_Layout);
+        globalLayout.setPadding(0, (int)(height*0.07), 0,(int) (height*0.07));
+     
+        
     }
 
     @Override

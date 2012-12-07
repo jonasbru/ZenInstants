@@ -1,8 +1,10 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Message_Main_Layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:clipChildren="true">
 
         <LinearLayout
         android:id="@+id/Message_Layout"
@@ -17,24 +19,36 @@
 	            android:layout_height="wrap_content"	            
 	            android:gravity="center"
 	            android:text="ZenInstants"
-	            tools:context=".MessageTextActivity" />
-	
+	            style="@style/ZenInstant.Message.Title" />
 
+	        <ScrollView
+	            android:id="@+id/scroll"
+	            android:layout_width="wrap_content"
+	            android:layout_height="0dp"
+	            android:layout_below="@id/Message_Title"
+	            android:layout_weight="1" >
 
-            <TextView
-                android:id="@+id/Message_Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@android:color/secondary_text_dark_nodisable"
-                android:text="Not Found"
-                tools:context=".MessageTextActivity" />
-
-	        
+	            <LinearLayout
+			        android:id="@+id/Scroll_Content_Layout"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical" >
+		            <TextView
+		                android:id="@+id/Message_Text"
+		                android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"
+		                android:textColor="@android:color/secondary_text_dark_nodisable"
+		                android:text="@string/bla" />
+				</LinearLayout>
+	        </ScrollView>
 	        <include
+	            android:layout_below="@id/scroll"	
 				android:id="@+id/buttons"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:layout_marginBottom="3dp"
+    			android:layout_marginTop="3dp"
 				layout="@layout/element_message_buttons_bar" />
 	    </LinearLayout>
 

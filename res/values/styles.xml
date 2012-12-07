@@ -6,33 +6,27 @@
 		<item name="android:colorForeground">#fff</item>
 	</style>
 	
-    <style name="ZenInstant.Dialog">
-    	<item name="android:windowTitleStyle">@style/ZenInstant.Dialog.Title</item>
-    </style>
     
-    <style name="ZenInstant.Message" parent="Theme.Sherlock.NoActionBar">
-
-	</style>
-	<!-- 
-	        <item name="android:textAppearance">@style/ZenInstant.Message.TextFont</item>
-		<item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
-		<item name ="android:windowBackground">@color/fuzzy</item>
-		<item name="android:windowNoTitle">true</item>
-		 -->
+    <style name="ZenInstant.Message" parent="@style/Theme.Sherlock.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+    	<item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@color/fuzzy</item>
 		
-	<style name="ZenInstant.Dialog.Title" parent="@android:style/TextAppearance.DialogWindowTitle">
-		<item name="android:gravity">center_horizontal</item>
 	</style>
-    
-    <color name="fuzzy">#7F000000</color>
+
+	<style name="ZenInstant.Message.Title" parent="@android:style/TextAppearance.DialogWindowTitle">
+		<item name="@android:gravity">center_horizontal</item>
+		<item name="@android:style/TextAppearance.Large"></item>
+	</style>
     
     <style name="ZenInstant.Message.TextFont" parent="@android:style/TextAppearance.Medium">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">#DCDCDC</item>
+        <item name="android:textColor">#00DC00</item>
         <item name="android:typeface">normal</item> 
     </style>
     
-
+    <color name="fuzzy">#60000000</color>
+    <color name="messageBackground">#0f5366</color>
 
 </resources>
