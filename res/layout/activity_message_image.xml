@@ -40,7 +40,7 @@
 			        android:layout_height="match_parent"
 			        android:contentDescription="Image"
 			        android:layout_gravity="center_vertical"    
-					android:scaleType="fitCenter"
+					android:scaleType="centerCrop"
 			        android:gravity="center"
 			        android:adjustViewBounds="true"
 			        android:src="@drawable/templo_cerezo" />

@@ -21,6 +21,7 @@ public class MessageImageActivity extends Activity {
 
         RelativeLayout globalLayout = (RelativeLayout) findViewById(R.id.Message_Main_Layout);
         globalLayout.setPadding((int) (width*0.04), (int)(height*0.07), (int) (width*0.04),(int) (height*0.07));
+        
     }
 
     @Override
