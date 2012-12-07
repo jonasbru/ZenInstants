@@ -37,7 +37,7 @@
 	             <ImageView
 			        android:id="@+id/Message_Image"
 			        android:layout_width="match_parent"
-			        android:layout_height="220dp"
+			        android:layout_height="match_parent"
 			        android:contentDescription="Image"
 			        android:layout_gravity="center_vertical"    
 					android:scaleType="fitCenter"

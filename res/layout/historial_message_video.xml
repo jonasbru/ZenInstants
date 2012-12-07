@@ -3,16 +3,12 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:text="PLAY"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
+		<ImageView
+            android:id="@+id/video_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/video_icon"/>
+        
 
 
 
@@ -21,7 +17,7 @@
         <TextView
             android:id="@+id/historial_video_text"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
