@@ -6,10 +6,11 @@ package com.majomi.zeninstants;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -39,16 +40,7 @@ public class HistoricalActivity extends Activity{
 	 	Historial_Adapter adapter = new Historial_Adapter(this);
 	 	lv.setAdapter(adapter);
 	 	
-	 	Button myBtn=(Button) findViewById(R.id.hl_settings_button);
-	    
-	      myBtn.setOnClickListener(
-	    		  new View.OnClickListener() {
-	    			  public void onClick(View v) {
-	    				  Intent i = new Intent(getApplicationContext(), TabsActivity.class);
-	    				  startActivity(i);
-	    			  }
-	    		  });
-	}
+	 }
 	
 	
 	
@@ -76,4 +68,22 @@ public class HistoricalActivity extends Activity{
             startActivityForResult(myIntent, 0);
         }
     };
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+    	getMenuInflater().inflate(R.menu.activity_historial, menu);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.historial_menu_settings:
+            	Intent i = new Intent(this, TabsActivity.class);
+				startActivity(i);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
 }
