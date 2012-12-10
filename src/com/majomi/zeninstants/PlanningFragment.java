@@ -20,6 +20,11 @@ public class PlanningFragment extends SherlockFragment {
         {
         	this.initialitzeToggleButton(v, R.id.mon0+i, 0, i);
         	this.initialitzeToggleButton(v, R.id.tue0+i, 1, i);
+        	this.initialitzeToggleButton(v, R.id.wen0+i, 2, i);
+        	this.initialitzeToggleButton(v, R.id.thu0+i, 3, i);
+        	this.initialitzeToggleButton(v, R.id.fri0+i, 4, i);
+        	this.initialitzeToggleButton(v, R.id.sat0+i, 5, i);
+        	this.initialitzeToggleButton(v, R.id.sun0+i, 6, i);
         }
         
 //        
@@ -37,15 +42,12 @@ public class PlanningFragment extends SherlockFragment {
         if(state)
         {
         	b1.setChecked(true);
-        	b1.setBackgroundColor(v.getResources().getColor(R.color.dark_green));
         }
         else
         {
         	b1.setChecked(false);
-        	b1.setBackgroundColor(v.getResources().getColor(R.color.dark_red));
         }
-		
-        
+		     
         
         
 	}

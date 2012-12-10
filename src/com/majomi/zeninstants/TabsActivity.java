@@ -12,6 +12,7 @@ import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.majomi.zeninstants.settingscontroller.Planner_Manager;
 
 public class TabsActivity extends SherlockFragmentActivity {
 
@@ -70,14 +71,33 @@ public class TabsActivity extends SherlockFragmentActivity {
 	    
 	    String name = getResources().getResourceName(view.getId()).toString();
 	    String name2 = name.substring(name.indexOf("/")+1);
-	    Toast.makeText(view.getContext(), name2, Toast.LENGTH_SHORT).show();
 	    
-	    if (on) {
-	    	// Enable vibrate
-	    	view.setBackgroundColor(view.getResources().getColor(R.color.dark_green));
-	    } else {
-	        // Disable vibrate
-	    	view.setBackgroundColor(view.getResources().getColor(R.color.dark_red));
+	    String sday = name2.substring(0, 3);
+	    String shour = name2.substring(3);
+	    
+	    int day = -1;
+	    
+	    if(sday.compareToIgnoreCase("mon") == 0) day = 0;
+	    if(sday.compareToIgnoreCase("tue") == 0) day = 1;
+	    if(sday.compareToIgnoreCase("wen") == 0) day = 2;
+	    if(sday.compareToIgnoreCase("thu") == 0) day = 3;
+	    if(sday.compareToIgnoreCase("fri") == 0) day = 4;
+	    if(sday.compareToIgnoreCase("sat") == 0) day = 5;
+	    if(sday.compareToIgnoreCase("sun") == 0) day = 6;
+	    
+	    if(day == -1)
+	    	Toast.makeText(view.getContext(), "Error", Toast.LENGTH_SHORT).show();
+	    else
+	    {
+	    	int hour = Integer.parseInt(shour);
+	    
+		    if (on) {
+		    	// Enable vibrate
+		    	Planner_Manager.getPlannerManager().getWeek().get(day).set(hour, true);
+		    } else {
+		        // Disable vibrate
+		    	Planner_Manager.getPlannerManager().getWeek().get(day).set(hour, false);
+		    }
 	    }
 			
 	}

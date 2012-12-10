@@ -29,11 +29,10 @@
     <style name="ZenInstant.Planning.ToggleButton" parent="@style/Theme.Sherlock.NoActionBar">
         <item name="android:layout_width">48dp</item>
         <item name="android:layout_height">48dp</item>
-    	<item name="android:background">@color/dark_red</item>
-        <item name="android:onClick">onToggleClicked</item>
-        <item name="android:textOff"> </item>
-        <item name="android:textOn"> </item>
-        
+    	<item name="android:onClick">onToggleClicked</item>
+        <item name="android:textOff"></item>
+        <item name="android:textOn"></item>
+        <item name="android:background">@drawable/selectorplanner</item>    
 		
 	</style>
     
@@ -41,6 +40,10 @@
     <color name="messageBackground">#0f5366</color>
     <color name="dark_green">#669900</color>
     <color name="dark_red">#CC0000</color>
+    <color name="light_red">#FF4444</color>
+    <color name="light_green">#99CC00</color>
+    <color name="dark_orange">#FF8800</color>
+    <color name="light_orange">#FFBB33</color>
 
     
     

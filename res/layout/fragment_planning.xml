@@ -1,5 +1,11 @@
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+
+    <LinearLayout 
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
@@ -80,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
-                    <LinearLayout
+           <LinearLayout
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:orientation="vertical" >
@@ -302,6 +308,7 @@
                 android:layout_height="wrap_content" >
                 <ToggleButton
                     android:id="@+id/mon0"
+                    
                     style="@style/ZenInstant.Planning.ToggleButton"/>
                 
                 <ToggleButton
@@ -311,7 +318,7 @@
                 <ToggleButton
                     android:id="@+id/mon2"
                     style="@style/ZenInstant.Planning.ToggleButton"/>
-
+                
                 <ToggleButton
                     android:id="@+id/mon3"
                     style="@style/ZenInstant.Planning.ToggleButton"/>
@@ -469,16 +476,80 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
-
                 <ToggleButton
-                    android:id="@+id/wed0"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:onClick="onToggleClicked"
-                    android:textOff=" "
-                    android:textOn=" "
-                    android:background="@color/dark_red" />
-
+                    android:id="@+id/wen0"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen1"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen2"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen3"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen4"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen5"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen6"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen7"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen8"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen9"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen10"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen11"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen12"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen13"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen14"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen15"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen16"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen17"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen18"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen19"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen20"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen21"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen22"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/wen23"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                
+                
                 
             </LinearLayout>
 
@@ -486,17 +557,78 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
-			    <ToggleButton
+                <ToggleButton
                     android:id="@+id/thu0"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:onClick="onToggleClicked"
-                    android:textOff=" "
-                    android:textOn=" "
-                    android:background="@color/dark_red" />
-                
-
-                
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/thu1"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/thu2"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/thu3"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/thu4"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/thu5"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/thu6"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/thu7"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/thu8"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/thu9"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/thu10"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/thu11"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+                <ToggleButton
+                    android:id="@+id/thu12"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+             	<ToggleButton
+                    android:id="@+id/thu13"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+             	<ToggleButton
+                    android:id="@+id/thu14"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+             	<ToggleButton
+                    android:id="@+id/thu15"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+             	<ToggleButton
+                    android:id="@+id/thu16"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+             	<ToggleButton
+                    android:id="@+id/thu17"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+             	<ToggleButton
+                    android:id="@+id/thu18"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+             	<ToggleButton
+                    android:id="@+id/thu19"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+             	<ToggleButton
+                    android:id="@+id/thu20"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+             	<ToggleButton
+                    android:id="@+id/thu21"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+             	<ToggleButton
+                    android:id="@+id/thu22"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+             	<ToggleButton
+                    android:id="@+id/thu23"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
 
             </LinearLayout>
 
@@ -506,13 +638,78 @@
 
 			<ToggleButton
                     android:id="@+id/fri0"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:onClick="onToggleClicked"
-                    android:textOff=" "
-                    android:textOn=" "
-                    android:background="@color/dark_red" />
-
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri1"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri2"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri3"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri4"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri5"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri6"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri7"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri8"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri9"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri10"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri11"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri12"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri13"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri14"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri15"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri16"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri17"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri18"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri19"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri20"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri21"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri22"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/fri23"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			
+			
 
                 
             </LinearLayout>
@@ -523,13 +720,79 @@
 
 			<ToggleButton
                     android:id="@+id/sat0"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:onClick="onToggleClicked"
-                    android:textOff=" "
-                    android:textOn=" "
-                    android:background="@color/dark_red" />
-
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat1"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat2"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat3"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat4"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat5"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat6"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat7"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat8"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat9"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat10"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat11"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat12"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat13"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat14"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			
+			<ToggleButton
+                    android:id="@+id/sat15"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat16"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat17"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat18"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat19"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat20"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat21"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat22"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sat23"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			
+			
 
                 
             </LinearLayout>
@@ -541,13 +804,76 @@
 
 			<ToggleButton
                     android:id="@+id/sun0"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:onClick="onToggleClicked"
-                    android:textOff=" "
-                    android:textOn=" "
-                    android:background="@color/dark_red" />
-
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun1"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun2"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun3"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun4"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun5"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun6"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun7"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun8"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun9"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun10"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun11"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun12"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun13"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun14"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun15"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun16"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun17"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun18"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun19"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun20"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun21"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun22"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
+			<ToggleButton
+                    android:id="@+id/sun23"
+                    style="@style/ZenInstant.Planning.ToggleButton"/>
 
                 
             </LinearLayout>
@@ -558,3 +884,5 @@
         </HorizontalScrollView>
 
     </LinearLayout>   
+     </ScrollView>
+    
