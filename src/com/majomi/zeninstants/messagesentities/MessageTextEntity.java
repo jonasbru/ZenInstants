@@ -1,10 +1,13 @@
 package com.majomi.zeninstants.messagesentities;
 
+import java.io.Serializable;
+
 import com.majomi.zeninstants.AppLog;
 
 
 
-public class MessageTextEntity implements Cloneable {
+@SuppressWarnings("serial")
+public class MessageTextEntity implements Cloneable, Serializable {
 	protected long id;
 	private String text;
 	private String summary; // Text shown in historical
