@@ -2,11 +2,6 @@
 
     <style name="AppTheme" parent="android:Theme.Black" />
     
-    <style name="ZenInstant" >
-		<item name="android:colorForeground">#fff</item>
-	</style>
-	
-    
     <!-- Style to apply as a theme for message (item window*)-->
     <style name="ZenInstant.Message" parent="@style/Theme.Sherlock.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
