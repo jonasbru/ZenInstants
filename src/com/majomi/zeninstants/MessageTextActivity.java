@@ -1,14 +1,12 @@
 package com.majomi.zeninstants;
 
 
-import com.majomi.zeninstants.messagescontroller.Message_Manager;
-import com.majomi.zeninstants.messagesentities.MessageTextEntity;
-import com.majomi.zeninstants.messagesviews.MessageTextView;
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
+
+import com.majomi.zeninstants.messagescontroller.MessageManager;
 
 public class MessageTextActivity extends Activity {
 
@@ -30,8 +28,10 @@ public class MessageTextActivity extends Activity {
      */
     public void retreiveMessageInfo(){
 		int msgId = getIntent().getExtras().getInt("MESSAGE_ID");
-        Message_Manager bm = Message_Manager.getMessageManager();
-        MessageTextView b = (MessageTextView) bm.getMessageView(msgId); 
-        b.fillMessageView(this);
+
+        TextView text = (TextView) this.findViewById(R.id.Message_Text);
+        
+        text.setText(MessageManager.getMessageManager().get(msgId).getText());
+		
     }
 }

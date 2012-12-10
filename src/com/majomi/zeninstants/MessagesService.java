@@ -31,6 +31,13 @@ public class MessagesService extends Service {
 			}
 		};
 		t.start();
+		
+		Thread t2 = new Thread(){
+			public void run(){
+				NetworkManager.updatePhrases();
+			}
+		};
+		t2.start();
 		return START_STICKY;
 	}
 	

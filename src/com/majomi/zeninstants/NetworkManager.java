@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.http.HttpEntity;
@@ -17,21 +18,27 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.TextView;
+
+import com.majomi.zeninstants.messagescontroller.MessageManager;
+import com.majomi.zeninstants.messagesentities.MessageImageEntity;
+import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
+import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesentities.MessageVideoEntity;
 
 public class NetworkManager {
 
 	public static final String KEY_121 = "http://192.168.1.138/zenManagement/index.php";
 	public static final String KEY_122 = "http://192.168.1.138/zenManagement/push.php";
 
-	public static boolean updatePhrases(TextView txt) {
+	public static boolean updatePhrases() {
 		AsyncTask<String, Integer, String> d = new UpdatePhrasesTask()
-				.execute(KEY_121);
+		.execute(KEY_121);
 		try {
-			txt.setText(d.get() + "\n CACA");
+			parseJsonPhrases(d.get());
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {
@@ -41,10 +48,11 @@ public class NetworkManager {
 		return false;
 	}
 
-	public static boolean pushNote(TextView txt) {
+	public static boolean pushNote() {
 		AsyncTask<String, Integer, String> d = new PushNoteTask().execute(KEY_122);
 		try {
-			txt.setText(d.get() + "\n CACA");
+			@SuppressWarnings("unused")
+			String ret = d.get() + "\n CACA";
 			return true;
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -55,7 +63,67 @@ public class NetworkManager {
 		}
 	}
 
+	private static void parseJsonPhrases(String json) {
+		MessageManager mm = MessageManager.getMessageManager();
+
+		List<MessageTextEntity> messages = new ArrayList<MessageTextEntity>();
+
+		try {
+			JSONArray jArray = new JSONArray(json);
+			for (int i = 0; i < jArray.length(); i++) {
+				JSONArray phrases = jArray.getJSONArray(i);
+
+				for (int j = 0; j < phrases.length(); j++) {
+					MessageTextEntity mv = null;
+
+					JSONObject jo = phrases.getJSONObject(j);
+
+					switch (i) {
+					case 0 : //Text
+
+						mv = new MessageTextEntity(jo.getString("text"));
+						mv.setId(Long.parseLong(jo.getString("id")));
+
+						break;
+
+					case 1 :
+						mv = new MessageImageEntity(jo.getString("text"), jo.getString("image"));
+						mv.setId(Long.parseLong(jo.getString("id")));
+
+						break;
+
+					case 2 :
+						mv = new MessageSoundEntity(jo.getString("text"), jo.getString("sound"));
+						mv.setId(Long.parseLong(jo.getString("id")));
+
+						break;
+
+					case 3 :
+						mv = new MessageVideoEntity(jo.getString("text"), jo.getString("video"));
+						mv.setId(Long.parseLong(jo.getString("id")));
+
+						break;
+
+					default :
+						throw new JSONException("Error parsing json..");
+					}
+
+					messages.add(mv);
+				}
+			}
+		} catch (JSONException e) {
+			Log.e("log_tag", "Error parsing data " + e.toString());
+		}
+		
+		//If everithing went ok
+		mm.replaceMessages(messages);
+
+		Log.d("CACA", "Messages retrieved from the server ! : " + mm.getMessagesCloned());
+	}
+
 }
+
+
 
 class UpdatePhrasesTask extends AsyncTask<String, Integer, String> {
 	protected String doInBackground(String... urls) {
@@ -107,22 +175,22 @@ class UpdatePhrasesTask extends AsyncTask<String, Integer, String> {
 			Log.e("log_tag", "Error converting result " + e.toString());
 		}
 		// parse json data
-		try {
-			JSONArray jArray = new JSONArray(result);
-			for (int i = 0; i < jArray.length(); i++) {
-				// JSONObject json_data = jArray.getJSONObject(i);
-				// Log.d("log_tag","id: "+json_data.getInt("id")+
-				// ", name: "+json_data.getString("name")+
-				// ", sex: "+json_data.getInt("sex")+
-				// ", birthyear: "+json_data.getInt("birthyear")
-				// );
-				// Get an output to the screen
-				returnString += "\n\t" + jArray.getJSONArray(i);
-			}
-		} catch (JSONException e) {
-			Log.e("log_tag", "Error parsing data " + e.toString());
-		}
-		return returnString;
+		//		try {
+		//			JSONArray jArray = new JSONArray(result);
+		//			for (int i = 0; i < jArray.length(); i++) {
+		//				// JSONObject json_data = jArray.getJSONObject(i);
+		//				// Log.d("log_tag","id: "+json_data.getInt("id")+
+		//				// ", name: "+json_data.getString("name")+
+		//				// ", sex: "+json_data.getInt("sex")+
+		//				// ", birthyear: "+json_data.getInt("birthyear")
+		//				// );
+		//				// Get an output to the screen
+		//				returnString += "\n\t" + jArray.getJSONArray(i);
+		//			}
+		//		} catch (JSONException e) {
+		//			Log.e("log_tag", "Error parsing data " + e.toString());
+		//		}
+		return result;
 	}
 }
 
@@ -157,37 +225,32 @@ class PushNoteTask extends AsyncTask<String, Integer, String> {
 			return "";
 		}
 
-		// http post
 		try {			
 			HttpClient httpClient = new DefaultHttpClient();
 			HttpGet getRequest = new HttpGet(returnString + "?p=1&i=0&t=t&h=" + encrypted);
-//			getRequest.addHeader("p", "1");
-//			getRequest.addHeader("i", "0");
-//			getRequest.addHeader("t", "t");
-//			getRequest.addHeader("h", encrypted);
-			
+
 			HttpResponse response = httpClient.execute(getRequest);
-			
+
 			if (response.getStatusLine().getStatusCode() != 200) {
 				throw new RuntimeException("Failed : HTTP error code : "
-				   + response.getStatusLine().getStatusCode());
+						+ response.getStatusLine().getStatusCode());
 			}
-	 
+
 			BufferedReader br = new BufferedReader(
-	                         new InputStreamReader((response.getEntity().getContent())));
-	 
+					new InputStreamReader((response.getEntity().getContent())));
+
 			String output;
 			String output2;
 			output2 = "Output from Server .... \n";
 			while ((output = br.readLine()) != null) {
 				output2 += output + "\n";
 			}
-	 
+
 			httpClient.getConnectionManager().shutdown();
-	return output2;		
-//			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-//			HttpResponse response = httpclient.execute(httppost);
-//			HttpEntity entity = response.getEntity();
+			return output2;		
+			//			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+			//			HttpResponse response = httpclient.execute(httppost);
+			//			HttpEntity entity = response.getEntity();
 			// is = entity.getContent();
 
 		} catch (Exception e) {

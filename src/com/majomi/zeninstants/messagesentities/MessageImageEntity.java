@@ -2,28 +2,13 @@ package com.majomi.zeninstants.messagesentities;
 
 
 public class MessageImageEntity extends MessageTextEntity {
-	private String image; //src image
-	private int imageResource; 
+	private String image; 
 		
 	public MessageImageEntity(String image, String txt) {
 		super();
 		this.image = image;
 		setText(txt);
 		setSummary(txt);
-	}
-
-	public MessageImageEntity(int img)
-	{
-		super();
-		this.setImageResource(img);	
-	}
-	
-	public int getImageResource() {
-		return imageResource;
-	}
-
-	public void setImageResource(int imageResource) {
-		this.imageResource = imageResource;
 	}
 
 	public String getImage() {
