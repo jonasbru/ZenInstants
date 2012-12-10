@@ -49,10 +49,11 @@ public class MessagesService extends Service {
 			synchronized (this){
 				timer.noisyWait(5000);
 			}
-			Intent dialogIntent = new Intent(getBaseContext(), MessageActivity.class);
-			dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			//TODO
+			//Intent dialogIntent = new Intent(getBaseContext(), MessageActivity.class);
+			//dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			AppLog.logString("Service: Start activity");
-			getApplication().startActivity(dialogIntent);
+			//getApplication().startActivity(dialogIntent);
 			vibrate();
 		}
 	}

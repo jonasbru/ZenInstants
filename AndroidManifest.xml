@@ -15,59 +15,34 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <!-- <service android:name="com.majomi.zeninstants.MessagesService" /> -->
         <activity
             android:name=".HistoricalActivity"
             android:label="@string/title_activity_historial" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".TabsActivity"
-            android:label="@string/title_activity_tabs" >
-        </activity>
-        <activity
-            android:name=".MessageImageActivity"
-            android:label="@string/title_activity_message_image"
-            android:theme="@style/ZenInstant.Dialog" >
-        </activity>
-        <activity
-            android:name=".MessageTextActivity"
-            android:label="@string/title_activity_tabs"
-            android:theme="@style/ZenInstant.Dialog" >
-        </activity>
-        <activity
-            android:name=".MessageVideoActivity"
-            android:label="@string/title_activity_message_video" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".MessageSoundActivity"
-            android:label="@string/title_activity_message_sound" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <service android:name="com.majomi.zeninstants.MessagesService" />
-
-        <activity
-            android:name=".MessageActivity"
-            android:label="@string/title_activity_message" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
-    
+		<activity
+		    android:name=".TabsActivity"
+		    android:label="@string/title_activity_tabs" >
+		</activity>
+		<activity
+		    android:name=".MessageImageActivity"
+		    android:theme="@style/ZenInstant.Message" >
+		</activity>
+		<activity
+		    android:name=".MessageTextActivity"
+		    android:theme="@style/ZenInstant.Message" >
+		</activity>
+		<activity
+		    android:name=".MessageVideoActivity"
+		    android:theme="@style/ZenInstant.Message" >
+		</activity>
+		<activity
+		    android:name=".MessageSoundActivity"
+		    android:theme="@style/ZenInstant.Message" >
+		</activity>
+    </application>    
 </manifest>

@@ -1,28 +1,49 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="AppTheme" parent="android:Theme.Black" />
     
-    <style name="ZenInstant">
+    <style name="ZenInstant" >
 		<item name="android:colorForeground">#fff</item>
 	</style>
 	
-    <style name="ZenInstant.Dialog" parent="@android:style/Theme.Dialog">
-    	<item name="android:windowTitleStyle">@style/ZenInstant.Dialog.Title</item>
-    </style>
     
-    <style name="ZenInstant.Message">
-		<item name="android:windowIsTranslucent">true</item>
-		<item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
-		<item name ="android:windowBackground">@color/fuzzy</item>
-		<item name="android:windowNoTitle">true</item>
+    <!-- Style to apply as a theme for message (item window*)-->
+    <style name="ZenInstant.Message" parent="@style/Theme.Sherlock.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+    	<item name="android:windowBackground">@color/fuzzy</item>
 	</style>
 	
-		
-	<style name="ZenInstant.Dialog.Title" parent="@android:style/TextAppearance.DialogWindowTitle">
-		<item name="android:gravity">center_horizontal</item>
+    <style name="ZenInstant.Message.WindowPadding" parent="@style/Theme.Sherlock.NoActionBar">
+        <item name="android:padding">16dp</item>
+	</style>
+	
+	<style name="ZenInstant.Message.Container" parent="@style/Theme.Sherlock.NoActionBar">
+        <item name="android:background">@color/abs__bright_foreground_disabled_holo_dark</item>
+	</style>
+	
+	<style name="ZenInstant.Message.ScrollView" >
+	    <item name="android:paddingLeft">16dp</item>
+	    <item name="android:paddingRight">16dp</item>
+	    <item name="android:layout_marginBottom">16dp</item>
+	    <item name="android:minWidth">280dp</item> <!-- Hack for button with small msg -->
+	</style>
+
+	<style name="ZenInstant.Message.Title" parent="@style/DialogWindowTitle.Sherlock">
+	    <item name="android:gravity">center</item>
+	</style>
+	
+	<style name="ZenInstant.Message.ButtonBar">
+		<item name="android:background">@null</item>
+        <item name="android:dividerPadding">0dp</item>
 	</style>
     
-    <color name="fuzzy">#7F000000</color>
-
+    <style name="ZenInstant.Message.Text" parent="@style/Theme.Sherlock.NoActionBar">
+        <item name="android:textColor">@android:color/secondary_text_dark_nodisable</item>
+    </style>
+    
+    <color name="fuzzy">#60000000</color>
+    <color name="messageBackground">#0f5366</color>
+    <color name="lue_light">@color/abs__holo_blue_light</color>
+    <color name="red">#00FF00</color>
 
 </resources>

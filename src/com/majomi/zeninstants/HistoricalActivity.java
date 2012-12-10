@@ -60,7 +60,9 @@ public class HistoricalActivity extends Activity{
 	private OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
 		@SuppressWarnings("rawtypes")
 		public void onItemClick(AdapterView parent, View v, int position, long id) {
+			
 			MessageTextEntity msg = HistorialManager.getHistorialManager().getMessage(position);
+
 			Class c = HistorialViewsManager.getHistorialViewsManager().getViewActionFromEntity(msg);
 
 			Intent myIntent = new Intent(getApplicationContext(), c); 

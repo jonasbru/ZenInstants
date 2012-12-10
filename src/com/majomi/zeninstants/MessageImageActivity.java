@@ -1,20 +1,26 @@
 package com.majomi.zeninstants;
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
+import android.view.WindowManager;
 
-public class MessageImageActivity extends Activity {
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message_image);
-    }
+public class MessageImageActivity extends SherlockActivity {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_message_image, menu);
-        return true;
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_message_image);
+		getWindow().addFlags( WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+		MessageButtonManager btnHandler = new MessageButtonManager(this);
+	}    
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getSupportMenuInflater().inflate(R.menu.activity_message_image, menu);
+		return true;
+	}
+
+
 }
