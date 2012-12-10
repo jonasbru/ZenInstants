@@ -37,6 +37,7 @@ public class MessageImageView extends MessageView {
 		return vi;
 	}
 
+
 	@Override
 	public void fillMessageView(Activity act) {
 		// TODO Auto-generated method stub

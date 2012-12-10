@@ -1,24 +1,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
-    
-    <Button
-		android:id="@+id/info"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_weight="1"
-		android:text="@string/more_info_btn" />
-    <Button
-		android:id="@+id/like"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_weight="1"
-		android:text="@string/like_btn" />
-	<Button
-		android:id="@+id/dislike"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_weight="1"
-		android:text="@string/dislike_btn" />
-	
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <View
+	    android:layout_height="1dp"
+	    android:layout_width="fill_parent"
+	    android:background="?attr/dividerVertical"/>
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    style="@style/ZenInstant.Message.ButtonBar">
+
+	    <Button
+	        style="?attr/actionButtonStyle"
+			android:id="@+id/info"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:textColor="@android:color/primary_text_dark"
+			android:text="@string/msg_more_info_btn" />
+	    <View
+		    android:layout_height="fill_parent"
+		    android:layout_width="1dp"
+		    android:background="?attr/dividerVertical"/>
+	    <Button
+	        style="?attr/actionButtonStyle"
+			android:id="@+id/like"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:textColor="@android:color/primary_text_dark"
+			android:text="@string/msg_like_btn" />
+		<View
+		    android:layout_height="fill_parent"
+		    android:layout_width="1dp"
+		    android:background="?attr/dividerVertical"/>
+		<Button
+		    style="?attr/actionButtonStyle"
+			android:id="@+id/dislike"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:textColor="@android:color/primary_text_dark"
+			android:text="@string/msg_dislike_btn" />
+	</LinearLayout>
 </LinearLayout>

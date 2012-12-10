@@ -7,23 +7,38 @@
 	</style>
 	
     
+    <!-- Style to apply as a theme for message (item window*)-->
     <style name="ZenInstant.Message" parent="@style/Theme.Sherlock.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
-    	<item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:background">@color/fuzzy</item>
-		
+    	<item name="android:windowBackground">@color/fuzzy</item>
+	</style>
+	
+    <style name="ZenInstant.Message.WindowPadding" parent="@style/Theme.Sherlock.NoActionBar">
+        <item name="android:padding">16dp</item>
+	</style>
+	
+	<style name="ZenInstant.Message.Container" parent="@style/Theme.Sherlock.NoActionBar">
+        <item name="android:background">@color/abs__bright_foreground_disabled_holo_dark</item>
+	</style>
+	
+	<style name="ZenInstant.Message.ScrollView" >
+	    <item name="android:paddingLeft">16dp</item>
+	    <item name="android:paddingRight">16dp</item>
+	    <item name="android:layout_marginBottom">16dp</item>
+	    <item name="android:minWidth">280dp</item> <!-- Hack for button with small msg -->
 	</style>
 
-	<style name="ZenInstant.Message.Title" parent="@android:style/TextAppearance.DialogWindowTitle">
-		<item name="@android:gravity">center_horizontal</item>
-		<item name="@android:style/TextAppearance.Large"></item>
+	<style name="ZenInstant.Message.Title" parent="@style/DialogWindowTitle.Sherlock">
+	    <item name="android:gravity">center</item>
+	</style>
+	
+	<style name="ZenInstant.Message.ButtonBar">
+		<item name="android:background">@null</item>
+        <item name="android:dividerPadding">0dp</item>
 	</style>
     
-    <style name="ZenInstant.Message.TextFont" parent="@android:style/TextAppearance.Medium">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">#00DC00</item>
-        <item name="android:typeface">normal</item> 
+    <style name="ZenInstant.Message.Text" parent="@style/Theme.Sherlock.NoActionBar">
+        <item name="android:textColor">@android:color/secondary_text_dark_nodisable</item>
     </style>
     
     <color name="fuzzy">#60000000</color>

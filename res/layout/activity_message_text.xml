@@ -1,56 +1,56 @@
- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Message_Main_Layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:clipChildren="true">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/Message_Main_Layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	style="@style/ZenInstant.Message.WindowPadding"
+	android:clipChildren="true">
 
-        <LinearLayout
-        android:id="@+id/Message_Layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical" >
-        
-	        <TextView
-	            android:id="@+id/Message_Title"
-	            android:layout_width="fill_parent"
-	            android:layout_height="wrap_content"	            
-	            android:gravity="center"
-	            android:layout_gravity="fill_horizontal"
-	            android:text="ZenInstants"
-	            style="@style/ZenInstant.Message.Title" />
+	<LinearLayout 
+		android:id="@+id/Message_Layout"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		style="@style/ZenInstant.Message.Container"
+		android:orientation="vertical" >
+       
+       	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/Message_Title"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"	            
+            android:layout_gravity="fill_horizontal"
+            android:text="@string/msg_title"
+            style="@style/ZenInstant.Message.Title" />	    
 
-	        <ScrollView
-	            android:id="@+id/scroll"
-	            android:layout_width="wrap_content"
-	            android:layout_height="0dp"
-	            android:layout_below="@id/Message_Title"
-	            android:layout_weight="1" >
+        <ScrollView
+            android:id="@+id/scroll"
+            android:layout_height="0dp"
+			android:layout_weight="1"
+            android:layout_width="wrap_content"
+            style="@style/ZenInstant.Message.ScrollView" >
 
-	            <LinearLayout
-			        android:id="@+id/Scroll_Content_Layout"
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:orientation="vertical" >
-		            <TextView
-		                android:id="@+id/Message_Text"
-		                android:layout_width="match_parent"
-		                android:layout_height="wrap_content"
-		                android:gravity="center"
-		                android:textColor="@android:color/secondary_text_dark_nodisable"
-		                android:text="@string/bla" />
-				</LinearLayout>
-	        </ScrollView>
-	        <include
-				android:id="@+id/buttons"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_gravity="fill_horizontal"
-				android:layout_marginBottom="3dp"
-    			android:layout_marginTop="3dp"
-				layout="@layout/element_message_buttons_bar" />
-	    </LinearLayout>
-
+            <LinearLayout
+		        android:id="@+id/Scroll_Content_Layout"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_horizontal"
+		        android:orientation="vertical" >
+		        
+	            <TextView
+	                android:id="@+id/Message_Text"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:gravity="center"
+	                style="@style/ZenInstant.Message.Text"
+	                android:text="ee@string/bla" />
+			</LinearLayout>
+        </ScrollView>
+        <include
+			android:id="@+id/buttons"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="fill_horizontal"
+			layout="@layout/element_message_buttons_bar" />
+	</LinearLayout>
 </RelativeLayout>

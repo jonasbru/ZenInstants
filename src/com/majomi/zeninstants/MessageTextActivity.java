@@ -1,6 +1,8 @@
 package com.majomi.zeninstants;
 
 
+
+import com.actionbarsherlock.app.SherlockActivity;
 import com.majomi.zeninstants.messagescontroller.Message_Manager;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
 import com.majomi.zeninstants.messagesviews.MessageTextView;
@@ -19,7 +21,7 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-public class MessageTextActivity extends Activity {
+public class MessageTextActivity extends SherlockActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,21 +29,15 @@ public class MessageTextActivity extends Activity {
     	setContentView(R.layout.activity_message_text);
     	retreiveMessageInfo();
     	
-    	Display display = getWindowManager().getDefaultDisplay(); 
-        int width = display.getWidth();  // deprecated
-        int height = display.getHeight();
-        RelativeLayout globalLayout = (RelativeLayout) findViewById(R.id.Message_Main_Layout);
-        globalLayout.setPadding((int) (width*0.04), (int)(height*0.07), (int) (width*0.04),(int) (height*0.07));
-        
-        TextView text = (TextView) findViewById(R.id.Message_Text);
-        text.setMinWidth((int)(290));//Hack for very small message
+    	//Display display = getWindowManager().getDefaultDisplay(); 
+        //int width = display.getWidth();  // deprecated
+        //int height = display.getHeight();
+        //RelativeLayout globalLayout = (RelativeLayout) findViewById(R.id.Message_Main_Layout);
+        //globalLayout.setPadding((int) (width*0.04), (int)(height*0.07), (int) (width*0.04),(int) (height*0.07));
+        //TextView text = (TextView) findViewById(R.id.Message_Text);
+        //text.setMinWidth((int)(300));//Hack for very small message
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_message_text, menu);
-        return true;
-    }
     
     /**
      * Fill all the field according to the message selected
