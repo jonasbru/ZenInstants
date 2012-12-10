@@ -1,14 +1,18 @@
 package com.majomi.zeninstants.messagesentities;
 
+import java.io.Serializable;
+
 import com.majomi.zeninstants.AppLog;
 
 
-
-public class MessageTextEntity implements Cloneable {
+public class MessageTextEntity implements Cloneable, Serializable {
+	private static final long serialVersionUID = 8111201739719136190L;
+	
 	protected long id;
 	private String text;
 	private String summary; // Text shown in historical
 	private String urlMoreInfo;
+	private boolean favorite = false;
 
 
 	public MessageTextEntity() {
@@ -63,6 +67,14 @@ public class MessageTextEntity implements Cloneable {
 
 	public void setUrlMoreInfo(String urlMoreInfo) {
 		this.urlMoreInfo = urlMoreInfo;
+	}
+
+	public boolean isFavorite() {
+		return favorite;
+	}
+
+	public void setFavorite(boolean favorite) {
+		this.favorite = favorite;
 	}
 
 	public Object clone() {

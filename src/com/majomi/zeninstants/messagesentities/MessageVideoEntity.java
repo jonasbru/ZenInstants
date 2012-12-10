@@ -1,6 +1,8 @@
 package com.majomi.zeninstants.messagesentities;
 
 public class MessageVideoEntity extends MessageTextEntity {
+	private static final long serialVersionUID = 7934522068978592593L;
+	
 	String video;
 
 	public MessageVideoEntity(String video) {
