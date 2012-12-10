@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.majomi.zeninstants.MessageImageActivity;
+import com.majomi.zeninstants.MessageSoundActivity;
+import com.majomi.zeninstants.MessageTextActivity;
+import com.majomi.zeninstants.MessageVideoActivity;
 import com.majomi.zeninstants.R;
 import com.majomi.zeninstants.messagesentities.MessageImageEntity;
 import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
@@ -44,6 +48,22 @@ public class HistorialViewsManager {
 
 		} else {
 			return createHistorialViewText(entity, activity);
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public Class getViewActionFromEntity(MessageTextEntity entity) {
+		if(entity instanceof MessageImageEntity) {
+			return MessageImageActivity.class;
+
+		} else if(entity instanceof MessageSoundEntity) {
+			return MessageSoundActivity.class;
+
+		} else if(entity instanceof MessageVideoEntity) {
+			return MessageVideoActivity.class;
+
+		} else {
+			return MessageTextActivity.class;
 		}
 	}
 

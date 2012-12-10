@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 import com.majomi.zeninstants.messagescontroller.MessageManager;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesviews.HistorialViewsManager;
 
 
 /**
@@ -64,8 +65,9 @@ public class HistoricalActivity extends Activity{
 		@SuppressWarnings("rawtypes")
 		public void onItemClick(AdapterView parent, View v, int position, long id) {
 			MessageTextEntity msg = MessageManager.getMessageManager().get(position);
+			Class c = HistorialViewsManager.getHistorialViewsManager().getViewActionFromEntity(msg);
 
-			Intent myIntent = new Intent(getApplicationContext(), msg.getClass()); 
+			Intent myIntent = new Intent(getApplicationContext(), c); 
 
 			myIntent.putExtra("MESSAGE_ID", position);
 			
