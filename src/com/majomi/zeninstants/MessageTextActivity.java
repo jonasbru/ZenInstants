@@ -13,7 +13,7 @@ public class MessageTextActivity extends SherlockActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_message_text);
 		retreiveMessageInfo();
-		MessageButtonHandler btnHandler = new MessageButtonHandler(this);
+		MessageButtonManager btnHandler = new MessageButtonManager(this);
 	}
 
 

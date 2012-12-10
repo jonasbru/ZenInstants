@@ -11,7 +11,7 @@ public class MessageVideoActivity extends SherlockActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_message_video);
-		MessageButtonHandler btnHandler = new MessageButtonHandler(this);
+		MessageButtonManager btnHandler = new MessageButtonManager(this);
 	}
 
 	@Override
