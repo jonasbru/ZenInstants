@@ -12,7 +12,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.majomi.zeninstants.messagescontroller.MessageManager;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
 import com.majomi.zeninstants.messagesviews.HistorialViewsManager;
 import com.majomi.zeninstants.settingscontroller.HistorialManager;

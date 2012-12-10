@@ -1,6 +1,8 @@
 package com.majomi.zeninstants.messagesentities;
 
 public class MessageSoundEntity extends MessageTextEntity {
+	private static final long serialVersionUID = 7072104459234487700L;
+	
 	String sound;
 
 	public MessageSoundEntity(String sound) {

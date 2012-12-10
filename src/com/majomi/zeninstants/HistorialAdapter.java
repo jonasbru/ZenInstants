@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.majomi.zeninstants.messagescontroller.MessageManager;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
 import com.majomi.zeninstants.messagesviews.HistorialViewsManager;
 import com.majomi.zeninstants.settingscontroller.HistorialManager;

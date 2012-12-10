@@ -5,9 +5,9 @@ import java.io.Serializable;
 import com.majomi.zeninstants.AppLog;
 
 
-
-@SuppressWarnings("serial")
 public class MessageTextEntity implements Cloneable, Serializable {
+	private static final long serialVersionUID = 8111201739719136190L;
+	
 	protected long id;
 	private String text;
 	private String summary; // Text shown in historical
