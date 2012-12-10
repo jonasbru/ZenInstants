@@ -3,13 +3,24 @@
  */
 package com.majomi.zeninstants;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.majomi.zeninstants.messagescontroller.MessageManager;
@@ -29,7 +40,7 @@ public class HistoricalActivity extends Activity{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		
 		startService(new Intent(this,MessagesService.class));
 		
 		HistorialManager.getHistorialManager().loadMessages(getPreferences(0));
@@ -52,6 +63,9 @@ public class HistoricalActivity extends Activity{
 						startActivity(i);
 					}
 				});
+		AppLog.logString("SAVE");
+		saveFile();
+		AppLog.logString("SAVE DONE");
 	}
 
 
@@ -72,52 +86,66 @@ public class HistoricalActivity extends Activity{
 			startActivityForResult(myIntent, 0);
 		}
 	};
+	
+	private void saveFile(){
+		
+		InputStream is = getResources().openRawResource(R.drawable.video_icon);
+		byte[] bytes;
+		try {
+			bytes = readBytes(is);
+			//FileOutputStream fos = openFileOutput("plop", Context.MODE_PRIVATE);
+			
+			//File outputDir = getCacheDir(); // context being the Activity pointer
+			//File outputFile = File.createTempFile("prefix", "extension", outputDir);
+			
+			File f = new File(getCacheDir() + "taa");
+			FileOutputStream fos = new FileOutputStream(f); //openFileOutput(getCacheDir()+"plop", Context.MODE_PRIVATE);
+			
+			fos.write(bytes);
+			fos.close();
+			Log.d("ZEN",f.getName()+" Files saved in " + getCacheDir());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		/*
+		 * ImageView image = (ImageView) findViewById(android.R.id.icon);           
+Bitmap bMap = BitmapFactory.decodeByteArray(imageTile, 0, imageTile.length);
+image.setImageBitmap(bMap);
+		 */
+//		InputStream bitmap=null;
+//		
+//		try {
+//		    bitmap=getAssets().open("icon.png");
+//		    Bitmap bit=BitmapFactory.decodeStream(bitmap);
+//		    img.setImageBitmap(bit);
+//		} catch (IOException e) {
+//		    e.printStackTrace();
+//		} finally {
+//		    bitmap.close();
+//		}
+	}
+	
+	public byte[] readBytes(InputStream inputStream) throws IOException {
+		  // this dynamically extends to take the bytes you read
+		  ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
+
+		  // this is storage overwritten on each iteration with bytes
+		  int bufferSize = 1024;
+		  byte[] buffer = new byte[bufferSize];
+
+		  // we need to know how may bytes were read to write them to the byteBuffer
+		  int len = 0;
+		  while ((len = inputStream.read(buffer)) != -1) {
+		    byteBuffer.write(buffer, 0, len);
+		  }
+
+		  // and then we can return your byte array.
+		  return byteBuffer.toByteArray();
+		}
 }
 
-//// Saved version of the MainActivity (useful for the services stuff). Will be deleted soon..
-//
-//package com.majomi.zeninstants;
-//
-//import android.app.Activity;
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.view.Menu;
-//import android.widget.TextView;
-//
-//public class MainActivity extends Activity {
-//
-//	//public static final String KEY_121 = "http://xx.xx.xxx.xxx/hellomysql/mysqlcon.php"; //i use my real ip here
-//	public static final String KEY_121 = "http://192.168.1.138/zenManagement/index.php"; //i use my real ip here
-//	TextView txt;
-//	
-//  @Override
-//  public void onCreate(Bundle savedInstanceState) {
-//  	super.onCreate(savedInstanceState);
-//  	
-//      setContentView(R.layout.activity_main);
-//      //Hi!! 
-//      AppLog.logString("Main:Starting Service");
-//      startService(new Intent(this,MessagesService.class));
-//      AppLog.logString("Main:Service Started");
-//  }
-//
-//  @Override
-//  public boolean onCreateOptionsMenu(Menu menu) {
-//      getMenuInflater().inflate(R.menu.activity_main, menu);
-//      return true;
-//  }
-//  
-//  public void startMsgService(){
-//  	Thread t = new Thread(){
-//  		public void run(){
-//  		getApplicationContext().startService(new Intent(getApplicationContext(),MessagesService.class));
-//
-//  		}
-//  		};
-//  		t.start();
-//  }
-//  
-//}
 
 
 
