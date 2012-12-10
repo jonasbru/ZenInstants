@@ -3,6 +3,9 @@ package com.majomi.zeninstants;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
@@ -60,4 +63,23 @@ public class TabsActivity extends SherlockFragmentActivity {
 			//TODO
 		}
 	}
+    
+    public void onToggleClicked(View view) {
+	    // Is the toggle on?
+	    boolean on = ((ToggleButton) view).isChecked();
+	    
+	    String name = getResources().getResourceName(view.getId()).toString();
+	    String name2 = name.substring(name.indexOf("/")+1);
+	    Toast.makeText(view.getContext(), name2, Toast.LENGTH_SHORT).show();
+	    
+	    if (on) {
+	    	// Enable vibrate
+	    	view.setBackgroundColor(view.getResources().getColor(R.color.dark_green));
+	    } else {
+	        // Disable vibrate
+	    	view.setBackgroundColor(view.getResources().getColor(R.color.dark_red));
+	    }
+			
+	}
+
 }
