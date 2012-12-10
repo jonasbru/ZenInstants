@@ -15,6 +15,7 @@ import android.widget.ListView;
 import com.majomi.zeninstants.messagescontroller.MessageManager;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
 import com.majomi.zeninstants.messagesviews.HistorialViewsManager;
+import com.majomi.zeninstants.settingscontroller.HistorialManager;
 
 
 /**
@@ -30,13 +31,8 @@ public class HistoricalActivity extends Activity{
 		super.onCreate(savedInstanceState);
 
 		startService(new Intent(this,MessagesService.class));
-
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		HistorialManager.getHistorialManager().loadMessages(getPreferences(0));
 
 		setTheme(R.style.Theme_Sherlock);
 
@@ -64,7 +60,7 @@ public class HistoricalActivity extends Activity{
 	private OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
 		@SuppressWarnings("rawtypes")
 		public void onItemClick(AdapterView parent, View v, int position, long id) {
-			MessageTextEntity msg = MessageManager.getMessageManager().get(position);
+			MessageTextEntity msg = HistorialManager.getHistorialManager().getMessage(position);
 			Class c = HistorialViewsManager.getHistorialViewsManager().getViewActionFromEntity(msg);
 
 			Intent myIntent = new Intent(getApplicationContext(), c); 

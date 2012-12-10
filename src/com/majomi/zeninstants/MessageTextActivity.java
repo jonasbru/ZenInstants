@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.widget.TextView;
 
 import com.majomi.zeninstants.messagescontroller.MessageManager;
+import com.majomi.zeninstants.settingscontroller.HistorialManager;
 
 public class MessageTextActivity extends Activity {
 
@@ -31,7 +32,7 @@ public class MessageTextActivity extends Activity {
 
         TextView text = (TextView) this.findViewById(R.id.Message_Text);
         
-        text.setText(MessageManager.getMessageManager().get(msgId).getText());
+        text.setText(HistorialManager.getHistorialManager().getMessage(msgId).getText());
 		
     }
 }

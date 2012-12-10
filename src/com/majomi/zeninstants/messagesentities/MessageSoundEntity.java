@@ -8,7 +8,7 @@ public class MessageSoundEntity extends MessageTextEntity {
 		this.sound = sound;
 	}
 
-	public MessageSoundEntity(String sound, String text) {
+	public MessageSoundEntity(String text, String sound) {
 		super(text);
 		this.sound = sound;
 	}

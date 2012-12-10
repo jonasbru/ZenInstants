@@ -7,7 +7,7 @@ public class MessageVideoEntity extends MessageTextEntity {
 		this.video = video;
 	}
 	
-	public MessageVideoEntity(String video, String text) {
+	public MessageVideoEntity(String text, String video) {
 		super(text);
 		this.video = video;
 	}

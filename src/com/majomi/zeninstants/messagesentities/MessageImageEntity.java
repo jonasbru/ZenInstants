@@ -4,7 +4,7 @@ package com.majomi.zeninstants.messagesentities;
 public class MessageImageEntity extends MessageTextEntity {
 	private String image; 
 		
-	public MessageImageEntity(String image, String txt) {
+	public MessageImageEntity(String txt, String image) {
 		super();
 		this.image = image;
 		setText(txt);
