@@ -9,10 +9,10 @@ import com.majomi.zeninstants.messagescontroller.MessageManager;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
 import com.majomi.zeninstants.messagesviews.HistorialViewsManager;
 
-public class Historial_Adapter extends BaseAdapter {
+public class HistorialAdapter extends BaseAdapter {
 	protected Activity activity;
 
-	public Historial_Adapter(Activity activity) {
+	public HistorialAdapter(Activity activity) {
 		this.activity = activity;
 	}
 

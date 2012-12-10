@@ -1,8 +1,10 @@
 package com.majomi.zeninstants.messagesentities;
 
+import com.majomi.zeninstants.AppLog;
 
 
-public class MessageTextEntity {
+
+public class MessageTextEntity implements Cloneable {
 	protected long id;
 	private String text;
 	private String summary; // Text shown in historical
@@ -61,6 +63,17 @@ public class MessageTextEntity {
 
 	public void setUrlMoreInfo(String urlMoreInfo) {
 		this.urlMoreInfo = urlMoreInfo;
+	}
+
+	public Object clone() {
+		Object o = null;
+		try {
+			o = super.clone();
+		} catch(CloneNotSupportedException cnse) {
+			AppLog.logWarningString(cnse.getMessage());
+		}
+
+		return o;
 	}
 
 

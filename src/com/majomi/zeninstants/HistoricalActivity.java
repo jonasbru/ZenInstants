@@ -44,7 +44,7 @@ public class HistoricalActivity extends Activity{
 
 		ListView lv = (ListView) findViewById(R.id.historial_list);
 		lv.setOnItemClickListener(mMessageClickedHandler);
-		Historial_Adapter adapter = new Historial_Adapter(this);
+		HistorialAdapter adapter = new HistorialAdapter(this);
 		lv.setAdapter(adapter);
 
 		Button myBtn=(Button) findViewById(R.id.hl_settings_button);
