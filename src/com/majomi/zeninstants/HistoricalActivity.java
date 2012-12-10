@@ -15,6 +15,7 @@ import android.widget.ListView;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
 import com.majomi.zeninstants.messagesviews.HistorialViewsManager;
 import com.majomi.zeninstants.settingscontroller.HistorialManager;
+import com.majomi.zeninstants.utils.Utils;
 
 
 /**
@@ -28,10 +29,12 @@ public class HistoricalActivity extends Activity{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		Utils.setContext(this.getApplicationContext());
 
 		startService(new Intent(this,MessagesService.class));
 		
-		HistorialManager.getHistorialManager().loadMessages(getPreferences(0));
+		HistorialManager.getHistorialManager().loadMessages();
 
 		setTheme(R.style.Theme_Sherlock);
 
