@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragment;
+//import com.majomi.zeninstants.settingscontroller.Settings_Manager;
 import com.majomi.zeninstants.settingscontroller.Settings_Manager;
 
 public class SettingsFragment extends SherlockFragment {
@@ -116,6 +117,5 @@ public class SettingsFragment extends SherlockFragment {
     	});
     	
         return v;
-    }
-    
+    }    
   }

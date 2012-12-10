@@ -2,15 +2,20 @@
     package="com.majomi.zeninstants"
     android:versionCode="1"
     android:versionName="1.0" >
-
+	<uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+	<uses-permission android:name="android.permission.VIBRATE"/>
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="15" />
+    
+    
+	<uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <!-- <service android:name="com.majomi.zeninstants.MessagesService" /> -->
         <activity
             android:name=".HistoricalActivity"
             android:label="@string/title_activity_historial" >
@@ -39,6 +44,5 @@
 		    android:name=".MessageSoundActivity"
 		    android:theme="@style/ZenInstant.Message" >
 		</activity>
-    </application>
-
+    </application>    
 </manifest>

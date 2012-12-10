@@ -3,13 +3,12 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_gravity="right"
-    android:orientation="vertical" 
-    >
-	
+    android:orientation="vertical" >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
+
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
@@ -19,25 +18,23 @@
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/historialmayus"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
+
         <Button
             android:id="@+id/hl_settings_button"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="Settings" 
-            style="?android:attr/borderlessButtonStyle"/>
-
+            android:text="Settings" />
     </LinearLayout>
- 
-        <ListView
-            android:id="@+id/historial_list"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:cacheColorHint="#00000000"
-            android:padding="5dp" >
 
-        </ListView>
- 
+    <ListView
+        android:id="@+id/historial_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000"
+        android:padding="5dp" >
+    </ListView>
+
 </LinearLayout>

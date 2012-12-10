@@ -1,32 +1,30 @@
 package com.majomi.zeninstants.messagesentities;
 
-import com.majomi.zeninstants.R;
-
-import android.app.Activity;
-import android.view.View;
-import android.widget.TextView;
+import com.majomi.zeninstants.AppLog;
 
 
-public class MessageTextEntity {
+
+public class MessageTextEntity implements Cloneable {
 	protected long id;
 	private String text;
 	private String summary; // Text shown in historical
-	
-	
+	private String urlMoreInfo;
+
+
 	public MessageTextEntity() {
 		this.text = new String();
 		this.summary = new String();
 	}
-	
+
 	public MessageTextEntity(String text) {
 		super();
 		this.text = text;
 		if(text.length()> 40)
-			this.summary = text.substring(0, 40);
+			this.summary = text.substring(0, 40) + "...";
 		else
 			this.summary = text;
 	}
-	
+
 	public MessageTextEntity(String text, String summary) {
 		super();
 		this.text = text;
@@ -56,14 +54,34 @@ public class MessageTextEntity {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
 	public int getLayout(){return -1;}
-	
-/*	
+
+	public String getUrlMoreInfo() {
+		return urlMoreInfo;
+	}
+
+	public void setUrlMoreInfo(String urlMoreInfo) {
+		this.urlMoreInfo = urlMoreInfo;
+	}
+
+	public Object clone() {
+		Object o = null;
+		try {
+			o = super.clone();
+		} catch(CloneNotSupportedException cnse) {
+			AppLog.logWarningString(cnse.getMessage());
+		}
+
+		return o;
+	}
+
+
+	/*	
 	public void setHistorialContent(Activity act, View vi)
 	{
 		TextView summarytext = (TextView) vi.findViewById(R.id.hmtext);
 		summarytext.setText(getSummary());
 	}
-*/	
+	 */	
 }
