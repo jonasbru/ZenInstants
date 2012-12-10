@@ -23,6 +23,7 @@
     <string name="msg_more_info_btn">More info</string>
     <string name="msg_like_btn">Like</string>
     <string name="msg_dislike_btn">Dislike</string>
+    <string name="msg_cancel_btn">Cancel</string>
     <string name="msg_image_content_description">Image</string>
     
     <!-- Debug string -->

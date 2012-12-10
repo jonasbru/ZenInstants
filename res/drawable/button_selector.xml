@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- pressed -->
+    <item 
+        android:state_pressed="true"
+        android:drawable="@drawable/navigation_cancel"
+        android:color="@color/red"
+        />
+
+    <!-- focused -->
+    <item 
+        android:state_focused="true"
+        android:tint="@color/abs__holo_blue_light"
+        android:drawable="@drawable/ic_action_search"
+        />
+
+    <!-- default -->
+    <item
+        android:tint="@null"
+        android:drawable="@drawable/navigation_cancel"
+        />
+
+</selector>

@@ -43,5 +43,7 @@
     
     <color name="fuzzy">#60000000</color>
     <color name="messageBackground">#0f5366</color>
+    <color name="lue_light">@color/abs__holo_blue_light</color>
+    <color name="red">#00FF00</color>
 
 </resources>

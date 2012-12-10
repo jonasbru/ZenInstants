@@ -15,14 +15,29 @@
 		style="@style/ZenInstant.Message.Container"
 		android:orientation="vertical" >
 		
-       	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/Message_Title"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"	            
-            android:layout_gravity="fill_horizontal"
-            android:text="@string/msg_title"
-            style="@style/ZenInstant.Message.Title" />	    
-
+	    <RelativeLayout 
+	        android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+	        
+	       	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+	            android:id="@+id/Message_Title"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"	            
+	            android:layout_gravity="fill_horizontal"
+	            android:text="@string/msg_title"
+	            style="@style/ZenInstant.Message.Title" />
+	       	<ImageButton 
+		        android:src="@drawable/navigation_cancel"
+		        android:id="@+id/Message_Cancel"
+		        android:contentDescription="@string/msg_cancel_btn"
+		        android:layout_alignParentRight="true"
+		        android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@null"
+	             />
+		</RelativeLayout>
+		<!--style="?attr/selectableItemBackground" 	      
+		      android:background="@drawable/abs__list_selector_holo_dark.xml" -->
         <ScrollView
             android:id="@+id/scroll"
             android:layout_height="0dp"
