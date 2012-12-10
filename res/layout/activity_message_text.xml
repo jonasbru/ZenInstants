@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/Message_Main_Layout"
+	android:id="@+id/message_main_layout"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
@@ -8,19 +8,19 @@
 	android:clipChildren="true">
 
 	<LinearLayout 
-		android:id="@+id/Message_Layout"
+		android:id="@+id/message_layout"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_centerInParent="true"
 		style="@style/ZenInstant.Message.Container"
 		android:orientation="vertical" >
-       
-       	<RelativeLayout 
+		
+	    <RelativeLayout 
 	        android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 	        
 	       	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-	            android:id="@+id/Message_Title"
+	            android:id="@+id/message_title"
 	            android:layout_width="fill_parent"
 	            android:layout_height="wrap_content"	            
 	            android:layout_gravity="fill_horizontal"
@@ -28,39 +28,41 @@
 	            style="@style/ZenInstant.Message.Title" />
 	       	<ImageButton 
 		        android:src="@drawable/navigation_cancel"
-		        android:id="@+id/Message_Cancel"
+		        android:id="@+id/message_cancel"
 		        android:contentDescription="@string/msg_cancel_btn"
 		        android:layout_alignParentRight="true"
 		        android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:background="@null" />
-		</RelativeLayout>	    
-
+	            android:background="@null"
+	             />
+		</RelativeLayout>
+		<!--style="?attr/selectableItemBackground" 	      
+		      android:background="@drawable/abs__list_selector_holo_dark.xml" -->
         <ScrollView
-            android:id="@+id/scroll"
+            android:id="@+id/message_scroll"
             android:layout_height="0dp"
 			android:layout_weight="1"
             android:layout_width="wrap_content"
             style="@style/ZenInstant.Message.ScrollView" >
 
             <LinearLayout
-		        android:id="@+id/Scroll_Content_Layout"
+		        android:id="@+id/message_scroll_content_layout"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_gravity="center_horizontal"
 		        android:orientation="vertical" >
-		        
+
 	            <TextView
-	                android:id="@+id/Message_Text"
+	                android:id="@+id/message_text"
 	                android:layout_width="match_parent"
 	                android:layout_height="wrap_content"
 	                android:gravity="center"
 	                style="@style/ZenInstant.Message.Text"
-	                android:text="ee@string/bla" />
+	                android:text="@string/bla" />
 			</LinearLayout>
         </ScrollView>
         <include
-			android:id="@+id/buttons"
+			android:id="@+id/message_buttons"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_gravity="fill_horizontal"

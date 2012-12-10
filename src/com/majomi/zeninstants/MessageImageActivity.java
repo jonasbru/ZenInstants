@@ -17,16 +17,7 @@ public class MessageImageActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_image); 
-        
-        ImageButton cancel = (ImageButton) this.findViewById(R.id.Message_Cancel); 
-        //button.setColorFilter(Color.argb(255, 255, 255, 255)); // White Tint
-//        cancel.setOnClickListener(new OnClickListener() {
-//
-//            @Override
-//            public void onClick(View arg0) {
-//                 backward_img.setBackgroundColor(Color.BLUE);
-//            }
-//        });
+        MessageButtonHandler btnHandler = new MessageButtonHandler(this);
     }    
 
     @Override

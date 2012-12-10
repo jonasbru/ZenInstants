@@ -34,7 +34,7 @@ public class MessageTextView extends MessageView {
 
 	@Override
 	public void fillMessageView(Activity act) {
-		TextView text = (TextView) act.findViewById(R.id.Message_Text);
+		TextView text = (TextView) act.findViewById(R.id.message_text);
         text.setText(msg.getText());
 		
 	}

@@ -13,7 +13,7 @@
 
 	    <Button
 	        style="?attr/actionButtonStyle"
-			android:id="@+id/info"
+			android:id="@+id/message_info_btn"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
@@ -23,25 +23,15 @@
 		    android:layout_height="fill_parent"
 		    android:layout_width="1dp"
 		    android:background="?attr/dividerVertical"/>
-	    <Button
-	        style="?attr/actionButtonStyle"
-			android:id="@+id/like"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:layout_weight="1"
-			android:textColor="@android:color/primary_text_dark"
-			android:text="@string/msg_like_btn" />
-		<View
-		    android:layout_height="fill_parent"
-		    android:layout_width="1dp"
-		    android:background="?attr/dividerVertical"/>
-		<Button
+
+		<ImageButton
+		    android:id="@+id/message_favorite_btn"
 		    style="?attr/actionButtonStyle"
-			android:id="@+id/dislike"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:layout_weight="1"
-			android:textColor="@android:color/primary_text_dark"
-			android:text="@string/msg_dislike_btn" />
+		    android:src="@drawable/rating_favorite"
+		    android:layout_width="0dp"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:scaleType="center"/>
+
 	</LinearLayout>
 </LinearLayout>

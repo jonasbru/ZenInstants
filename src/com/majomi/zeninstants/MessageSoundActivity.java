@@ -10,6 +10,7 @@ public class MessageSoundActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_sound);
+        MessageButtonHandler btnHandler = new MessageButtonHandler(this);
     }
 
     @Override
