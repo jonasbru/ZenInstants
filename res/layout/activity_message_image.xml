@@ -56,10 +56,10 @@
 			        android:layout_height="match_parent"
 			        android:contentDescription="@string/msg_image_content_description"
 			        android:layout_gravity="center_vertical"    
-					android:scaleType="centerCrop"
+					android:scaleType="fitCenter"
 			        android:gravity="center"
 			        android:adjustViewBounds="true"
-			        android:src="@drawable/templo_cerezo" />
+			        android:src="@drawable/video_icon" /><!-- templo_cerezo -->
 	            <TextView
 	                android:id="@+id/message_text"
 	                android:layout_width="match_parent"
