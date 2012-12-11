@@ -153,10 +153,16 @@ public class Utils {
 	}
 
 	public static Bitmap loadDataAsImage(String path){
+		if(path == null) {
+			return null;
+		}
+
 		byte[] imageTile = loadData(path);
-		if(imageTile != null)
+		if(imageTile != null) {
 			return BitmapFactory.decodeByteArray(imageTile, 0, imageTile.length);
-		return null;
+		} else {
+			return null;
+		}
 	}
 
 	public static byte[] readBytes(InputStream inputStream) throws IOException {

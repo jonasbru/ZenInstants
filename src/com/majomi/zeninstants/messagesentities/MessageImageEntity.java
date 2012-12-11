@@ -1,13 +1,12 @@
 package com.majomi.zeninstants.messagesentities;
 
-import com.majomi.zeninstants.utils.Utils;
 
 
 public class MessageImageEntity extends MessageTextEntity {
 	private static final long serialVersionUID = 1563615056350174968L;
 	
 	private String imageURL;
-	private String localImage;
+	private String localImage = null;
 		
 	public MessageImageEntity(String txt, String imageURL) {
 		super();

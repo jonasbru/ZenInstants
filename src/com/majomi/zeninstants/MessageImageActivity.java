@@ -1,30 +1,14 @@
 package com.majomi.zeninstants;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.WindowManager;
-
-import android.widget.ImageView;
-
 import android.widget.ImageButton;
-
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.majomi.zeninstants.messagesentities.MessageImageEntity;
-import com.majomi.zeninstants.messagesentities.MessageTextEntity;
 import com.majomi.zeninstants.settingscontroller.HistorialManager;
 import com.majomi.zeninstants.utils.Utils;
 
