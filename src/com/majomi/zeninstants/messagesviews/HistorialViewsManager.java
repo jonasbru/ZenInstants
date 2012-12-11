@@ -86,7 +86,7 @@ public class HistorialViewsManager {
 		summarytext.setText(entity.getSummary());
 
 		int imageResource = activity.getResources().getIdentifier(
-				((MessageImageEntity)entity).getImage(), null, activity.getPackageName());
+				((MessageImageEntity)entity).getLocalImage(), null, activity.getPackageName());
 
 		ImageView image = (ImageView) vi.findViewById(R.id.historial_image);
 		//image.setImageDrawable(act.getResources().getDrawable(imageResource));

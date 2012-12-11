@@ -42,9 +42,11 @@ public class MessageImageActivity extends SherlockActivity {
 		text.setText(msg.getText());
 		
 		ImageView image = (ImageView) findViewById(R.id.message_image);
-		if(Utils.loadDataAsImage(msg.getImage()) != null){
-			AppLog.logString("Loading: " + msg.getImage());
-			image.setImageBitmap(Utils.loadDataAsImage(msg.getImage()));
+		if(Utils.loadDataAsImage(msg.getLocalImage()) != null){
+			AppLog.logString("Loading: " + msg.getLocalImage());
+			image.setImageBitmap(Utils.loadDataAsImage(msg.getLocalImage()));
+		}else{
+			AppLog.logString("Image not found: " + msg.getLocalImage());
 		}
 	}
 	

@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
+import java.net.URL;
 
 import com.majomi.zeninstants.AppLog;
 import com.majomi.zeninstants.R;
@@ -20,6 +21,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Base64;
@@ -208,6 +210,34 @@ public class Utils {
 		}
 
 		return size;
+	}
+	
+	public static String saveDataFromURL(String url){
+		byte[] img = getImageByURL(url);
+		if(img != null)
+			return saveData(img);
+		AppLog.logWarningString("Data not found (from url: " + url);
+		return null;
+	}
+	public static byte[] getImageByURL(String url){
+		try {
+			InputStream is = (InputStream) new URL(url).getContent();
+			return readBytes(is);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static Drawable getDrawableBy(String url,String srcName) {
+	    try {
+	        InputStream is = (InputStream) new URL(url).getContent();
+	        Drawable d = Drawable.createFromStream(is, srcName);
+	        return d;
+	    } catch (Exception e) {
+	        return null;
+	    }
 	}
 
 	/**************************** DEBUG TO REMOVE ********************************************/	
