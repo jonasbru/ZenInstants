@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -23,9 +24,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Base64;
 import android.util.Log;
+import android.view.LayoutInflater.Filter;
 
 public class Utils {
-	
+
 	private static Context context = null;
 
 	private static final String prefFileName = "ZenInstantsDef";
@@ -77,12 +79,12 @@ public class Utils {
 			return null;
 		}
 	}
-	
+
 	public static boolean isNetworkAvailable() {
-	    ConnectivityManager connectivityManager 
-	          = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-	    return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+		ConnectivityManager connectivityManager 
+		= (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+		return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
 	}
 
 	public static Context getContext() {
@@ -92,7 +94,7 @@ public class Utils {
 	public static void setContext(Context contextt) {
 		context = contextt;
 	}
-	
+
 	public static Object getObjectFromSharedPreferences(String key) {
 		if(context.getSharedPreferences(prefFileName, 0).contains(key)) {
 			return Utils.deserializeObject(context.getSharedPreferences(prefFileName, 0).getString(key, ""));
@@ -100,7 +102,7 @@ public class Utils {
 			return null;
 		}
 	}
-	
+
 	public static void putObjectIntoSharedPreferences(String key, Object obj) {
 		SharedPreferences.Editor editor = context.getSharedPreferences(prefFileName, 0).edit();
 
@@ -114,9 +116,9 @@ public class Utils {
 
 		editor.commit();
 	}
-	
+
 	/************************************* data utils ***********************************/
-	
+
 	public static String saveData(byte[] bytes){
 		String fileName = new String();
 		try {
@@ -132,7 +134,7 @@ public class Utils {
 		}
 		return fileName;
 	}
-	
+
 	public static byte[] loadData(String path){
 		FileInputStream f;
 		try {
@@ -147,7 +149,7 @@ public class Utils {
 		}
 		return null;
 	}
-	
+
 	public static Bitmap loadDataAsImage(String path){
 		byte[] imageTile = loadData(path);
 		if(imageTile != null)
@@ -156,25 +158,61 @@ public class Utils {
 	}
 
 	public static byte[] readBytes(InputStream inputStream) throws IOException {
-		  // this dynamically extends to take the bytes you read
-		  ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
+		// this dynamically extends to take the bytes you read
+		ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
 
-		  // this is storage overwritten on each iteration with bytes
-		  int bufferSize = 1024;
-		  byte[] buffer = new byte[bufferSize];
+		// this is storage overwritten on each iteration with bytes
+		int bufferSize = 1024;
+		byte[] buffer = new byte[bufferSize];
 
-		  // we need to know how may bytes were read to write them to the byteBuffer
-		  int len = 0;
-		  while ((len = inputStream.read(buffer)) != -1) {
-		    byteBuffer.write(buffer, 0, len);
-		  }
-
-		  // and then we can return your byte array.
-		  return byteBuffer.toByteArray();
+		// we need to know how may bytes were read to write them to the byteBuffer
+		int len = 0;
+		while ((len = inputStream.read(buffer)) != -1) {
+			byteBuffer.write(buffer, 0, len);
 		}
-	
-/**************************** TO REMOVE ********************************************/	
+
+		// and then we can return your byte array.
+		return byteBuffer.toByteArray();
+	}
+
+	public static Boolean deleteData(String path){
+		File file = new File(path);
+		return file.delete();
+	}
+
+	public static File[] getAllCacheFileList(){
+		return context.getCacheDir().listFiles();
+	}
+
+	public static File[] getImageCacheFileList(){
+		FilenameFilter imagefilter = new FilenameFilter() {
+			@Override
+			public boolean accept(File dir, String filename) {
+				return filename.contains("img");
+			}
+		};
+		return context.getCacheDir().listFiles(imagefilter);
+	}
+
+	public static void clearCache(){
+		File[] list = getAllCacheFileList();
+		for(int i = 0; i < list.length; i++)
+			deleteData(list[i].getAbsolutePath());
+	}
+
+	public static long getCacheSpace(){
+		long size = 0;
+		File[] list = getAllCacheFileList();
+		for(int i = 0; i < list.length;i++){
+			size += list[i].length();
+		}
+
+		return size;
+	}
+
+	/**************************** DEBUG TO REMOVE ********************************************/	
 	public static String saveDemoImage(){
+
 		InputStream is = context.getResources().openRawResource(R.drawable.video_icon);
 		try {
 			return Utils.saveData(Utils.readBytes(is));
@@ -184,5 +222,18 @@ public class Utils {
 		}
 		return null;
 	}
-	
+
+	private static void DisplayListFile(String[] f){
+		for(int i = 0; i < f.length;i++){
+			AppLog.logString("File: " + f[i]);
+		}
+
+	}
+	private static void DisplayListFile(File[] f){
+		for(int i = 0; i < f.length;i++){
+			AppLog.logString("File: " + f[i].getAbsolutePath());
+		}
+
+	}
+
 }

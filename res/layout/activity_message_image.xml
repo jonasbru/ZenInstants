@@ -59,7 +59,7 @@
 					android:scaleType="fitCenter"
 			        android:gravity="center"
 			        android:adjustViewBounds="true"
-			        android:src="@drawable/video_icon" /><!-- templo_cerezo -->
+			        android:src="@drawable/templo_cerezo" /><!-- templo_cerezo -->
 	            <TextView
 	                android:id="@+id/message_text"
 	                android:layout_width="match_parent"
