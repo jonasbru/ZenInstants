@@ -8,7 +8,7 @@ import com.majomi.zeninstants.AppLog;
 public class MessageTextEntity implements Cloneable, Serializable {
 	private static final long serialVersionUID = 8111201739719136190L;
 	
-	protected long id;
+	protected long id = 1;
 	private String text;
 	private String summary; // Text shown in historical
 	private String urlMoreInfo;

@@ -48,7 +48,7 @@ public class HistorialManager {
 	public void addMessage(MessageTextEntity message) {
 		this.messages.add((MessageTextEntity)message.clone());
 
-		save();
+		saveMessages();
 	}
 
 	public MessageTextEntity getMessage(int index) {
@@ -68,7 +68,7 @@ public class HistorialManager {
 		return this.messages.size();
 	}
 
-	private void save() {
+	public void saveMessages() {
 		Utils.putObjectIntoSharedPreferences("historial_messages", this.messages);	
 	}
 
