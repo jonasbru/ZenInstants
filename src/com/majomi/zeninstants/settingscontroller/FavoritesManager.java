@@ -3,6 +3,7 @@ package com.majomi.zeninstants.settingscontroller;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import com.majomi.zeninstants.NetworkManager;
 import com.majomi.zeninstants.messagesentities.MessageImageEntity;
 import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
@@ -22,8 +23,13 @@ public class FavoritesManager {
 		return favoritesManager;
 	}
 
+	@SuppressWarnings("unchecked")
 	private FavoritesManager() {
+		this.favoritesNotSended = (ArrayList<Favorite>) Utils.getObjectFromSharedPreferences("favorites");
 
+		if(this.favoritesNotSended == null) {
+			this.favoritesNotSended = new ArrayList<Favorite>();
+		}
 	}
 	//******** END Singleton ***********
 
@@ -31,11 +37,21 @@ public class FavoritesManager {
 
 	public void addFavorite(MessageTextEntity entity) {
 		entity.setFavorite(true);
+		
+		changeFav(entity);
+	}
 
+	public void removeFavorite(MessageTextEntity entity) {
+		entity.setFavorite(false);
+		
+		changeFav(entity);
+	}
+	
+	private void changeFav(MessageTextEntity entity) {
 		boolean founded = false;
 		for(Favorite f : this.favoritesNotSended) {
 			if(f.getId() == entity.getId()) {
-				f.setFav(true);
+				f.setFav(entity.isFavorite());
 				founded = true;
 				break;
 			}
@@ -44,7 +60,7 @@ public class FavoritesManager {
 		if(!founded) {
 			Favorite f = new Favorite();
 			f.setId(entity.getId());
-			f.setFav(true);
+			f.setFav(entity.isFavorite());
 			if(entity instanceof MessageImageEntity) {
 				f.setType("i");
 			} else if(entity instanceof MessageSoundEntity) {
@@ -58,19 +74,21 @@ public class FavoritesManager {
 			favoritesNotSended.add(f);
 		}
 
-		trySendFav();
+		trySendFavs();
+
+		Utils.putObjectIntoSharedPreferences("favorites", this.favoritesNotSended);
 	}
 
-	public void removeFavorite(MessageTextEntity entity) {
-		entity.setFavorite(false);
-	}
-
-	public void loadFavorites() {
-	}
-
-	private void trySendFav() {
+	@SuppressWarnings("unchecked")
+	private void trySendFavs() {
 		if(Utils.isNetworkAvailable()) {
+			for(Favorite f : (ArrayList<Favorite>)this.favoritesNotSended.clone()) {
+				boolean res = NetworkManager.pushNote(String.valueOf(f.getId()), f.getType(), f.isFav() ? "1" : "0");
 
+				if(res) {
+					this.favoritesNotSended.remove(f);
+				}
+			}
 		}
 
 	}
@@ -87,10 +105,7 @@ class Favorite implements Serializable{
 	private long id;
 	private String type;
 	private boolean fav;
-
-
-
-
+	
 	public long getId() {
 		return id;
 	}

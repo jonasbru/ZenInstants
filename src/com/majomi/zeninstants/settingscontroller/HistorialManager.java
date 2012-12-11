@@ -37,7 +37,9 @@ public class HistorialManager {
 		this.messages.add(new MessageImageEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah", "TODO"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 
-
+		//TODO:remove
+		this.messages.get(0).setId(1);
+		FavoritesManager.getFavoritesManager().addFavorite(this.messages.get(0));
 	}
 	//******** END Singleton ***********
 
