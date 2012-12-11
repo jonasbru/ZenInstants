@@ -36,6 +36,13 @@
 		
 	</style>
     
+    <style name="ZenInstant.Settings.ButtonDay" parent="@style/Theme.Sherlock.NoActionBar">
+        <item name="android:layout_width">144dp</item>
+        <item name="android:layout_height">48dp</item>
+    	<item name="android:onClick">onClicked</item>
+        <item name="android:background">@drawable/settingsbuttonday</item>
+    </style>
+        
     <color name="fuzzy">#60000000</color>
     <color name="messageBackground">#0f5366</color>
     <color name="dark_green">#669900</color>
