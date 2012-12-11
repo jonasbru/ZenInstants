@@ -28,15 +28,16 @@ import com.majomi.zeninstants.messagesentities.MessageImageEntity;
 import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
 import com.majomi.zeninstants.messagesentities.MessageVideoEntity;
+import com.majomi.zeninstants.utils.Installation;
 
 public class NetworkManager {
 
-	public static final String KEY_121 = "http://192.168.1.138/zenManagement/index.php";
-	public static final String KEY_122 = "http://192.168.1.138/zenManagement/push.php";
+	public static final String MESSAGES_URL = "http://192.168.1.138/zenManagement/index.php";
+	public static final String PUSH_URL = "http://192.168.1.138/zenManagement/push.php";
 
 	public static boolean updatePhrases() {
 		AsyncTask<String, Integer, String> d = new UpdatePhrasesTask()
-		.execute(KEY_121);
+		.execute(MESSAGES_URL);
 		try {
 			parseJsonPhrases(d.get());
 		} catch (InterruptedException e) {
@@ -48,11 +49,11 @@ public class NetworkManager {
 		return false;
 	}
 
-	public static boolean pushNote() {
-		AsyncTask<String, Integer, String> d = new PushNoteTask().execute(KEY_122);
+	public static boolean pushNote(String id, String type, String rating) {
+		AsyncTask<String, Integer, String> d = new PushNoteTask().execute(PUSH_URL, id, type, rating);
 		try {
-			@SuppressWarnings("unused")
-			String ret = d.get() + "\n CACA";
+			String ret = d.get() + "\n END RETURN PUSH NOTE SERVER";
+			Log.d("RETURN PUSH", ret);
 			return true;
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -195,8 +196,8 @@ class UpdatePhrasesTask extends AsyncTask<String, Integer, String> {
 }
 
 class PushNoteTask extends AsyncTask<String, Integer, String> {
-	protected String doInBackground(String... urls) {
-		return getServerData(urls[0]);
+	protected String doInBackground(String... params) {
+		return getServerData(params);
 	}
 
 	protected void onProgressUpdate(Integer... progress) {
@@ -207,7 +208,7 @@ class PushNoteTask extends AsyncTask<String, Integer, String> {
 		// showDialog("Downloaded " + result + " bytes");
 	}
 
-	private String getServerData(String returnString) {
+	private String getServerData(String... params) {
 
 		// InputStream is = null;
 
@@ -219,7 +220,9 @@ class PushNoteTask extends AsyncTask<String, Integer, String> {
 		MCrypt mcrypt = new MCrypt();
 		String encrypted;
 		try {
-			encrypted = MCrypt.bytesToHex(mcrypt.encrypt("idblabrzebtg"));
+			String id = Installation.id();
+			
+			encrypted = MCrypt.bytesToHex(mcrypt.encrypt("id" + id));
 		} catch (Exception e1) {
 			e1.printStackTrace();
 			return "";
@@ -227,7 +230,7 @@ class PushNoteTask extends AsyncTask<String, Integer, String> {
 
 		try {			
 			HttpClient httpClient = new DefaultHttpClient();
-			HttpGet getRequest = new HttpGet(returnString + "?p=1&i=0&t=t&h=" + encrypted);
+			HttpGet getRequest = new HttpGet(params[0] + "?p="+params[1]+"&t="+params[2]+"&i="+params[3]+"&h=" + encrypted);
 
 			HttpResponse response = httpClient.execute(getRequest);
 

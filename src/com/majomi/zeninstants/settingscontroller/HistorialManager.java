@@ -39,7 +39,9 @@ public class HistorialManager {
 		this.messages.add(new MessageImageEntity("Roses are red\nViolets","todo"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 
-
+		//TODO:remove
+		this.messages.get(0).setId(1);
+		FavoritesManager.getFavoritesManager().addFavorite(this.messages.get(0));
 	}
 	//******** END Singleton ***********
 
@@ -48,7 +50,7 @@ public class HistorialManager {
 	public void addMessage(MessageTextEntity message) {
 		this.messages.add((MessageTextEntity)message.clone());
 
-		save();
+		saveMessages();
 	}
 
 	public MessageTextEntity getMessage(int index) {
@@ -68,7 +70,7 @@ public class HistorialManager {
 		return this.messages.size();
 	}
 
-	private void save() {
+	public void saveMessages() {
 		Utils.putObjectIntoSharedPreferences("historial_messages", this.messages);	
 	}
 

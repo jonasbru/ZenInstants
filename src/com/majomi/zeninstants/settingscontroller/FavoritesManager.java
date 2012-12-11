@@ -3,6 +3,7 @@ package com.majomi.zeninstants.settingscontroller;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import com.majomi.zeninstants.NetworkManager;
 import com.majomi.zeninstants.messagesentities.MessageImageEntity;
 import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
@@ -22,53 +23,74 @@ public class FavoritesManager {
 		return favoritesManager;
 	}
 
+	@SuppressWarnings("unchecked")
 	private FavoritesManager() {
+		this.favoritesNotSended = (ArrayList<Favorite>) Utils.getObjectFromSharedPreferences("favorites");
 
+		if(this.favoritesNotSended == null) {
+			this.favoritesNotSended = new ArrayList<Favorite>();
+		}
 	}
 	//******** END Singleton ***********
-	
+
 	private ArrayList<Favorite> favoritesNotSended = new ArrayList<Favorite>();
 
 	public void addFavorite(MessageTextEntity entity) {
 		entity.setFavorite(true);
 		
-		for(Favorite f : this.favoritesNotSended) {
-			if(f.getId() == entity.getId()) {
-				this.favoritesNotSended.remove(f);
-				break;
-			}
-		}
-		
-		Favorite f = new Favorite();
-		f.setId(entity.getId());
-		f.setFav(true);
-		if(entity instanceof MessageImageEntity) {
-			f.setType("i");
-		} else if(entity instanceof MessageSoundEntity) {
-			f.setType("s");
-		} else if(entity instanceof MessageVideoEntity) {
-			f.setType("v");
-		} else {
-			f.setType("t");
-		}
-		
-		favoritesNotSended.add(f);
-		
-		trySendFav();
+		changeFav(entity);
 	}
 
 	public void removeFavorite(MessageTextEntity entity) {
 		entity.setFavorite(false);
+		
+		changeFav(entity);
 	}
 	
-	public void loadFavorites() {
+	private void changeFav(MessageTextEntity entity) {
+		boolean founded = false;
+		for(Favorite f : this.favoritesNotSended) {
+			if(f.getId() == entity.getId()) {
+				f.setFav(entity.isFavorite());
+				founded = true;
+				break;
+			}
+		}
+
+		if(!founded) {
+			Favorite f = new Favorite();
+			f.setId(entity.getId());
+			f.setFav(entity.isFavorite());
+			if(entity instanceof MessageImageEntity) {
+				f.setType("i");
+			} else if(entity instanceof MessageSoundEntity) {
+				f.setType("s");
+			} else if(entity instanceof MessageVideoEntity) {
+				f.setType("v");
+			} else {
+				f.setType("t");
+			}
+
+			favoritesNotSended.add(f);
+		}
+
+		trySendFavs();
+
+		Utils.putObjectIntoSharedPreferences("favorites", this.favoritesNotSended);
 	}
 
-	private void trySendFav() {
+	@SuppressWarnings("unchecked")
+	private void trySendFavs() {
 		if(Utils.isNetworkAvailable()) {
-			
+			for(Favorite f : (ArrayList<Favorite>)this.favoritesNotSended.clone()) {
+				boolean res = NetworkManager.pushNote(String.valueOf(f.getId()), f.getType(), f.isFav() ? "1" : "0");
+
+				if(res) {
+					this.favoritesNotSended.remove(f);
+				}
+			}
 		}
-		
+
 	}
 
 }
@@ -79,13 +101,10 @@ public class FavoritesManager {
  */
 class Favorite implements Serializable{
 	private static final long serialVersionUID = -340687877983027455L;
-	
+
 	private long id;
 	private String type;
 	private boolean fav;
-	
-	
-	
 	
 	public long getId() {
 		return id;
