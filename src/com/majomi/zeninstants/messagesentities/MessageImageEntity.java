@@ -12,11 +12,11 @@ public class MessageImageEntity extends MessageTextEntity {
 	public MessageImageEntity(String txt, String imageURL) {
 		super();
 		this.setImageURL(imageURL);
-		String local = Utils.saveDataFromURL(imageURL);
-		if (local == null)
-			this.localImage = "";
-		else
-			this.localImage = local;
+//		String local = Utils.saveDataFromURL(imageURL);
+//		if (local == null)
+//			this.localImage = "";
+//		else
+//			this.localImage = local;
 		setText(txt);
 		setSummary(txt);
 	}
