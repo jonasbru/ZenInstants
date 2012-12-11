@@ -3,13 +3,24 @@
  */
 package com.majomi.zeninstants;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
@@ -29,9 +40,15 @@ public class HistoricalActivity extends Activity{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+<<<<<<< .merge_file_2upvM6
 		
 		Utils.setContext(this.getApplicationContext());
 
+=======
+		
+		Utils.setContext(this.getApplicationContext());
+
+>>>>>>> .merge_file_ZwCni8
 		startService(new Intent(this,MessagesService.class));
 		
 		HistorialManager.getHistorialManager().loadMessages();
@@ -74,52 +91,9 @@ public class HistoricalActivity extends Activity{
 			startActivityForResult(myIntent, 0);
 		}
 	};
+	
 }
 
-//// Saved version of the MainActivity (useful for the services stuff). Will be deleted soon..
-//
-//package com.majomi.zeninstants;
-//
-//import android.app.Activity;
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.view.Menu;
-//import android.widget.TextView;
-//
-//public class MainActivity extends Activity {
-//
-//	//public static final String KEY_121 = "http://xx.xx.xxx.xxx/hellomysql/mysqlcon.php"; //i use my real ip here
-//	public static final String KEY_121 = "http://192.168.1.138/zenManagement/index.php"; //i use my real ip here
-//	TextView txt;
-//	
-//  @Override
-//  public void onCreate(Bundle savedInstanceState) {
-//  	super.onCreate(savedInstanceState);
-//  	
-//      setContentView(R.layout.activity_main);
-//      //Hi!! 
-//      AppLog.logString("Main:Starting Service");
-//      startService(new Intent(this,MessagesService.class));
-//      AppLog.logString("Main:Service Started");
-//  }
-//
-//  @Override
-//  public boolean onCreateOptionsMenu(Menu menu) {
-//      getMenuInflater().inflate(R.menu.activity_main, menu);
-//      return true;
-//  }
-//  
-//  public void startMsgService(){
-//  	Thread t = new Thread(){
-//  		public void run(){
-//  		getApplicationContext().startService(new Intent(getApplicationContext(),MessagesService.class));
-//
-//  		}
-//  		};
-//  		t.start();
-//  }
-//  
-//}
 
 
 
