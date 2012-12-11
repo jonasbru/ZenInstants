@@ -6,6 +6,7 @@ package com.majomi.zeninstants;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -31,11 +32,12 @@ public class HistoricalActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		
 		Utils.setContext(this.getApplicationContext());
+		Log.d("CACA1", "context ok");
 
 		startService(new Intent(this,MessagesService.class));
-		
+		Log.d("CACA1", "service ok");
 		HistorialManager.getHistorialManager().loadMessages();
-
+		Log.d("CACA1", "load messages ok");
 		setTheme(R.style.Theme_Sherlock);
 
 		setContentView(R.layout.historial_layout);

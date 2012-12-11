@@ -37,20 +37,31 @@ public class FavoritesManager {
 
 	public void addFavorite(MessageTextEntity entity) {
 		entity.setFavorite(true);
-		
+
 		changeFav(entity);
 	}
 
 	public void removeFavorite(MessageTextEntity entity) {
 		entity.setFavorite(false);
-		
+
 		changeFav(entity);
 	}
-	
+
+	public void favoriteSended(String id, String type) {
+		for(Favorite f : this.favoritesNotSended) {
+			if(String.valueOf(f.getId()).equals(id) && f.getType().equals(type)) {
+				this.favoritesNotSended.remove(f);
+				break;
+			}
+		}
+	}
+
 	private void changeFav(MessageTextEntity entity) {
+		String type = getFavType(entity);
+
 		boolean founded = false;
 		for(Favorite f : this.favoritesNotSended) {
-			if(f.getId() == entity.getId()) {
+			if(f.getId() == entity.getId() && f.getType() == type) {
 				f.setFav(entity.isFavorite());
 				founded = true;
 				break;
@@ -61,15 +72,7 @@ public class FavoritesManager {
 			Favorite f = new Favorite();
 			f.setId(entity.getId());
 			f.setFav(entity.isFavorite());
-			if(entity instanceof MessageImageEntity) {
-				f.setType("i");
-			} else if(entity instanceof MessageSoundEntity) {
-				f.setType("s");
-			} else if(entity instanceof MessageVideoEntity) {
-				f.setType("v");
-			} else {
-				f.setType("t");
-			}
+			f.setType(type);
 
 			favoritesNotSended.add(f);
 		}
@@ -79,6 +82,18 @@ public class FavoritesManager {
 		Utils.putObjectIntoSharedPreferences("favorites", this.favoritesNotSended);
 	}
 
+	private String getFavType(MessageTextEntity entity) {
+		if(entity instanceof MessageImageEntity) {
+			return "i";
+		} else if(entity instanceof MessageSoundEntity) {
+			return "s";
+		} else if(entity instanceof MessageVideoEntity) {
+			return "v";
+		} else {
+			return "t";
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	private void trySendFavs() {
 		if(Utils.isNetworkAvailable()) {
@@ -86,7 +101,7 @@ public class FavoritesManager {
 				boolean res = NetworkManager.pushNote(String.valueOf(f.getId()), f.getType(), f.isFav() ? "1" : "0");
 
 				if(res) {
-					this.favoritesNotSended.remove(f);
+//					this.favoritesNotSended.remove(f);
 				}
 			}
 		}
@@ -105,7 +120,7 @@ class Favorite implements Serializable{
 	private long id;
 	private String type;
 	private boolean fav;
-	
+
 	public long getId() {
 		return id;
 	}

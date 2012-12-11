@@ -28,12 +28,13 @@ import com.majomi.zeninstants.messagesentities.MessageImageEntity;
 import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
 import com.majomi.zeninstants.messagesentities.MessageVideoEntity;
+import com.majomi.zeninstants.settingscontroller.FavoritesManager;
 import com.majomi.zeninstants.utils.Installation;
 
 public class NetworkManager {
 
-	public static final String MESSAGES_URL = "http://192.168.1.138/zenManagement/index.php";
-	public static final String PUSH_URL = "http://192.168.1.138/zenManagement/push.php";
+	public static final String MESSAGES_URL = "http://192.168.1.136/zenManagement/index.php";
+	public static final String PUSH_URL = "http://192.168.1.136/zenManagement/push.php";
 
 	public static boolean updatePhrases() {
 		AsyncTask<String, Integer, String> d = new UpdatePhrasesTask()
@@ -50,18 +51,19 @@ public class NetworkManager {
 	}
 
 	public static boolean pushNote(String id, String type, String rating) {
+		@SuppressWarnings("unused")
 		AsyncTask<String, Integer, String> d = new PushNoteTask().execute(PUSH_URL, id, type, rating);
-		try {
-			String ret = d.get() + "\n END RETURN PUSH NOTE SERVER";
-			Log.d("RETURN PUSH", ret);
+//		try {
+//			String ret = d.get() + "\n END RETURN PUSH NOTE SERVER";
+//			Log.d("RETURN PUSH", ret);
 			return true;
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-			return false;
-		} catch (ExecutionException e) {
-			e.printStackTrace();
-			return false;
-		}
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//			return false;
+//		} catch (ExecutionException e) {
+//			e.printStackTrace();
+//			return false;
+//		}
 	}
 
 	private static void parseJsonPhrases(String json) {
@@ -159,6 +161,7 @@ class UpdatePhrasesTask extends AsyncTask<String, Integer, String> {
 
 		} catch (Exception e) {
 			Log.e("log_tag", "Error in http connection " + e.toString());
+			return result;
 		}
 
 		// convert response to string
@@ -174,6 +177,7 @@ class UpdatePhrasesTask extends AsyncTask<String, Integer, String> {
 			result = sb.toString();
 		} catch (Exception e) {
 			Log.e("log_tag", "Error converting result " + e.toString());
+			return result;
 		}
 		// parse json data
 		//		try {
@@ -250,6 +254,12 @@ class PushNoteTask extends AsyncTask<String, Integer, String> {
 			}
 
 			httpClient.getConnectionManager().shutdown();
+			
+			String ret = output2 + "\n END RETURN PUSH NOTE SERVER";
+			Log.d("RETURN PUSH", ret);
+			
+			FavoritesManager.getFavoritesManager().favoriteSended(params[1], params[2]);
+			
 			return output2;		
 			//			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 			//			HttpResponse response = httpclient.execute(httppost);
