@@ -40,15 +40,9 @@ public class HistoricalActivity extends Activity{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-<<<<<<< .merge_file_2upvM6
 		
 		Utils.setContext(this.getApplicationContext());
 
-=======
-		
-		Utils.setContext(this.getApplicationContext());
-
->>>>>>> .merge_file_ZwCni8
 		startService(new Intent(this,MessagesService.class));
 		
 		HistorialManager.getHistorialManager().loadMessages();

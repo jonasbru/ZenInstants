@@ -29,11 +29,7 @@ import android.util.Log;
 import android.view.LayoutInflater.Filter;
 
 public class Utils {
-<<<<<<< .merge_file_2JaMAf
-	
-=======
 
->>>>>>> .merge_file_NDR7Lc
 	private static Context context = null;
 
 	private static final String prefFileName = "ZenInstantsDef";
@@ -85,21 +81,12 @@ public class Utils {
 			return null;
 		}
 	}
-<<<<<<< .merge_file_2JaMAf
-	
-	public static boolean isNetworkAvailable() {
-	    ConnectivityManager connectivityManager 
-	          = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-	    return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
-=======
 
 	public static boolean isNetworkAvailable() {
 		ConnectivityManager connectivityManager 
 		= (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
 		return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
->>>>>>> .merge_file_NDR7Lc
 	}
 
 	public static Context getContext() {
@@ -109,11 +96,7 @@ public class Utils {
 	public static void setContext(Context contextt) {
 		context = contextt;
 	}
-<<<<<<< .merge_file_2JaMAf
-	
-=======
 
->>>>>>> .merge_file_NDR7Lc
 	public static Object getObjectFromSharedPreferences(String key) {
 		if(context.getSharedPreferences(prefFileName, 0).contains(key)) {
 			return Utils.deserializeObject(context.getSharedPreferences(prefFileName, 0).getString(key, ""));
@@ -121,11 +104,7 @@ public class Utils {
 			return null;
 		}
 	}
-<<<<<<< .merge_file_2JaMAf
-	
-=======
 
->>>>>>> .merge_file_NDR7Lc
 	public static void putObjectIntoSharedPreferences(String key, Object obj) {
 		SharedPreferences.Editor editor = context.getSharedPreferences(prefFileName, 0).edit();
 
@@ -232,7 +211,7 @@ public class Utils {
 
 		return size;
 	}
-	
+
 	public static String saveDataFromURL(String url){
 		byte[] img = getImageByURL(url);
 		if(img != null)
@@ -250,15 +229,15 @@ public class Utils {
 		}
 		return null;
 	}
-	
+
 	public static Drawable getDrawableBy(String url,String srcName) {
-	    try {
-	        InputStream is = (InputStream) new URL(url).getContent();
-	        Drawable d = Drawable.createFromStream(is, srcName);
-	        return d;
-	    } catch (Exception e) {
-	        return null;
-	    }
+		try {
+			InputStream is = (InputStream) new URL(url).getContent();
+			Drawable d = Drawable.createFromStream(is, srcName);
+			return d;
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	/**************************** DEBUG TO REMOVE ********************************************/	
