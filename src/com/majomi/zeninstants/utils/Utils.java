@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
+import java.io.Flushable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -236,6 +237,7 @@ public class Utils {
 			Drawable d = Drawable.createFromStream(is, srcName);
 			return d;
 		} catch (Exception e) {
+			AppLog.logWarningString("Can't import image from: " + url);
 			return null;
 		}
 	}
