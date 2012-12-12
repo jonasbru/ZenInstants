@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.utils.Utils;
 
 public class MessageManager {
 
@@ -35,11 +36,19 @@ public class MessageManager {
 	public void replaceMessages(List <MessageTextEntity> messages) {
 		this.messages.clear();
 		this.messages.addAll(messages);
+		
+		Utils.putObjectIntoSharedPreferences("messages", this.messages);
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<MessageTextEntity> getMessagesCloned() {
 		return (List<MessageTextEntity>) this.messages.clone();
+	}
+	
+	public void popRandomMessage() {
+		if(!this.messages.isEmpty()) {
+			
+		}
 	}
 
 

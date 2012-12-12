@@ -14,9 +14,6 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 
-import com.majomi.zeninstants.AppLog;
-import com.majomi.zeninstants.R;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -26,7 +23,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Base64;
 import android.util.Log;
-import android.view.LayoutInflater.Filter;
+
+import com.majomi.zeninstants.AppLog;
+import com.majomi.zeninstants.R;
 
 public class Utils {
 
