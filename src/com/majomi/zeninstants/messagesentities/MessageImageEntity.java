@@ -1,6 +1,5 @@
 package com.majomi.zeninstants.messagesentities;
 
-import com.majomi.zeninstants.utils.Utils;
 
 
 public class MessageImageEntity extends MessageTextEntity {
@@ -8,19 +7,23 @@ public class MessageImageEntity extends MessageTextEntity {
 	
 	private String imageURL;
 	private String localImage;
-		
+
 	public MessageImageEntity(String txt, String imageURL) {
 		super();
-		this.setImageURL(imageURL);
-//		String local = Utils.saveDataFromURL(imageURL);
-//		if (local == null)
-//			this.localImage = "";
-//		else
-//			this.localImage = local;
+		setImageURL(imageURL);
+		setLocalImage("");
 		setText(txt);
 		setSummary(txt);
 	}
-
+	
+	public MessageImageEntity(String txt,  String imageURL, String localImage) {
+		super();
+		setImageURL(imageURL);
+		setLocalImage(localImage);
+		setText(txt);
+		setSummary(txt);
+	}
+	
 	public String getLocalImage() {
 		return localImage;
 	}

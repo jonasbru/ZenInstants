@@ -36,8 +36,9 @@ public class HistorialManager {
 		this.messages.add(new MessageVideoEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah", "TODO"));
 		this.messages.add(new MessageSoundEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah", "TODO"));
 		this.messages.add(new MessageImageEntity("Roses are red\nViolets","http://www.ecrans.fr/local/cache-vignettes/L450xH341/pub_cage_450-de1e1.jpg"));
+		this.messages.add(new MessageImageEntity("Roses are red\nViolets","http://www.blogcdn.com/www.engadget.com/media/2012/10/angrybirdsstarwars.jpg"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
-
+		
 		//TODO:remove
 		for(int i = 0; i < this.messages.size(); i++) {
 			this.messages.get(i).setId(i);

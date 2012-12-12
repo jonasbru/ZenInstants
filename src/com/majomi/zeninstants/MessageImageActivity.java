@@ -21,7 +21,9 @@ import com.majomi.zeninstants.utils.Utils;
 public class MessageImageActivity extends SherlockActivity {
 
 	private MessageImageEntity entity;
-
+	private ImageView imageView;
+    private int defaultImage;
+    
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,16 +33,19 @@ public class MessageImageActivity extends SherlockActivity {
 
 		int msgId = getIntent().getExtras().getInt("MESSAGE_ID");
 		entity = (MessageImageEntity) HistorialManager.getHistorialManager().getMessage(msgId);
-
+		imageView = (ImageView) findViewById(R.id.message_image);
+		defaultImage = R.drawable.templo_cerezo;
 		fillView();
 
 		new MessageButtonManager(this, entity);
 	}
 
 	public void fillView(){
+		// Set the text
 		TextView text = (TextView) this.findViewById(R.id.message_text);
 		text.setText(entity.getText());
 
+		// Set the favorite button
 		ImageButton favorite = (ImageButton) this.findViewById(R.id.message_favorite_btn);
 		if(entity.isFavorite()) {
 			favorite.setImageResource(R.drawable.rating_favorite_red);
@@ -48,14 +53,18 @@ public class MessageImageActivity extends SherlockActivity {
 			favorite.setImageResource(R.drawable.rating_favorite);			
 		}
 
-		ImageView image = (ImageView) findViewById(R.id.message_image);
-		if(Utils.loadDataAsImage(entity.getLocalImage()) != null){
+		// Set the image
+        Bitmap localImage = Utils.loadDataAsImage(entity.getLocalImage());
+		if(localImage != null){ // Local image available
 			AppLog.logString("Loading: " + entity.getLocalImage());
-			image.setImageBitmap(Utils.loadDataAsImage(entity.getLocalImage()));
-		}else{
-			AppLog.logString("Image not found: " + entity.getLocalImage());
+			imageView.setImageBitmap(localImage);
+		}else{ // No local image
+			new DownloadImageTask(imageView).execute(entity.getImageURL());
+			AppLog.logString("Loading: " + entity.getImageURL());
 		}
+		
 	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -64,12 +73,13 @@ public class MessageImageActivity extends SherlockActivity {
 	}
 
 	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-		ImageView bmImage;
+		ImageView imgView;
 
-		public DownloadImageTask(ImageView bmImage) {
-			this.bmImage = bmImage;
+		public DownloadImageTask(ImageView imgView) {
+			this.imgView = imgView;
 		}
 
+		
 		protected Bitmap doInBackground(String... urls) {
 			String urldisplay = urls[0];
 			Bitmap mIcon = null;
@@ -84,7 +94,14 @@ public class MessageImageActivity extends SherlockActivity {
 		}
 
 		protected void onPostExecute(Bitmap result) {
-			bmImage.setImageBitmap(result);
+			if( result != null){
+				AppLog.logString("Image downloaded");
+				imgView.setImageBitmap(result);				
+			}
+			else {
+				AppLog.logString("Default image used");
+				imgView.setBackgroundResource(defaultImage);
+			}	
 		}
 	}
 }
