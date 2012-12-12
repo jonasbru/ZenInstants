@@ -36,9 +36,32 @@
         <item name="android:textColor">@android:color/secondary_text_dark_nodisable</item>
     </style>
     
+    <style name="ZenInstant.Planning.ToggleButton" parent="@style/Theme.Sherlock.NoActionBar">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+    	<item name="android:onClick">onToggleClicked</item>
+        <item name="android:textOff"></item>
+        <item name="android:textOn"></item>
+        <item name="android:background">@drawable/selectorplanner</item>    
+		
+	</style>
+    
+    <style name="ZenInstant.Settings.ButtonDay" parent="@style/Theme.Sherlock.NoActionBar">
+        <item name="android:layout_width">144dp</item>
+        <item name="android:layout_height">48dp</item>
+    	<item name="android:onClick">onClicked</item>
+        <item name="android:background">@drawable/settingsbuttonday</item>
+    </style>
+        
     <color name="fuzzy">#60000000</color>
     <color name="messageBackground">#0f5366</color>
     <color name="lue_light">@color/abs__holo_blue_light</color>
     <color name="red">#00FF00</color>
-
+    <color name="dark_green">#669900</color>
+    <color name="dark_red">#CC0000</color>
+    <color name="light_red">#FF4444</color>
+    <color name="light_green">#99CC00</color>
+    <color name="dark_orange">#FF8800</color>
+    <color name="light_orange">#FFBB33</color>
+  
 </resources>

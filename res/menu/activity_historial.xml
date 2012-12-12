@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/historial_menu_settings"
+        android:title="Settings"
+        android:icon="@drawable/settingsicon"
+        android:orderInCategory="100"
+        android:showAsAction="always|withText" android:titleCondensed="Set"/>
+    
+</menu>

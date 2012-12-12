@@ -2,12 +2,12 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
-
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
-
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
@@ -26,13 +26,13 @@
                     android:gravity="center_vertical|center_horizontal"
                     android:text="@string/enable_notifications" />
             </LinearLayout>
-
+
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
-
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/set"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
-
+
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
@@ -81,7 +81,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/photos" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -107,7 +106,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/music" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -133,15 +131,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/videos" />
-
             </LinearLayout>
-
+
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
-
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
@@ -152,34 +149,26 @@
                     android:layout_height="wrap_content"
                     android:text="@string/set"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
-
+
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/daymessages"
+                    android:text="@string/stress"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+
             </LinearLayout>
-
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <EditText
-                    android:id="@+id/daily_messages"
-                    android:layout_width="wrap_content"
+                android:layout_height="96dp"
+                android:layout_weight="0.43" >
+
+                <SeekBar
+                    android:id="@+id/seekBar1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number" />
-
-                <ImageButton
-                    android:id="@+id/savebutton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" 
-                    android:src="@drawable/saveicon"
-                    style="?android:attr/borderlessButtonStyle"/>
+                    android:progressDrawable="@drawable/progress" />
 
             </LinearLayout>
 

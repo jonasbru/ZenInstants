@@ -78,43 +78,7 @@ public class SettingsFragment extends SherlockFragment {
             }
       	});
     	
-    	ImageButton sButton = (ImageButton) v.findViewById(R.id.savebutton);
-    	sButton.setOnClickListener(new OnClickListener() {
-    		@Override
-			public void onClick(View view) {
-				// TODO Auto-generated method stub
-				TextView dMessages = (TextView) v.findViewById(R.id.daily_messages);
-				String dMes = dMessages.getText().toString();
-				try {
-					int t = Integer.parseInt(dMes);
-					if(t < 0) onFieldNegative(view);
-					if(t > 99) onFieldExcedeedMaxium(view);
-					if(t > 0 && t < 99) 
-						Settings_Manager.getSettingsManager().setNotificationsPerDay(t);
-				}
-				catch (Exception e) {
-//					// TODO: handle exception
-					onFieldNotInteger(view);
-				}
-			}
-			
-			private void onFieldNotInteger(View view)
-			{
-				Toast.makeText(view.getContext(), "Insert a positive number", Toast.LENGTH_SHORT).show();
-			}
-			
-			private void onFieldNegative(View view)
-			{
-				Toast.makeText(view.getContext(), "Insert a non negative number", Toast.LENGTH_SHORT).show();
-			}
-    		
-			private void onFieldExcedeedMaxium(View view)
-			{
-				Toast.makeText(view.getContext(), "Insert a lower number", Toast.LENGTH_SHORT).show();
-			}
-			
-    	});
-    	
+    	 	
         return v;
     }    
   }
