@@ -149,28 +149,28 @@
                     android:layout_height="wrap_content"
                     android:text="@string/set"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
-
+
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/daymessages"
+                    android:text="@string/stress"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+
             </LinearLayout>
-
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
                 android:layout_weight="0.43" >
 
-                <TextView
-                    android:id="@+id/TextView10"
-                    android:layout_width="wrap_content"
+                <SeekBar
+                    android:id="@+id/seekBar1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/set"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:progressDrawable="@drawable/progress" />
 
-                            </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
         
