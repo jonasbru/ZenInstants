@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <item android:state_pressed="true" android:drawable="@drawable/buttonplanningpressed"/>
+    <item android:state_checked="true" android:drawable="@drawable/buttonplanningon"/> 
+    <item android:state_checked="false" android:drawable="@drawable/buttonplanningoff" />
+</selector>
