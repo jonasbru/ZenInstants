@@ -22,7 +22,7 @@ public class HistorialManager {
 	}
 
 	private HistorialManager() {
-			
+
 		//TODO remove all that stuff later..
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
@@ -56,6 +56,39 @@ public class HistorialManager {
 
 	public MessageTextEntity getMessage(int index) {
 		return this.messages.get(this.messages.size() - 1 - index);
+	}
+
+	public boolean contains(MessageTextEntity msg) {
+		for(MessageTextEntity e : this.messages) {
+			if(e.equals(msg)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public MessageTextEntity getRandomMessage() {
+		@SuppressWarnings("unchecked")
+		ArrayList<MessageTextEntity> msgs = (ArrayList<MessageTextEntity>) this.messages.clone();
+		
+		SettingsManager sm = SettingsManager.getSettingsManager();
+
+		for (MessageTextEntity mte : this.messages) {
+			if((!sm.isPhotoEnabled()) && mte.getClass() == MessageImageEntity.class
+					|| (!sm.isMusicEnabled()) && mte.getClass() == MessageSoundEntity.class
+					|| (!sm.isVideoEnabled()) && mte.getClass() == MessageVideoEntity.class
+					|| (!sm.isTextEnabled()) && mte.getClass() == MessageTextEntity.class) {
+				msgs.remove(mte);
+			}
+		}
+		
+		if(!msgs.isEmpty()) {
+			int random = (int)(Math.random() * msgs.size());
+			return msgs.get(random);
+		} else {
+			return null;
+		}
 	}
 
 	@SuppressWarnings("unchecked")

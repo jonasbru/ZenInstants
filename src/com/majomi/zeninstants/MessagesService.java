@@ -1,17 +1,20 @@
 package com.majomi.zeninstants;
 
-import com.majomi.zeninstants.messagescontroller.MessageManager;
-import com.majomi.zeninstants.messagesentities.MessageTextEntity;
-import com.majomi.zeninstants.messagesviews.HistorialViewsManager;
-import com.majomi.zeninstants.settingscontroller.SettingsManager;
-import com.majomi.zeninstants.utils.Utils;
-
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningServiceInfo;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.util.Log;
+
+import com.majomi.zeninstants.messagescontroller.MessageManager;
+import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesviews.HistorialViewsManager;
+import com.majomi.zeninstants.settingscontroller.HistorialManager;
+import com.majomi.zeninstants.settingscontroller.SettingsManager;
+import com.majomi.zeninstants.utils.Utils;
 
 public class MessagesService extends Service {
 	TimeUtils timer = new TimeUtils();
@@ -25,7 +28,6 @@ public class MessagesService extends Service {
 
 	@Override
 	public void onDestroy() {
-
 		super.onDestroy();
 	}
 
@@ -53,7 +55,7 @@ public class MessagesService extends Service {
 	 */
 	@SuppressWarnings("rawtypes")
 	public void startSendingMessages() {
-		for(int i = 0; i < 10; i++){
+		for(int i = 0; i < 2; i++){
 			synchronized (this){
 				timer.noisyWait(10000);
 			}
@@ -61,17 +63,21 @@ public class MessagesService extends Service {
 			if(SettingsManager.getSettingsManager().isNotificationsEnabled()) {
 				MessageTextEntity message = MessageManager.getMessageManager().getRandomMessage();
 
-				Class c = HistorialViewsManager.getHistorialViewsManager().getViewActionFromEntity(message);
+				if(message != null) {
+					Class c = HistorialViewsManager.getHistorialViewsManager().getViewActionFromEntity(message);
 
-				Intent dialogIntent = new Intent(getBaseContext(), c);
+					Intent dialogIntent = new Intent(getBaseContext(), c);
 
-				dialogIntent.putExtra("MESSAGE", message);
+					dialogIntent.putExtra("MESSAGE", message);
 
-				dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-				getApplication().startActivity(dialogIntent);
+					getApplication().startActivity(dialogIntent);
 
-				vibrate();
+					HistorialManager.getHistorialManager().addMessage(message);
+
+					vibrate();
+				}
 			}
 		}
 	}
@@ -81,7 +87,9 @@ public class MessagesService extends Service {
 			Utils.setContext(getApplicationContext());
 			NetworkManager.updatePhrases();
 			try {
-				wait(24*60*60*1000); //1 Day
+				synchronized (this) {
+					wait(24*60*60*1000); //1 Day
+				}
 			} catch (InterruptedException e) {
 				Log.e("Updating messages error", "InterruptedException !!", e);
 			} 
