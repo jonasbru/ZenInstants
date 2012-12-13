@@ -1,14 +1,13 @@
 package com.majomi.zeninstants;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.majomi.zeninstants.messagesentities.MessageTextEntity;
-import com.majomi.zeninstants.settingscontroller.HistorialManager;
-
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.majomi.zeninstants.messagesentities.MessageTextEntity;
 
 public class MessageVideoActivity extends SherlockActivity {
 	
@@ -21,8 +20,7 @@ public class MessageVideoActivity extends SherlockActivity {
 		setContentView(R.layout.activity_message_video);
 		getWindow().addFlags( WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 		
-		int msgId = getIntent().getExtras().getInt("MESSAGE_ID");
-		entity = HistorialManager.getHistorialManager().getMessage(msgId);
+		entity = (MessageTextEntity) getIntent().getExtras().getSerializable("MESSAGE");
 		
 		fillView();
 		

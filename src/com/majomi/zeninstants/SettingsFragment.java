@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 
 import com.actionbarsherlock.app.SherlockFragment;
-import com.majomi.zeninstants.settingscontroller.Settings_Manager;
+import com.majomi.zeninstants.settingscontroller.SettingsManager;
 //import com.majomi.zeninstants.settingscontroller.Settings_Manager;
 
 public class SettingsFragment extends SherlockFragment {
@@ -28,18 +28,18 @@ public class SettingsFragment extends SherlockFragment {
         final CheckBox cbm = (CheckBox) v.findViewById(R.id.cb_enablemusic);
         final CheckBox cbv = (CheckBox) v.findViewById(R.id.cb_enablevideos);
         
-        cben.setChecked(Settings_Manager.getSettingsManager().isNotifications_enabled());
-        cbt.setChecked(Settings_Manager.getSettingsManager().isText_enabled());
-        cbp.setChecked(Settings_Manager.getSettingsManager().isPhoto_enabled());
-        cbm.setChecked(Settings_Manager.getSettingsManager().isMusic_enabled());
-        cbv.setChecked(Settings_Manager.getSettingsManager().isVideo_enabled());
+        cben.setChecked(SettingsManager.getSettingsManager().isNotificationsEnabled());
+        cbt.setChecked(SettingsManager.getSettingsManager().isTextEnabled());
+        cbp.setChecked(SettingsManager.getSettingsManager().isPhotoEnabled());
+        cbm.setChecked(SettingsManager.getSettingsManager().isMusicEnabled());
+        cbv.setChecked(SettingsManager.getSettingsManager().isVideoEnabled());
         
         //Listeners of the buttons
     	cben.setOnClickListener(new OnClickListener() {
      	  @Override
     	  public void onClick(View v) 
      	  {
-     		  Settings_Manager.getSettingsManager().setNotifications_enabled(cben.isChecked());
+     		  SettingsManager.getSettingsManager().setNotificationsEnabled(cben.isChecked());
           }
     	});
     	
@@ -47,7 +47,7 @@ public class SettingsFragment extends SherlockFragment {
        	  @Override
       	  public void onClick(View v) 
        	  {
-       		  Settings_Manager.getSettingsManager().setText_enabled(cbt.isChecked());
+       		  SettingsManager.getSettingsManager().setTextEnabled(cbt.isChecked());
             }
       	});
         
@@ -55,7 +55,7 @@ public class SettingsFragment extends SherlockFragment {
          	  @Override
         	  public void onClick(View v) 
          	  {
-         		  Settings_Manager.getSettingsManager().setPhoto_enabled(cbp.isChecked());
+         		  SettingsManager.getSettingsManager().setPhotoEnabled(cbp.isChecked());
               }
         	});
                
@@ -63,7 +63,7 @@ public class SettingsFragment extends SherlockFragment {
        	  @Override
       	  public void onClick(View v) 
        	  {
-       		  Settings_Manager.getSettingsManager().setMusic_enabled(cbm.isChecked());
+       		  SettingsManager.getSettingsManager().setMusicEnabled(cbm.isChecked());
             }
       	});
     	
@@ -71,7 +71,7 @@ public class SettingsFragment extends SherlockFragment {
        	  @Override
       	  public void onClick(View v) 
        	  {
-       		  Settings_Manager.getSettingsManager().setVideo_enabled(cbv.isChecked());
+       		  SettingsManager.getSettingsManager().setVideoEnabled(cbv.isChecked());
             }
       	});
     	

@@ -60,7 +60,8 @@ public class HistoricalActivity extends Activity{
 
 			Intent myIntent = new Intent(getApplicationContext(), c); 
 			
-			myIntent.putExtra("MESSAGE_ID", (int)position);
+			myIntent.putExtra("MESSAGE", msg);
+			
             startActivityForResult(myIntent, 0);
         }
     };
