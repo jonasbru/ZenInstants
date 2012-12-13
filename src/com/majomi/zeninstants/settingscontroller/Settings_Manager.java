@@ -1,5 +1,6 @@
 package com.majomi.zeninstants.settingscontroller;
 
+import android.util.*;
 
 public class Settings_Manager {
 		
@@ -12,7 +13,9 @@ public class Settings_Manager {
 	private boolean video_enabled;
 	
 	private int notificationsPerDay;
+	private int stressLevel;
 
+	
 	private Settings_Manager()
 	{
 		this.setNotifications_enabled(true);
@@ -20,7 +23,8 @@ public class Settings_Manager {
 		this.setPhoto_enabled(true);
 		this.setMusic_enabled(true);
 		this.setVideo_enabled(true);
-		this.setNotificationsPerDay(3);
+		this.setStressLevel(2);
+		this.setNotificationsPerDayStressLevel();
 	}
 	
 	/**
@@ -33,6 +37,11 @@ public class Settings_Manager {
 		return settingsManager;
 	}
 
+	public void setNotificationsPerDayStressLevel()
+	{
+		this.setNotificationsPerDay(this.stressLevel*2);
+	}
+	
 	
 	
 	public boolean isNotifications_enabled() {
@@ -81,6 +90,14 @@ public class Settings_Manager {
 
 	public void setNotificationsPerDay(int notificationsPerDay) {
 		this.notificationsPerDay = notificationsPerDay;
+	}
+
+	public int getStressLevel() {
+		return stressLevel;
+	}
+
+	public void setStressLevel(int stressLevel) {
+		this.stressLevel = stressLevel;
 	}
 		
 	

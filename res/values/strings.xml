@@ -28,6 +28,15 @@
     
     <!--  Setting  -->
     <string name="stress">Stress</string>
+    <string name="enablenotifications">Enable Notifications</string>
+	<string name="yes">YES</string>
+	<string name="no">NO</string>
+	<string name="textmessages">Text messages</string>
+	<string name="imagemessages">Image messages</string>
+	<string name="photomessages">Photo messages</string>
+	<string name="musicmessages">Music messages</string>
+	<string name="videomessages">Video messages</string>
+    
     
     <!-- Debug string -->
 	<string name="bla">e
