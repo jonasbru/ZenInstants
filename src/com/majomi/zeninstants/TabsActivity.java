@@ -12,21 +12,24 @@ import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.majomi.zeninstants.settingscontroller.Planner_Manager;
+import com.majomi.zeninstants.settingscontroller.PlannerManager;
+import com.majomi.zeninstants.settingscontroller.SettingsManager;
 
 public class TabsActivity extends SherlockFragmentActivity {
 
     private SherlockFragment planningFragment= new PlanningFragment();
     private SherlockFragment settingsFragment= new SettingsFragment();
+    ActionBar actionBar;
+    final String LAST_ITEM = "LAST_ITEM";
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	setTheme(R.style.Theme_Sherlock);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabs);
-        
+    		
         //Create the 2 tabs
-        ActionBar actionBar = getSupportActionBar();
+        actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
          
         ActionBar.Tab settingsTab = actionBar.newTab();
@@ -36,11 +39,25 @@ public class TabsActivity extends SherlockFragmentActivity {
         settingsTab.setTabListener(new TabsListener(settingsFragment));
         planningTab.setTabListener(new TabsListener(planningFragment));
         
-        
         actionBar.addTab(settingsTab);
         actionBar.addTab(planningTab);
+        actionBar.setHomeButtonEnabled(true);
+        
+        if(savedInstanceState != null)
+        	actionBar.setSelectedNavigationItem(savedInstanceState.getInt(LAST_ITEM));
     }
-
+    
+    @Override
+    public void onSaveInstanceState(Bundle outState)
+    {
+    	super.onSaveInstanceState(outState);
+    	PlannerManager.getPlannerManager().savePlannerManager();
+    	SettingsManager.getSettingsManager().saveSettings();
+    	
+    	outState.putInt(LAST_ITEM, actionBar.getSelectedNavigationIndex());
+    	
+    }
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getSupportMenuInflater().inflate(R.menu.activity_tabs, menu);
@@ -52,6 +69,11 @@ public class TabsActivity extends SherlockFragmentActivity {
         //respond to menu item selection
     	switch (item.getItemId()) {
     	//TODO
+    	case R.id.back:
+    		Intent i = new Intent(this, HistoricalActivity.class);
+			startActivity(i);
+            return true;
+    		
         default:
         return super.onOptionsItemSelected(item);
     	}
@@ -93,10 +115,10 @@ public class TabsActivity extends SherlockFragmentActivity {
 	    
 		    if (on) {
 		    	// Enable vibrate
-		    	Planner_Manager.getPlannerManager().getWeek().get(day).set(hour, true);
+		    	PlannerManager.getPlannerManager().getWeek().get(day).set(hour, true);
 		    } else {
 		        // Disable vibrate
-		    	Planner_Manager.getPlannerManager().getWeek().get(day).set(hour, false);
+		    	PlannerManager.getPlannerManager().getWeek().get(day).set(hour, false);
 		    }
 	    }
 			

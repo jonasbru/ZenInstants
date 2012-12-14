@@ -181,7 +181,6 @@ public class ImageManager {
 	private void removeExcedentCacheData(){
 		// Make some space for the file in the cache
 		int nbFiles = getAllCacheFileList().length;
-		AppLog.logString("nb files"+nbFiles);
 		for (int i=0; i < nbFiles - maxCacheImages + 1 ; i++)
 			getCacheOlderModifiedImage().delete();
 	}

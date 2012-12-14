@@ -12,7 +12,7 @@ public class TabsListener implements TabListener {
 	public SherlockFragment fragment;
 
 	TabsListener(SherlockFragment fr) {
-	    this.fragment = fr;
+	    this.fragment= fr;
 	}
 
     @Override

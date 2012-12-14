@@ -2,32 +2,17 @@ package com.majomi.zeninstants.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FilenameFilter;
-import java.io.Flushable;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
-import java.net.URL;
-
-import com.majomi.zeninstants.AppLog;
-import com.majomi.zeninstants.R;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Base64;
 import android.util.Log;
-import android.view.LayoutInflater.Filter;
 
 public class Utils {
 
@@ -119,5 +104,22 @@ public class Utils {
 
 		editor.commit();
 	}
+	
+	public static int getIntFromSharedPreferences(String key, int defValue) {
+		if(context.getSharedPreferences(prefFileName, 0).contains(key)) 
+			return context.getSharedPreferences(prefFileName, 0).getInt(key, defValue);
+		else return defValue;
+	}
+	
+	public static void putIntIntoSharedPreferences(String key, int value) {
+		SharedPreferences.Editor editor = context.getSharedPreferences(prefFileName, 0).edit();
 
+		if(context.getSharedPreferences(prefFileName, 0).contains(key)) {
+			editor.remove(key); 
+		}
+
+		editor.putInt(key, value);
+
+		editor.commit();
+	}
 }
