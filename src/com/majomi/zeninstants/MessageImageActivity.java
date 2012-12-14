@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockActivity;
@@ -24,6 +25,7 @@ public class MessageImageActivity extends SherlockActivity {
 	private ImageView imageView;
 	private Bitmap image;
 	private Context context = this;
+	ProgressBar loading;
 	ImageManager imgMgr = ImageManager.getImageManager();
 	
 	@Override
@@ -78,6 +80,11 @@ public class MessageImageActivity extends SherlockActivity {
 			this.imgView = imgView;
 		}
 
+		protected void onPreExecute(){
+			loading = (ProgressBar) findViewById(R.id.message_loading);
+			loading.setVisibility(0);
+			//imgView.setAnimation()ImageBitmap(result);
+		}
 
 		protected Bitmap doInBackground(String... urls) {
 			String urldisplay = urls[0];
@@ -100,7 +107,9 @@ public class MessageImageActivity extends SherlockActivity {
 		protected void onPostExecute(Bitmap result) {
 			if( result != null){
 				image = result;
+				loading.setVisibility(1);
 				imgView.setImageBitmap(result);
+				
 			}
 			else {
 				AppLog.logString("Default image used");
