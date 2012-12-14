@@ -23,14 +23,8 @@ public class HistorialManager {
 	}
 
 	private HistorialManager() {
-			
-		ImageManager demo = ImageManager.getImageManager();
-		demo.setContext(Utils.getContext());
-		MessageImageEntity messageIntern = new MessageImageEntity("Roses are red\nViolets","http://www.blogcdn.com/www.engadget.com/media/2012/10/angrybirdsstarwars.jpg");
-		messageIntern.setLocalImage(demo.saveDemoImage());	
 		
 		//TODO remove all that stuff later..
-		this.messages.add(messageIntern);
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
