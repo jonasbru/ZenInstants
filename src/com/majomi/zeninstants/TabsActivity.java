@@ -12,7 +12,8 @@ import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.majomi.zeninstants.settingscontroller.Planner_Manager;
+import com.majomi.zeninstants.settingscontroller.PlannerManager;
+import com.majomi.zeninstants.settingscontroller.SettingsManager;
 
 public class TabsActivity extends SherlockFragmentActivity {
 
@@ -38,7 +39,16 @@ public class TabsActivity extends SherlockFragmentActivity {
         
         
         actionBar.addTab(settingsTab);
+        
         actionBar.addTab(planningTab);
+    }
+    
+    @Override
+    public void onSaveInstanceState(Bundle outState)
+    {
+    	super.onSaveInstanceState(outState);
+    	PlannerManager.getPlannerManager().savePlannerManager();
+    	SettingsManager.getSettingsManager().saveSettings();
     }
 
     @Override
@@ -52,6 +62,11 @@ public class TabsActivity extends SherlockFragmentActivity {
         //respond to menu item selection
     	switch (item.getItemId()) {
     	//TODO
+    	case R.id.back:
+    		Intent i = new Intent(this, HistoricalActivity.class);
+			startActivity(i);
+            return true;
+    		
         default:
         return super.onOptionsItemSelected(item);
     	}
@@ -93,10 +108,10 @@ public class TabsActivity extends SherlockFragmentActivity {
 	    
 		    if (on) {
 		    	// Enable vibrate
-		    	Planner_Manager.getPlannerManager().getWeek().get(day).set(hour, true);
+		    	PlannerManager.getPlannerManager().getWeek().get(day).set(hour, true);
 		    } else {
 		        // Disable vibrate
-		    	Planner_Manager.getPlannerManager().getWeek().get(day).set(hour, false);
+		    	PlannerManager.getPlannerManager().getWeek().get(day).set(hour, false);
 		    }
 	    }
 			

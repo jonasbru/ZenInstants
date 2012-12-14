@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.ToggleButton;
 
 import com.actionbarsherlock.app.SherlockFragment;
-import com.majomi.zeninstants.settingscontroller.Planner_Manager;
+import com.majomi.zeninstants.settingscontroller.PlannerManager;
 
 public class PlanningFragment extends SherlockFragment {
 
@@ -33,20 +33,17 @@ public class PlanningFragment extends SherlockFragment {
         	this.initialitzeToggleButton(v, R.id.fri0+i, 4, i);
         	this.initialitzeToggleButton(v, R.id.sat0+i, 5, i);
         	this.initialitzeToggleButton(v, R.id.sun0+i, 6, i);
-        }
-        
-//        
-//        b1.setChecked(Planner_Manager.getSettingsManager().getMonday().get(0));
-//        b1.setOnClickListener(new PlanningButtonListener());	
+        }	
         
         return v;
     }
 	
+		
 	public void initialitzeToggleButton(View v, int id, int day, int hour)
 	{
 		
 		ToggleButton b1 = (ToggleButton) v.findViewById(id);
-        boolean state = Planner_Manager.getPlannerManager().getWeek().get(day).get(hour);
+        boolean state = PlannerManager.getPlannerManager().getWeek().get(day).get(hour);
         if(state)
         {
         	b1.setChecked(true);
@@ -54,10 +51,7 @@ public class PlanningFragment extends SherlockFragment {
         else
         {
         	b1.setChecked(false);
-        }
-		     
-        
-        
+        }		 
 	}
 	
 		

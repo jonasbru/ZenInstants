@@ -119,6 +119,24 @@ public class Utils {
 
 		editor.commit();
 	}
+	
+	public static int getIntFromSharedPreferences(String key, int defValue) {
+		if(context.getSharedPreferences(prefFileName, 0).contains(key)) 
+			return context.getSharedPreferences(prefFileName, 0).getInt(key, defValue);
+		else return defValue;
+	}
+	
+	public static void putIntIntoSharedPreferences(String key, int value) {
+		SharedPreferences.Editor editor = context.getSharedPreferences(prefFileName, 0).edit();
+
+		if(context.getSharedPreferences(prefFileName, 0).contains(key)) {
+			editor.remove(key); 
+		}
+
+		editor.putInt(key, value);
+
+		editor.commit();
+	}
 
 	/************************************* data utils ***********************************/
 

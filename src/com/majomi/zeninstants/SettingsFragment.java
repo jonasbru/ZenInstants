@@ -17,7 +17,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragment;
-import com.majomi.zeninstants.settingscontroller.Settings_Manager;
+import com.majomi.zeninstants.settingscontroller.SettingsManager;
 
 public class SettingsFragment extends SherlockFragment {
 
@@ -35,56 +35,56 @@ public class SettingsFragment extends SherlockFragment {
     	if(Build.VERSION.SDK_INT >= 14)
     	{
     		Switch enableNotifications = (Switch) v.findViewById(R.id.notifswitch);
-    		enableNotifications.setChecked(Settings_Manager.getSettingsManager().isNotifications_enabled());
+    		enableNotifications.setChecked(SettingsManager.getSettingsManager().isNotifications_enabled());
     		
     		enableNotifications.setOnCheckedChangeListener(new OnCheckedChangeListener() {
     			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 					// TODO Auto-generated method stub
-					Settings_Manager.getSettingsManager().setNotifications_enabled(isChecked);
+					SettingsManager.getSettingsManager().setNotifications_enabled(isChecked);
 					
 				}
 			});
     		
     		Switch textMessages = (Switch) v.findViewById(R.id.textmesswitch);
-    		textMessages.setChecked(Settings_Manager.getSettingsManager().isText_enabled());
+    		textMessages.setChecked(SettingsManager.getSettingsManager().isText_enabled());
     		
     		textMessages.setOnCheckedChangeListener(new OnCheckedChangeListener() {
     			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 					// TODO Auto-generated method stub
-					Settings_Manager.getSettingsManager().setText_enabled(isChecked);
+					SettingsManager.getSettingsManager().setText_enabled(isChecked);
 					
 				}
 			});
     		
     		Switch photoMessages = (Switch) v.findViewById(R.id.photomesswitch);
-    		photoMessages.setChecked(Settings_Manager.getSettingsManager().isPhoto_enabled());
+    		photoMessages.setChecked(SettingsManager.getSettingsManager().isPhoto_enabled());
     		
     		photoMessages.setOnCheckedChangeListener(new OnCheckedChangeListener() {
     			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 					// TODO Auto-generated method stub
-					Settings_Manager.getSettingsManager().setPhoto_enabled(isChecked);
+					SettingsManager.getSettingsManager().setPhoto_enabled(isChecked);
 					
 				}
 			});
     		
     		Switch musicMessages = (Switch) v.findViewById(R.id.musicswitch);
-    		musicMessages.setChecked(Settings_Manager.getSettingsManager().isMusic_enabled());
+    		musicMessages.setChecked(SettingsManager.getSettingsManager().isMusic_enabled());
     		
     		musicMessages.setOnCheckedChangeListener(new OnCheckedChangeListener() {
     			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 					// TODO Auto-generated method stub
-					Settings_Manager.getSettingsManager().setMusic_enabled(isChecked);
+					SettingsManager.getSettingsManager().setMusic_enabled(isChecked);
 					
 				}
 			});
     		
     		Switch videoMessages = (Switch) v.findViewById(R.id.videoswitch);
-    		videoMessages.setChecked(Settings_Manager.getSettingsManager().isVideo_enabled());
+    		videoMessages.setChecked(SettingsManager.getSettingsManager().isVideo_enabled());
     		
     		videoMessages.setOnCheckedChangeListener(new OnCheckedChangeListener() {
     			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 					// TODO Auto-generated method stub
-					Settings_Manager.getSettingsManager().setVideo_enabled(isChecked);
+					SettingsManager.getSettingsManager().setVideo_enabled(isChecked);
 					
 				}
 			});
@@ -100,11 +100,11 @@ public class SettingsFragment extends SherlockFragment {
             final CheckBox cbm = (CheckBox) v.findViewById(R.id.cb_enablemusic);
             final CheckBox cbv = (CheckBox) v.findViewById(R.id.cb_enablevideos);
             
-            cben.setChecked(Settings_Manager.getSettingsManager().isNotifications_enabled());
-            cbt.setChecked(Settings_Manager.getSettingsManager().isText_enabled());
-            cbp.setChecked(Settings_Manager.getSettingsManager().isPhoto_enabled());
-            cbm.setChecked(Settings_Manager.getSettingsManager().isMusic_enabled());
-            cbv.setChecked(Settings_Manager.getSettingsManager().isVideo_enabled());
+            cben.setChecked(SettingsManager.getSettingsManager().isNotifications_enabled());
+            cbt.setChecked(SettingsManager.getSettingsManager().isText_enabled());
+            cbp.setChecked(SettingsManager.getSettingsManager().isPhoto_enabled());
+            cbm.setChecked(SettingsManager.getSettingsManager().isMusic_enabled());
+            cbv.setChecked(SettingsManager.getSettingsManager().isVideo_enabled());
          
                     
             //Listeners of the buttons
@@ -112,7 +112,7 @@ public class SettingsFragment extends SherlockFragment {
          	  @Override
         	  public void onClick(View v) 
          	  {
-         		  Settings_Manager.getSettingsManager().setNotifications_enabled(cben.isChecked());
+         		  SettingsManager.getSettingsManager().setNotifications_enabled(cben.isChecked());
               }
         	});
         	
@@ -120,7 +120,7 @@ public class SettingsFragment extends SherlockFragment {
            	  @Override
           	  public void onClick(View v) 
            	  {
-           		  Settings_Manager.getSettingsManager().setText_enabled(cbt.isChecked());
+           		  SettingsManager.getSettingsManager().setText_enabled(cbt.isChecked());
                 }
           	});
             
@@ -128,7 +128,7 @@ public class SettingsFragment extends SherlockFragment {
              	  @Override
             	  public void onClick(View v) 
              	  {
-             		  Settings_Manager.getSettingsManager().setPhoto_enabled(cbp.isChecked());
+             		  SettingsManager.getSettingsManager().setPhoto_enabled(cbp.isChecked());
                   }
             	});
                    
@@ -136,7 +136,7 @@ public class SettingsFragment extends SherlockFragment {
            	  @Override
           	  public void onClick(View v) 
            	  {
-           		  Settings_Manager.getSettingsManager().setMusic_enabled(cbm.isChecked());
+           		  SettingsManager.getSettingsManager().setMusic_enabled(cbm.isChecked());
                 }
           	});
         	
@@ -144,7 +144,7 @@ public class SettingsFragment extends SherlockFragment {
            	  @Override
           	  public void onClick(View v) 
            	  {
-           		  Settings_Manager.getSettingsManager().setVideo_enabled(cbv.isChecked());
+           		  SettingsManager.getSettingsManager().setVideo_enabled(cbv.isChecked());
                 }
           	});
         
@@ -156,7 +156,11 @@ public class SettingsFragment extends SherlockFragment {
 		final TextView stressLvl = (TextView) v.findViewById(R.id.textViewProgress);
         // initialitze position of progress
         int progress = 1;
-        int sl = Settings_Manager.getSettingsManager().getStressLevel();
+        int sl = SettingsManager.getSettingsManager().getStressLevel();
+        if (sl == 0){
+        	progress = 1; 
+        	stressLvl.setText("Select your stress");
+        }
         if (sl == 1){ 
         	progress = 1; 
         	stressLvl.setText("Low stress"); 
@@ -183,21 +187,21 @@ public class SettingsFragment extends SherlockFragment {
 				
 				if(progress <= 30) { 
 					stressLvl.setText("Low stress");
-					Settings_Manager.getSettingsManager().setStressLevel(1);
+					SettingsManager.getSettingsManager().setStressLevel(1);
 				}
 				if(progress > 30 && progress <= 60 ) {
 					stressLvl.setText("Mid stress");
-					Settings_Manager.getSettingsManager().setStressLevel(2);
+					SettingsManager.getSettingsManager().setStressLevel(2);
 				}
 				if(progress > 60 && progress <= 90 ) { 
 					stressLvl.setText("High stress");
-					Settings_Manager.getSettingsManager().setStressLevel(3);
+					SettingsManager.getSettingsManager().setStressLevel(3);
 				}
 				if(progress > 90) {
 					stressLvl.setText("Very high stress");
-					Settings_Manager.getSettingsManager().setStressLevel(4);
+					SettingsManager.getSettingsManager().setStressLevel(4);
 				}
-				Settings_Manager.getSettingsManager().setNotificationsPerDayStressLevel();
+				SettingsManager.getSettingsManager().setNotificationsPerDayStressLevel();
 			}
 
 			@Override
