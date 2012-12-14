@@ -2,6 +2,7 @@ package com.majomi.zeninstants.settingscontroller;
 
 import java.util.ArrayList;
 
+import com.majomi.zeninstants.messagescontroller.ImageManager;
 import com.majomi.zeninstants.messagesentities.MessageImageEntity;
 import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
@@ -23,7 +24,13 @@ public class HistorialManager {
 
 	private HistorialManager() {
 			
+		ImageManager demo = ImageManager.getImageManager();
+		demo.setContext(Utils.getContext());
+		MessageImageEntity messageIntern = new MessageImageEntity("Roses are red\nViolets","http://www.blogcdn.com/www.engadget.com/media/2012/10/angrybirdsstarwars.jpg");
+		messageIntern.setLocalImage(demo.saveDemoImage());	
+		
 		//TODO remove all that stuff later..
+		this.messages.add(messageIntern);
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
@@ -38,7 +45,7 @@ public class HistorialManager {
 		this.messages.add(new MessageImageEntity("Roses are red\nViolets","http://www.ecrans.fr/local/cache-vignettes/L450xH341/pub_cage_450-de1e1.jpg"));
 		this.messages.add(new MessageImageEntity("Roses are red\nViolets","http://www.blogcdn.com/www.engadget.com/media/2012/10/angrybirdsstarwars.jpg"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
-		
+
 		//TODO:remove
 		for(int i = 0; i < this.messages.size(); i++) {
 			this.messages.get(i).setId(i);

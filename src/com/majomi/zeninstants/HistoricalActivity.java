@@ -3,18 +3,18 @@
  */
 package com.majomi.zeninstants;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.ListView;
 
+
+
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
 import com.majomi.zeninstants.messagesviews.HistorialViewsManager;
 import com.majomi.zeninstants.settingscontroller.HistorialManager;
@@ -27,10 +27,11 @@ import com.majomi.zeninstants.utils.Utils;
  * For now, it's the initial activity
  *
  */
-public class HistoricalActivity extends Activity{
+public class HistoricalActivity extends SherlockActivity{
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		setTheme(R.style.Theme_Sherlock);
 		super.onCreate(savedInstanceState);
 		
 		Utils.setContext(this.getApplicationContext());
@@ -39,7 +40,7 @@ public class HistoricalActivity extends Activity{
 
 		HistorialManager.getHistorialManager().loadMessages();
 		
-		setTheme(R.style.Theme_Sherlock);
+		
 
 		setContentView(R.layout.historial_layout);
 
@@ -69,7 +70,7 @@ public class HistoricalActivity extends Activity{
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-    	getMenuInflater().inflate(R.menu.activity_historial, menu);
+    	getSupportMenuInflater().inflate(R.menu.activity_historial, menu);
         return true;
     }
     
@@ -81,7 +82,7 @@ public class HistoricalActivity extends Activity{
 				startActivity(i);
                 return true;
             default:
-                return super.onContextItemSelected(item);
+                return true;
         }
     }
 

@@ -8,13 +8,13 @@ public class AppLog {
 	public static final String ERROR = "ZEN_ERROR";
 	
 	public static int logString(String message){
-		return Log.i(LOG,message);
+		return Log.d(LOG,message);
 	}
 	public static int logString(String message, String tag){
-		return Log.i(tag,message);
+		return Log.d(tag,message);
 	}
 	public static int logWarningString(String message){
-		return Log.i(WARNING,message);
+		return Log.d(WARNING,message);
 	}
 	public static int logError(String message){
 		return Log.e(ERROR,message);
