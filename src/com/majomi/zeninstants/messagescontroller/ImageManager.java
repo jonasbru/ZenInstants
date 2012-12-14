@@ -83,24 +83,17 @@ public class ImageManager {
 	public Boolean isAnInternalFile(String file){
 		return file.contains(internalPrefix);
 	}
+	
+	public Bitmap loadDataAsImage(String path){
+		return BitmapFactory.decodeFile(path);
+	}
+
+	public Boolean deleteData(String path){
+		File file = new File(path);
+		AppLog.logString("Delete file :" + path);
+		return file.delete();
+	}
 	/******************** Internal Storage *************************************************/
-
-	/**
-	 * 
-	 * @param bytes :data to save in internal memory
-	 * @return :The new file name
-	 */
-	private String saveInternalData(byte[] bytes){
-		return saveData(bytes,context.getFilesDir(), internalPrefix);
-	}
-
-	private String saveInternalData(InputStream is){
-		return saveInternalData(readBytes(is));
-	}
-
-	private File[] getAllInternalFileList(){
-		return context.getFilesDir().listFiles();
-	}
 
 	public File[] getInternalImageFileList(){
 		FilenameFilter imagefilter = new FilenameFilter() {
@@ -134,24 +127,26 @@ public class ImageManager {
 		AppLog.logWarningString("Data not found (from url: " + url);
 		return null;
 	}
+	
+	private String saveInternalData(byte[] bytes){
+		return saveData(bytes,context.getFilesDir(), internalPrefix);
+	}
+
+	private String saveInternalData(InputStream is){
+		return saveInternalData(readBytes(is));
+	}
+
+	private File[] getAllInternalFileList(){
+		return context.getFilesDir().listFiles();
+	}
 	/******************** Cache Storage *************************************************/
 
-	public String saveCacheData2(Bitmap img){
+	public String saveCacheData(Bitmap img){
 		// Make some space for the file in the cache
 		removeExcedentCacheData();
 		
-		return saveData2(img, context.getCacheDir(), cachePrefix);
+		return saveData(img, context.getCacheDir(), cachePrefix);
 	}
-	
-	private void removeExcedentCacheData(){
-		// Make some space for the file in the cache
-		int nbFiles = getAllCacheFileList().length;
-		AppLog.logString("nb files"+nbFiles);
-		for (int i=0; i < nbFiles - maxCacheImages + 1 ; i++)
-			getCacheOlderModifiedImage().delete();
-	}
-
-
 
 	public File[] getAllCacheFileList(){
 		return context.getCacheDir().listFiles();
@@ -182,6 +177,14 @@ public class ImageManager {
 
 		return size;
 	}
+	
+	private void removeExcedentCacheData(){
+		// Make some space for the file in the cache
+		int nbFiles = getAllCacheFileList().length;
+		AppLog.logString("nb files"+nbFiles);
+		for (int i=0; i < nbFiles - maxCacheImages + 1 ; i++)
+			getCacheOlderModifiedImage().delete();
+	}
 
 	private File getCacheOlderModifiedImage (){
 		File[] files = getAllCacheFileList();
@@ -201,16 +204,6 @@ public class ImageManager {
 
 	/******************** Data utils *************************************************/
 
-	public Bitmap loadDataAsImage(String path){
-		return BitmapFactory.decodeFile(path);
-	}
-
-	public Boolean deleteData(String path){
-		File file = new File(path);
-		AppLog.logString("Delete file :" + path);
-		return file.delete();
-	}
-
 	private String saveData(byte[] bytes, File dir, String prefix){
 		String fileName = new String();
 		try {
@@ -227,7 +220,7 @@ public class ImageManager {
 		return fileName;
 	}
 	
-	private String saveData2(Bitmap bmp, File dir, String prefix){
+	private String saveData(Bitmap bmp, File dir, String prefix){
 		String fileName = null;
 		try {
 			File f = File.createTempFile(prefix, null,dir);
@@ -274,22 +267,7 @@ public class ImageManager {
 			InputStream is = (InputStream) new URL(url).getContent();
 			return readBytes(is);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	private byte[] loadData(String path){
-		FileInputStream f;
-		try {
-			f = new FileInputStream(path);
-			return readBytes(f);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			AppLog.logError("Can't load :" + url);
 			e.printStackTrace();
 		}
 		return null;

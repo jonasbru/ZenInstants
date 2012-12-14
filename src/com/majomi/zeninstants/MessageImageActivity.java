@@ -88,7 +88,7 @@ public class MessageImageActivity extends SherlockActivity {
 				mIcon = BitmapFactory.decodeStream(in);
 				
 				//entity.setLocalImage(imgMgr.saveCacheData(in));
-				entity.setLocalImage(imgMgr.saveCacheData2(mIcon));
+				entity.setLocalImage(imgMgr.saveCacheData(mIcon));
 			} catch (Exception e) {
 				AppLog.logError("Impossible to store image from" + urldisplay);
 				e.printStackTrace();
