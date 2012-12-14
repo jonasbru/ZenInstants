@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -39,6 +40,7 @@ public class MessageImageActivity extends SherlockActivity {
 		entity = (MessageImageEntity) HistorialManager.getHistorialManager().getMessage(msgId);
 		imageView = (ImageView) findViewById(R.id.message_image);
 		fillView();
+		
 
 		new MessageButtonManager(this, entity);
 	}
@@ -82,7 +84,7 @@ public class MessageImageActivity extends SherlockActivity {
 
 		protected void onPreExecute(){
 			loading = (ProgressBar) findViewById(R.id.message_loading);
-			loading.setVisibility(0);
+			loading.setVisibility(View.VISIBLE);
 			//imgView.setAnimation()ImageBitmap(result);
 		}
 
@@ -105,9 +107,11 @@ public class MessageImageActivity extends SherlockActivity {
 		}
 
 		protected void onPostExecute(Bitmap result) {
+			AppLog.logString("plop");
+			loading = (ProgressBar) findViewById(R.id.message_loading);
+			loading.setVisibility(View.GONE);
 			if( result != null){
 				image = result;
-				loading.setVisibility(1);
 				imgView.setImageBitmap(result);
 				
 			}

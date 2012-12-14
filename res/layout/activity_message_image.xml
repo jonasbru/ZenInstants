@@ -51,7 +51,7 @@
 		        android:layout_height="wrap_content"
 		        android:layout_gravity="center_horizontal"
 		        android:orientation="vertical" >
-		        <FrameLayout
+		        <RelativeLayout
 		            android:layout_width="match_parent"
 				    android:layout_height="match_parent"
 				    android:foreground="?android:attr/progressBarStyleLarge" >
@@ -74,8 +74,8 @@
 			       	    android:layout_height="wrap_content"
 			       	    android:gravity="center"
 			       	    android:visibility="invisible"
-			       	    android:layout_gravity="center" />
-		        </FrameLayout>
+			       	    android:layout_centerInParent="true" />
+		        </RelativeLayout>
 		        
 	            <TextView
 	                android:id="@+id/message_text"
