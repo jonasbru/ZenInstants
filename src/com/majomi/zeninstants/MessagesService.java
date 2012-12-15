@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.Vibrator;
 import android.util.Log;
 
@@ -83,6 +84,7 @@ public class MessagesService extends Service {
 	}
 
 	public void startUpdatingPhrases() {
+		Looper.prepare();
 		while(true) {
 			Utils.setContext(getApplicationContext());
 			NetworkManager.updatePhrases();

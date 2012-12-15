@@ -1,13 +1,2 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_settings"
-        android:title="@string/menu_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never" />
-    <item android:id="@+id/back"
-        android:title="backbutton"
-        android:orderInCategory="99"
-        android:showAsAction="always" 
-        android:icon="@drawable/navigation_back"
-    	android:visible="true" 
-    	android:enabled="true"/>
 </menu>

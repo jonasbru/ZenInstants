@@ -25,7 +25,7 @@ public class SettingsManager {
 			this.notifications_enabled = (Boolean) Utils.getObjectFromSharedPreferences("settingsNotificationsEnabled");
 			this.text_enabled = (Boolean) Utils.getObjectFromSharedPreferences("settingsTextEnabled");
 			this.photo_enabled = (Boolean) Utils.getObjectFromSharedPreferences("settingsPhotoEnabled");
-			this.music_enabled = (Boolean) Utils.getObjectFromSharedPreferences("settingsPhotoEnabled");
+			this.music_enabled = (Boolean) Utils.getObjectFromSharedPreferences("settingsMusicEnabled");
 			this.video_enabled = (Boolean) Utils.getObjectFromSharedPreferences("settingsVideoEnabled");
 			this.notificationsPerDay = Utils.getIntFromSharedPreferences("settingsNotificationsPerDay", -1);
 		    this.stressLevel = Utils.getIntFromSharedPreferences("settingsStressLevel",-1);

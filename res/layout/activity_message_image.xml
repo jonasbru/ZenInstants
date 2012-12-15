@@ -73,8 +73,7 @@
 				        android:layout_gravity="center_vertical"    
 						android:scaleType="fitCenter"
 				        android:gravity="center"
-				        android:adjustViewBounds="true"
-				        android:src="@drawable/templo_cerezo" /><!-- templo_cerezo -->
+				        android:adjustViewBounds="true" /><!-- templo_cerezo -->
 				        
 				    <ProgressBar
 			       	    android:id="@+id/message_loading"

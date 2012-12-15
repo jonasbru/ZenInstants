@@ -3,6 +3,6 @@
         android:title="Settings"
         android:icon="@drawable/action_settings"
         android:orderInCategory="100"
-        android:showAsAction="always|withText" android:titleCondensed="Set"/>
+        android:showAsAction="always|withText" android:titleCondensed="Settings"/>
     
 </menu>
