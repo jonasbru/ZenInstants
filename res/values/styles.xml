@@ -25,6 +25,7 @@
 
 	<style name="ZenInstant.Message.Title" parent="@style/DialogWindowTitle.Sherlock">
 	    <item name="android:gravity">center</item>
+	    <item name="android:textColor">@color/gray</item>
 	</style>
 	
 	<style name="ZenInstant.Message.ButtonBar">
@@ -63,5 +64,6 @@
     <color name="light_green">#99CC00</color>
     <color name="dark_orange">#FF8800</color>
     <color name="light_orange">#FFBB33</color>
+    <color name="gray">#F4F4F4</color>
   
 </resources>
