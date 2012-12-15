@@ -1,11 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/message_main_layout"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical"
-	style="@style/ZenInstant.Message.WindowPadding"
-	android:clipChildren="true">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/message_main_layout"
+    style="@style/ZenInstant.Message.WindowPadding"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="true"
+    android:orientation="vertical" >
 
 	<LinearLayout 
 		android:id="@+id/message_layout"
@@ -13,7 +13,7 @@
 		android:layout_height="wrap_content"
 		android:layout_centerInParent="true"
 		style="@style/ZenInstant.Message.Container"
-		android:orientation="vertical" >
+		android:orientation="vertical">
 		
 	    <RelativeLayout 
 	        android:layout_width="fill_parent"
@@ -35,9 +35,18 @@
 	            android:layout_height="wrap_content"
 	            android:background="@null"
 	             />
+
 		</RelativeLayout>
 		<!--style="?attr/selectableItemBackground" 	      
 		      android:background="@drawable/abs__list_selector_holo_dark.xml" -->
+
+	    <ImageView
+	        android:id="@+id/imageView1"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/separator" 
+	        android:contentDescription="@string/separator"/>
+
         <ScrollView
             android:id="@+id/message_scroll"
             android:layout_height="0dp"
@@ -54,11 +63,13 @@
 
 	            <TextView
 	                android:id="@+id/message_text"
+	                style="@style/ZenInstant.Message.Text"
 	                android:layout_width="match_parent"
 	                android:layout_height="wrap_content"
 	                android:gravity="center"
-	                style="@style/ZenInstant.Message.Text"
+	                android:paddingTop="10dp"
 	                android:text="@string/bla" />
+
 			</LinearLayout>
         </ScrollView>
         <include

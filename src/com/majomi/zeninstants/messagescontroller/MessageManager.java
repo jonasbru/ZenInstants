@@ -3,7 +3,13 @@ package com.majomi.zeninstants.messagescontroller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.majomi.zeninstants.messagesentities.MessageImageEntity;
+import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesentities.MessageVideoEntity;
+import com.majomi.zeninstants.settingscontroller.HistorialManager;
+import com.majomi.zeninstants.settingscontroller.SettingsManager;
+import com.majomi.zeninstants.utils.Utils;
 
 public class MessageManager {
 
@@ -35,11 +41,56 @@ public class MessageManager {
 	public void replaceMessages(List <MessageTextEntity> messages) {
 		this.messages.clear();
 		this.messages.addAll(messages);
+		
+		Utils.putObjectIntoSharedPreferences("messages", this.messages);
+	}
+	
+	public void saveMessages() {
+		Utils.putObjectIntoSharedPreferences("messages", this.messages);
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<MessageTextEntity> getMessagesCloned() {
 		return (List<MessageTextEntity>) this.messages.clone();
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public MessageTextEntity getMessage(long id, Class entityClass) {
+		MessageTextEntity ret = null;
+		
+		for(MessageTextEntity m : this.messages) {
+			if(m.getId() == id && m.getClass().equals(entityClass)) {
+				ret = m;
+				break;
+			}
+		}
+		
+		return ret;
+	}
+	
+	public MessageTextEntity getRandomMessage() {
+		@SuppressWarnings("unchecked")
+		ArrayList<MessageTextEntity> msgs = (ArrayList<MessageTextEntity>) this.messages.clone();
+		
+		HistorialManager hm = HistorialManager.getHistorialManager();
+		SettingsManager sm = SettingsManager.getSettingsManager();
+		
+		for (MessageTextEntity mte : this.messages) {
+			if((!sm.isPhoto_enabled()) && mte.getClass() == MessageImageEntity.class
+					|| (!sm.isMusic_enabled()) && mte.getClass() == MessageSoundEntity.class
+					|| (!sm.isVideo_enabled()) && mte.getClass() == MessageVideoEntity.class
+					|| (!sm.isText_enabled()) && mte.getClass() == MessageTextEntity.class
+					|| (hm.contains(mte))) {
+				msgs.remove(mte);
+			}
+		}
+		
+		if(!msgs.isEmpty()) {
+			int random = (int)(Math.random() * msgs.size());
+			return msgs.get(random);
+		} else {
+			return hm.getRandomMessage();
+		}
 	}
 
 

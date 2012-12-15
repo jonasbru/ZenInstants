@@ -87,6 +87,26 @@ public class MessageTextEntity implements Cloneable, Serializable {
 
 		return o;
 	}
+	
+	public String toString() {
+		return "Text Message : " + this.getSummary();
+	}
+	
+	public boolean equals(Object obj) {
+		if(!(obj instanceof MessageTextEntity)) {
+			return false;
+		} else {
+			return this.equals((MessageTextEntity) obj);
+		}
+	}
+	
+	public boolean equals(MessageTextEntity entity) {
+		if(this.getClass() == entity.getClass() && entity.getId() == this.getId()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 
 	/*	

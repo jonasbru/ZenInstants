@@ -1,151 +1,141 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-            <LinearLayout
+            android:layout_height="48dp" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/content_email" />
+
+            <Switch
+                android:id="@+id/notifswitch"
                 android:layout_width="match_parent"
-                android:layout_height="48dp" >
-
-                <ImageView
-                    android:id="@+id/imageView1"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/content_email" />
-
-                <Switch
-                    android:id="@+id/notifswitch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/enablenotifications" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/collections_view_as_list" />
-
-                <Switch
-                    android:id="@+id/textmesswitch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/textmessages"
-                    android:textOff="@string/no"
-                    android:textOn="@string/yes" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/content_picture" />
-
-                <Switch
-                    android:id="@+id/photomesswitch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/photomessages"
-                    android:textOff="@string/no"
-                    android:textOn="@string/yes" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/device_access_volume_on" />
-
-                <Switch
-                    android:id="@+id/musicswitch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/musicmessages"
-                    android:textOff="@string/no"
-                    android:textOn="@string/yes" />
-            
-        </LinearLayout>
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/device_access_video" />
-
-                <Switch
-                    android:id="@+id/videoswitch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/videomessages"
-                    android:textOff="@string/no"
-                    android:textOn="@string/yes" />
-            
-        </LinearLayout>
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/social_person" />
-
-                   <TextView
-                       android:id="@+id/textViewProgress"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_gravity="center"
-                       android:text="Stress level"
-                       android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            </LinearLayout>
-
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <SeekBar
-                    android:id="@+id/seekBar1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:progressDrawable="@drawable/progress" />
-
-            </LinearLayout>
-            
-            
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/enablenotifications"
+                android:textOff="@string/no"
+                android:textOn="@string/yes"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/collections_view_as_list" />
+
+            <Switch
+                android:id="@+id/textmesswitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/textmessages"
+                android:textOff="@string/no"
+                android:textOn="@string/yes" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/content_picture" />
+
+            <Switch
+                android:id="@+id/photomesswitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/photomessages"
+                android:textOff="@string/no"
+                android:textOn="@string/yes" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/device_access_volume_on" />
+
+            <Switch
+                android:id="@+id/musicswitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/musicmessages"
+                android:textOff="@string/no"
+                android:textOn="@string/yes" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/device_access_video" />
+
+            <Switch
+                android:id="@+id/videoswitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/videomessages"
+                android:textOff="@string/no"
+                android:textOn="@string/yes" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/social_person" />
+
+            <TextView
+                android:id="@+id/textViewProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Stress level"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <SeekBar
+                android:id="@+id/seekBar1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/progress" />
+        </LinearLayout>
     </LinearLayout>
+
+</LinearLayout>

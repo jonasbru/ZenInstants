@@ -2,7 +2,6 @@ package com.majomi.zeninstants.settingscontroller;
 
 import java.util.ArrayList;
 
-import com.majomi.zeninstants.messagescontroller.ImageManager;
 import com.majomi.zeninstants.messagesentities.MessageImageEntity;
 import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
@@ -23,7 +22,6 @@ public class HistorialManager {
 	}
 
 	private HistorialManager() {
-		
 		//TODO remove all that stuff later..
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
@@ -31,11 +29,11 @@ public class HistorialManager {
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 		this.messages.add(new MessageVideoEntity("LONG TEXT HERE\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.", "TODO"));
-		this.messages.add(new MessageSoundEntity("LONG TEXT HERE\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.", "TODO"));
+		this.messages.add(new MessageSoundEntity("testtt ","http://upload.wikimedia.org/wikipedia/commons/a/a9/Tromboon-sample.ogg"));
 		this.messages.add(new MessageImageEntity("LONG TEXT HERE\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.","http://cache.20minutes.fr/img/photos/20mn/2009-10/2009-10-19/article_NicolasCage.jpg"));
 		this.messages.add(new MessageTextEntity("LONG TEXT HERE\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum."));
 		this.messages.add(new MessageVideoEntity("Test Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah", "http://www.youtube.com/watch?feature=player_detailpage&v=ykwqXuMPsoc"));
-		this.messages.add(new MessageSoundEntity("Test exist Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah", "http://www.youtube.com/watch?feature=player_detailpage&v=ykwqXuMPsoc"));
+		this.messages.add(new MessageSoundEntity("Test exist Roses ar", "http://192.168.1.136/zenManagement/music.mp3"));
 		this.messages.add(new MessageImageEntity("Roses are red\nViolets","http://www.ecrans.fr/local/cache-vignettes/L450xH341/pub_cage_450-de1e1.jpg"));
 		this.messages.add(new MessageImageEntity("Roses are red\nViolets","http://www.blogcdn.com/www.engadget.com/media/2012/10/angrybirdsstarwars.jpg"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
@@ -58,6 +56,39 @@ public class HistorialManager {
 
 	public MessageTextEntity getMessage(int index) {
 		return this.messages.get(this.messages.size() - 1 - index);
+	}
+
+	public boolean contains(MessageTextEntity msg) {
+		for(MessageTextEntity e : this.messages) {
+			if(e.equals(msg)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public MessageTextEntity getRandomMessage() {
+		@SuppressWarnings("unchecked")
+		ArrayList<MessageTextEntity> msgs = (ArrayList<MessageTextEntity>) this.messages.clone();
+		
+		SettingsManager sm = SettingsManager.getSettingsManager();
+
+		for (MessageTextEntity mte : this.messages) {
+			if((!sm.isPhoto_enabled()) && mte.getClass() == MessageImageEntity.class
+					|| (!sm.isMusic_enabled()) && mte.getClass() == MessageSoundEntity.class
+					|| (!sm.isVideo_enabled()) && mte.getClass() == MessageVideoEntity.class
+					|| (!sm.isText_enabled()) && mte.getClass() == MessageTextEntity.class) {
+				msgs.remove(mte);
+			}
+		}
+		
+		if(!msgs.isEmpty()) {
+			int random = (int)(Math.random() * msgs.size());
+			return msgs.get(random);
+		} else {
+			return null;
+		}
 	}
 
 	@SuppressWarnings("unchecked")

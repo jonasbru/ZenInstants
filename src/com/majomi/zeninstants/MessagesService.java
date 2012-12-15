@@ -4,21 +4,29 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.Vibrator;
+import android.util.Log;
+
+import com.majomi.zeninstants.messagescontroller.MessageManager;
+import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesviews.HistorialViewsManager;
+import com.majomi.zeninstants.settingscontroller.HistorialManager;
+import com.majomi.zeninstants.settingscontroller.SettingsManager;
+import com.majomi.zeninstants.utils.Utils;
 
 public class MessagesService extends Service {
 	TimeUtils timer = new TimeUtils();
-	
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		
+
 		//Create some stuff here
 	}
 
 	@Override
 	public void onDestroy() {
-		
 		super.onDestroy();
 	}
 
@@ -27,37 +35,69 @@ public class MessagesService extends Service {
 		AppLog.logString("Service: Created");
 		Thread t = new Thread(){
 			public void run(){
-				//startSendingMessages();
+				startSendingMessages();
 			}
 		};
 		t.start();
-		
+
 		Thread t2 = new Thread(){
 			public void run(){
-				NetworkManager.updatePhrases();
+				startUpdatingPhrases();
 			}
 		};
 		t2.start();
 		return START_STICKY;
 	}
-	
+
 	/**
 	 * Send messages to the user
 	 */
-	public void startSendingMessages(){
-		for(int i = 0; i < 3; i++){
+	@SuppressWarnings("rawtypes")
+	public void startSendingMessages() {
+		for(int i = 0; i < 0; i++){
 			synchronized (this){
-				timer.noisyWait(5000);
+				timer.noisyWait(10000);
 			}
-			//TODO
-			//Intent dialogIntent = new Intent(getBaseContext(), MessageActivity.class);
-			//dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			AppLog.logString("Service: Start activity");
-			//getApplication().startActivity(dialogIntent);
-			vibrate();
+
+			if(SettingsManager.getSettingsManager().isNotifications_enabled()) {
+				MessageTextEntity message = MessageManager.getMessageManager().getRandomMessage();
+
+				if(message != null) {
+					Log.d("ZEN", "New message pop ! " + i);
+					
+					Class c = HistorialViewsManager.getHistorialViewsManager().getViewActionFromEntity(message);
+
+					Intent dialogIntent = new Intent(getBaseContext(), c);
+
+					dialogIntent.putExtra("MESSAGE", message);
+
+					dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+					getApplication().startActivity(dialogIntent);
+
+					HistorialManager.getHistorialManager().addMessage(message);
+
+					vibrate();
+				}
+			}
 		}
 	}
-	
+
+	public void startUpdatingPhrases() {
+		Looper.prepare();
+		while(true) {
+			Utils.setContext(getApplicationContext());
+			NetworkManager.updatePhrases();
+			try {
+				synchronized (this) {
+					wait(24*60*60*1000); //1 Day
+				}
+			} catch (InterruptedException e) {
+				Log.e("Updating messages error", "InterruptedException !!", e);
+			} 
+		}
+	}
+
 	public void vibrate(){
 		// Get instance of Vibrator from current Context
 		Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -76,5 +116,5 @@ public class MessagesService extends Service {
 	public IBinder onBind(Intent intent) {
 		return null;
 	}
-				
+
 }

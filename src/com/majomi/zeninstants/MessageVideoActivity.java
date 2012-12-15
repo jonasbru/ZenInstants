@@ -1,34 +1,26 @@
 package com.majomi.zeninstants;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.majomi.zeninstants.messagescontroller.ImageManager;
-import com.majomi.zeninstants.messagescontroller.VideoManager;
-import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
-import com.majomi.zeninstants.messagesentities.MessageTextEntity;
-import com.majomi.zeninstants.messagesentities.MessageVideoEntity;
-import com.majomi.zeninstants.settingscontroller.HistorialManager;
-
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract.CommonDataKinds.Im;
-import android.provider.MediaStore.Video;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
+
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.majomi.zeninstants.messagescontroller.VideoManager;
+import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesentities.MessageVideoEntity;
+import com.majomi.zeninstants.settingscontroller.HistorialManager;
 
 public class MessageVideoActivity extends SherlockActivity {
 
 	private MessageVideoEntity entity;
 	private VideoView video;
-//	private ImageView startImage;
+//	private ImageView startImage; // image to show instead of black background
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -36,11 +28,11 @@ public class MessageVideoActivity extends SherlockActivity {
 
 		setContentView(R.layout.activity_message_video);
 		getWindow().addFlags( WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
-
-		int msgId = getIntent().getExtras().getInt("MESSAGE_ID");
-		entity = (MessageVideoEntity) HistorialManager.getHistorialManager().getMessage(msgId);
+		
+		entity = (MessageVideoEntity) getIntent().getExtras().getSerializable("MESSAGE");
 
 //		startImage = (ImageView) findViewById(R.id.message_play_icon);
+		
 		fillView();
 
 		new MessageButtonManager(this, entity);
@@ -89,14 +81,14 @@ public class MessageVideoActivity extends SherlockActivity {
 
 		video.setMediaController(mc);
 		mc.setAnchorView(video);
-		video.setVideoURI(Uri.parse( VideoManager.getUrlVideoRTSP(entity.getVideo())));
+		String rstp = VideoManager.getUrlVideoRTSP(entity.getVideo());
+		if (rstp.contains("://")) // hack if to check if it's a URL
+			video.setVideoURI(Uri.parse( VideoManager.getUrlVideoRTSP(entity.getVideo())));
 
 		//startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.youtube.com/watch?feature=player_detailpage&v=ykwqXuMPsoc")));
 
 	}
-	public MediaPlayer.OnCompletionListener onCompletion ( MediaPlayer l) {
-		return null;
-	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getSupportMenuInflater().inflate(R.menu.activity_message_video, menu);
