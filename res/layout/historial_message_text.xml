@@ -6,8 +6,13 @@
 
     <TextView
         android:id="@+id/hmtext"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="0.1"
         android:layout_height="50dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+    
+      <ImageView
+        android:id="@+id/tfav_image"
+        style="@style/ZenInstant.Historial.favouritebutton" />
 
 </LinearLayout>

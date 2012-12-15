@@ -73,6 +73,15 @@ public class HistorialViewsManager {
 
 		TextView summarytext = (TextView) vi.findViewById(R.id.hmtext);
 		summarytext.setText(entity.getSummary());
+		
+		ImageView iv = (ImageView) vi.findViewById(R.id.tfav_image);
+		if(entity.isFavorite()){
+			iv.setImageResource(R.drawable.rating_favorite_red);
+		}
+		else {
+			iv.setVisibility(iv.INVISIBLE);
+		}
+
 
 		return vi;
 	}
@@ -85,6 +94,14 @@ public class HistorialViewsManager {
 		TextView summarytext = (TextView) vi.findViewById(R.id.historial_image_text);
 		summarytext.setText(entity.getSummary());
 
+		ImageView iv = (ImageView) vi.findViewById(R.id.itfav_image);
+		if(entity.isFavorite()){
+			iv.setImageResource(R.drawable.rating_favorite_red);
+		}
+		else {
+			iv.setVisibility(iv.INVISIBLE);
+		}
+		
 //		int imageResource = activity.getResources().getIdentifier(
 //				((MessageImageEntity)entity).getLocalImage(), null, activity.getPackageName());
 //
@@ -101,6 +118,14 @@ public class HistorialViewsManager {
 		TextView summarytext = (TextView) vi.findViewById(R.id.historial_audio_text);
 		summarytext.setText(entity.getSummary());
 
+		ImageView iv = (ImageView) vi.findViewById(R.id.sfav_image);
+		if(entity.isFavorite()){
+			iv.setImageResource(R.drawable.rating_favorite_red);
+		}
+		else {
+			iv.setVisibility(iv.INVISIBLE);
+		}
+
 		return vi;
 	}
 
@@ -111,6 +136,16 @@ public class HistorialViewsManager {
 		TextView summarytext = (TextView) vi.findViewById(R.id.historial_video_text);
 		summarytext.setText(entity.getSummary());
 
+
+		ImageView iv = (ImageView) vi.findViewById(R.id.vfav_image);
+		if(entity.isFavorite()) {
+			iv.setVisibility(iv.VISIBLE);
+			iv.setImageResource(R.drawable.rating_favorite_red);
+		}
+		else {
+			iv.setVisibility(iv.INVISIBLE);
+		}
+		
 		return vi;
 	}
 

@@ -7,13 +7,16 @@
         android:id="@+id/audio_icon"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/audio_icon" />
+        android:src="@drawable/device_access_volume_on" />
 
     <TextView
         android:id="@+id/historial_audio_text"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="0.1"
         android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
+    <ImageView
+        android:id="@+id/sfav_image"
+        style="@style/ZenInstant.Historial.favouritebutton"/>
 </LinearLayout>

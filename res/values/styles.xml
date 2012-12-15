@@ -53,6 +53,13 @@
         <item name="android:background">@drawable/settingsbuttonday</item>
     </style>
         
+    <style name="ZenInstant.Historial.favouritebutton" parent="@style/Theme.Sherlock.NoActionBar">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+    	<item name="android:background">@drawable/rating_favorite</item>
+        
+    </style>
+    
     <color name="fuzzy">#60000000</color>
     <color name="messageBackground">#0f5366</color>
     <color name="lue_light">@color/abs__holo_blue_light</color>

@@ -69,12 +69,7 @@ public class TabsActivity extends SherlockFragmentActivity {
         //respond to menu item selection
     	switch (item.getItemId()) {
     	//TODO
-    	case R.id.back:
-    		Intent i = new Intent(this, HistoricalActivity.class);
-			startActivity(i);
-            return true;
-    		
-        default:
+    	default:
         return super.onOptionsItemSelected(item);
     	}
     }

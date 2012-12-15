@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-        <ImageView
-            android:id="@+id/historial_image"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_action_search" />
-        <TextView
-            android:id="@+id/historial_image_text"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/historial_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/content_picture" />
+
+    <TextView
+        android:id="@+id/historial_image_text"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="0.1"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <ImageView
+        android:id="@+id/itfav_image"
+        style="@style/ZenInstant.Historial.favouritebutton" />
 
 </LinearLayout>

@@ -69,6 +69,18 @@ public class HistoricalActivity extends SherlockActivity{
     };
     
     @Override
+    public void onResume(){
+    	super.onResume();
+		Utils.setContext(this.getApplicationContext());
+		ListView lv = (ListView) findViewById(R.id.historial_list);
+		lv.setOnItemClickListener(mMessageClickedHandler);
+
+        HistorialAdapter adapter = new HistorialAdapter(this);
+	 	lv.setAdapter(adapter);
+    	
+    }
+    
+    @Override
     public boolean onCreateOptionsMenu(Menu menu){
     	getSupportMenuInflater().inflate(R.menu.activity_historial, menu);
         return true;
