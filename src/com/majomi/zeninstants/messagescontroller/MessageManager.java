@@ -76,10 +76,10 @@ public class MessageManager {
 		SettingsManager sm = SettingsManager.getSettingsManager();
 		
 		for (MessageTextEntity mte : this.messages) {
-			if((!sm.isPhotoEnabled()) && mte.getClass() == MessageImageEntity.class
-					|| (!sm.isMusicEnabled()) && mte.getClass() == MessageSoundEntity.class
-					|| (!sm.isVideoEnabled()) && mte.getClass() == MessageVideoEntity.class
-					|| (!sm.isTextEnabled()) && mte.getClass() == MessageTextEntity.class
+			if((!sm.isPhoto_enabled()) && mte.getClass() == MessageImageEntity.class
+					|| (!sm.isMusic_enabled()) && mte.getClass() == MessageSoundEntity.class
+					|| (!sm.isVideo_enabled()) && mte.getClass() == MessageVideoEntity.class
+					|| (!sm.isText_enabled()) && mte.getClass() == MessageTextEntity.class
 					|| (hm.contains(mte))) {
 				msgs.remove(mte);
 			}

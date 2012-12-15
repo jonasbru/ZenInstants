@@ -150,19 +150,21 @@
                     android:text="@string/set"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/stress"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                   <TextView 
+                       android:text="Stress level" 
+                       android:textAppearance="?android:attr/textAppearanceLarge" 
+                       android:id="@+id/textViewProgress" 
+                       android:layout_height="wrap_content" 
+                       android:layout_width="wrap_content" 
+                       android:layout_alignParentTop="true" 
+                       android:layout_alignParentLeft="true"/>
+                    
 
             </LinearLayout>
-
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="96dp"
-                android:layout_weight="0.43" >
+                android:layout_height="wrap_content" >
 
                 <SeekBar
                     android:id="@+id/seekBar1"

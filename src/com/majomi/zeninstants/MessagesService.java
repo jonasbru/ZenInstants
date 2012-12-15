@@ -58,7 +58,7 @@ public class MessagesService extends Service {
 				timer.noisyWait(10000);
 			}
 
-			if(SettingsManager.getSettingsManager().isNotificationsEnabled()) {
+			if(SettingsManager.getSettingsManager().isNotifications_enabled()) {
 				MessageTextEntity message = MessageManager.getMessageManager().getRandomMessage();
 
 				if(message != null) {

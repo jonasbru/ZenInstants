@@ -1,74 +1,112 @@
 package com.majomi.zeninstants.settingscontroller;
 
+import com.majomi.zeninstants.utils.Utils;
+
+
 
 public class SettingsManager {
 		
 	static private SettingsManager settingsManager = null;
-	
-	private boolean notificationsEnabled = true;
-	
-	private boolean textEnabled = true;
-	private boolean photoEnabled = true;
-	private boolean musicEnabled = true;
-	private boolean videoEnabled = true;
-	
-	private int notificationsPerDay = 3;
 
-	private SettingsManager() {
-		
+	private boolean notifications_enabled;
+	private boolean text_enabled;
+	private boolean photo_enabled;
+	private boolean music_enabled;
+	private boolean video_enabled;
+	
+	private int notificationsPerDay;
+	private int stressLevel;
+
+	
+	private SettingsManager()
+	{
+		try
+		{
+			this.notifications_enabled = (Boolean) Utils.getObjectFromSharedPreferences("settingsNotificationsEnabled");
+			this.text_enabled = (Boolean) Utils.getObjectFromSharedPreferences("settingsTextEnabled");
+			this.photo_enabled = (Boolean) Utils.getObjectFromSharedPreferences("settingsPhotoEnabled");
+			this.music_enabled = (Boolean) Utils.getObjectFromSharedPreferences("settingsPhotoEnabled");
+			this.video_enabled = (Boolean) Utils.getObjectFromSharedPreferences("settingsVideoEnabled");
+			this.notificationsPerDay = Utils.getIntFromSharedPreferences("settingsNotificationsPerDay", -1);
+		    this.stressLevel = Utils.getIntFromSharedPreferences("settingsStressLevel",-1);
+		}
+		catch (Exception e) {
+			this.setNotifications_enabled(true);
+			this.setText_enabled(true);
+			this.setPhoto_enabled(true);
+			this.setMusic_enabled(true);
+			this.setVideo_enabled(true);
+			this.setStressLevel(0);
+			this.setNotificationsPerDayStressLevel();
+		}
 	}
 	
 	/**
 	 * Singleton method
 	 * @return Settings_Manager
 	 */
-	static public SettingsManager getSettingsManager() {
-		if(settingsManager == null){
-			settingsManager = new SettingsManager();
-		}
+	static public SettingsManager getSettingsManager()
+	{
+		if(settingsManager == null) settingsManager = new SettingsManager();
 		return settingsManager;
 	}
+
+	public void saveSettings()
+	{
+		Utils.putObjectIntoSharedPreferences("settingsNotificationsEnabled", this.notifications_enabled);
+		Utils.putObjectIntoSharedPreferences("settingsTextEnabled", this.text_enabled);
+		Utils.putObjectIntoSharedPreferences("settingsPhotoEnabled", this.photo_enabled);
+		Utils.putObjectIntoSharedPreferences("settingsMusicEnabled", this.music_enabled);
+		Utils.putObjectIntoSharedPreferences("settingsVideoEnabled", this.video_enabled);
+		Utils.putIntIntoSharedPreferences("settingsnotificationsPerDay", this.notificationsPerDay);
+		Utils.putIntIntoSharedPreferences("settingsstressLevel", this.stressLevel);
+	}
+	
+	public void setNotificationsPerDayStressLevel()
+	{
+		this.setNotificationsPerDay(this.stressLevel*2);
+	}
 	
 	
 	
-	public boolean isNotificationsEnabled() {
-		return notificationsEnabled;
+	public boolean isNotifications_enabled() {
+		return notifications_enabled;
 	}
 
-	public void setNotificationsEnabled(boolean notificationsEnabled) {
-		this.notificationsEnabled = notificationsEnabled;
+	public void setNotifications_enabled(boolean notifications_enabled) {
+		this.notifications_enabled = notifications_enabled;
 	}
 
-	public boolean isTextEnabled() {
-		return textEnabled;
+	public boolean isText_enabled() {
+		return text_enabled;
 	}
 
-	public void setTextEnabled(boolean textEnabled) {
-		this.textEnabled = textEnabled;
+	public void setText_enabled(boolean text_enabled) {
+		this.text_enabled = text_enabled;
 	}
 
-	public boolean isPhotoEnabled() {
-		return photoEnabled;
+	public boolean isPhoto_enabled() {
+		return photo_enabled;
 	}
 
-	public void setPhotoEnabled(boolean photoEnabled) {
-		this.photoEnabled = photoEnabled;
+	public void setPhoto_enabled(boolean image_enabled) {
+		this.photo_enabled = image_enabled;
 	}
 
-	public boolean isMusicEnabled() {
-		return musicEnabled;
+	public boolean isMusic_enabled() {
+		return music_enabled;
 	}
 
-	public void setMusicEnabled(boolean musicEnabled) {
-		this.musicEnabled = musicEnabled;
+	public void setMusic_enabled(boolean music_enabled) {
+		this.music_enabled = music_enabled;
 	}
 
-	public boolean isVideoEnabled() {
-		return videoEnabled;
+	public boolean isVideo_enabled() {
+		return video_enabled;
 	}
 
-	public void setVideoEnabled(boolean videoEnabled) {
-		this.videoEnabled = videoEnabled;
+	public void setVideo_enabled(boolean video_enabled) {
+		this.video_enabled = video_enabled;
 	}
 
 	public int getNotificationsPerDay() {
@@ -78,6 +116,13 @@ public class SettingsManager {
 	public void setNotificationsPerDay(int notificationsPerDay) {
 		this.notificationsPerDay = notificationsPerDay;
 	}
-	
-	
+
+
+	public int getStressLevel() {
+		return stressLevel;
+	}
+
+	public void setStressLevel(int stressLevel) {
+		this.stressLevel = stressLevel;
+	}
 }
