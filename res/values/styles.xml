@@ -1,59 +1,60 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="AppTheme" parent="android:Theme.Black" />
-    
-    <!-- Style to apply as a theme for message (item window*)-->
+
+    <!-- Style to apply as a theme for message (item window*) -->
     <style name="ZenInstant.Message" parent="@style/Theme.Sherlock.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
-    	<item name="android:windowBackground">@color/fuzzy</item>
-	</style>
-	
+        <item name="android:windowBackground">@color/fuzzy</item>
+    </style>
+
     <style name="ZenInstant.Message.WindowPadding" parent="@style/Theme.Sherlock.NoActionBar">
         <item name="android:padding">16dp</item>
-	</style>
-	
-	<style name="ZenInstant.Message.Container" parent="@style/Theme.Sherlock.NoActionBar">
-        <item name="android:background">@color/abs__bright_foreground_disabled_holo_dark</item>
-	</style>
-	
-	<style name="ZenInstant.Message.ScrollView" >
-	    <item name="android:paddingLeft">16dp</item>
-	    <item name="android:paddingRight">16dp</item>
-	    <item name="android:layout_marginBottom">16dp</item>
-	    <item name="android:minWidth">280dp</item> <!-- Hack for button with small msg -->
-	</style>
+    </style>
 
-	<style name="ZenInstant.Message.Title" parent="@style/DialogWindowTitle.Sherlock">
-	    <item name="android:gravity">center</item>
-	    <item name="android:textColor">@color/gray</item>
-	</style>
-	
-	<style name="ZenInstant.Message.ButtonBar">
-		<item name="android:background">@null</item>
+    <style name="ZenInstant.Message.Container" parent="@style/Theme.Sherlock.NoActionBar">
+        <!--<item name="android:background">@color/abs__bright_foreground_disabled_holo_dark</item>-->
+        <item name="android:background">@drawable/window_msg</item>
+    </style>
+
+    <style name="ZenInstant.Message.ScrollView">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:minWidth">280dp</item>
+        <!-- Hack for button with small msg -->
+    </style>
+
+    <style name="ZenInstant.Message.Title" parent="@style/DialogWindowTitle.Sherlock">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="ZenInstant.Message.ButtonBar">
+        <item name="android:background">@null</item>
         <item name="android:dividerPadding">0dp</item>
-	</style>
-    
+    </style>
+
     <style name="ZenInstant.Message.Text" parent="@style/Theme.Sherlock.NoActionBar">
         <item name="android:textColor">@android:color/secondary_text_dark_nodisable</item>
     </style>
-    
+
     <style name="ZenInstant.Planning.ToggleButton" parent="@style/Theme.Sherlock.NoActionBar">
         <item name="android:layout_width">48dp</item>
         <item name="android:layout_height">48dp</item>
-    	<item name="android:onClick">onToggleClicked</item>
+        <item name="android:onClick">onToggleClicked</item>
         <item name="android:textOff"></item>
         <item name="android:textOn"></item>
-        <item name="android:background">@drawable/selectorplanner</item>    
-		
-	</style>
-    
+        <item name="android:background">@drawable/selectorplanner</item>
+    </style>
+
     <style name="ZenInstant.Settings.ButtonDay" parent="@style/Theme.Sherlock.NoActionBar">
         <item name="android:layout_width">144dp</item>
         <item name="android:layout_height">48dp</item>
-    	<item name="android:onClick">onClicked</item>
+        <item name="android:onClick">onClicked</item>
         <item name="android:background">@drawable/settingsbuttonday</item>
     </style>
-        
+
     <color name="fuzzy">#60000000</color>
     <color name="messageBackground">#0f5366</color>
     <color name="lue_light">@color/abs__holo_blue_light</color>
@@ -67,5 +68,5 @@
     <color name="gray">#F4F4F4</color>
     <color name="light_gray">#55C4C4C4</color>
     <color name="dark_gray">#55ADADAD</color>
-  
+
 </resources>
