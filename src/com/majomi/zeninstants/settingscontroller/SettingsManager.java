@@ -2,10 +2,12 @@ package com.majomi.zeninstants.settingscontroller;
 
 import com.majomi.zeninstants.utils.Utils;
 
+
+
 public class SettingsManager {
 		
 	static private SettingsManager settingsManager = null;
-	
+
 	private boolean notifications_enabled;
 	private boolean text_enabled;
 	private boolean photo_enabled;
@@ -115,6 +117,7 @@ public class SettingsManager {
 		this.notificationsPerDay = notificationsPerDay;
 	}
 
+
 	public int getStressLevel() {
 		return stressLevel;
 	}
@@ -122,10 +125,4 @@ public class SettingsManager {
 	public void setStressLevel(int stressLevel) {
 		this.stressLevel = stressLevel;
 	}
-		
-	
-	
-
-	
-
 }

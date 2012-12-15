@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.majomi.zeninstants.MessageImageActivity;
@@ -77,7 +76,6 @@ public class HistorialViewsManager {
 		return vi;
 	}
 
-	@SuppressWarnings("unused")
 	private View createHistorialViewImage(MessageImageEntity entity, Activity activity){
 		LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View vi = inflater.inflate(R.layout.historial_message_image_and_text, null);

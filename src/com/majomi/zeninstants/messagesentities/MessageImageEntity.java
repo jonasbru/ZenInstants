@@ -6,11 +6,12 @@ public class MessageImageEntity extends MessageTextEntity {
 	private static final long serialVersionUID = 1563615056350174968L;
 	
 	private String imageURL;
+	
 	private String localImage = "plop";
 	public MessageImageEntity(){
 		localImage = "plop";
 	}
-
+	
 	public MessageImageEntity(String txt, String imageURL) {
 		super();
 		setImageURL(imageURL);

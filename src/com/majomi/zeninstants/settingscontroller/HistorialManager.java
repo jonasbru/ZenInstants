@@ -2,7 +2,6 @@ package com.majomi.zeninstants.settingscontroller;
 
 import java.util.ArrayList;
 
-import com.majomi.zeninstants.messagescontroller.ImageManager;
 import com.majomi.zeninstants.messagesentities.MessageImageEntity;
 import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
@@ -23,7 +22,6 @@ public class HistorialManager {
 	}
 
 	private HistorialManager() {
-		
 		//TODO remove all that stuff later..
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
@@ -58,6 +56,39 @@ public class HistorialManager {
 
 	public MessageTextEntity getMessage(int index) {
 		return this.messages.get(this.messages.size() - 1 - index);
+	}
+
+	public boolean contains(MessageTextEntity msg) {
+		for(MessageTextEntity e : this.messages) {
+			if(e.equals(msg)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public MessageTextEntity getRandomMessage() {
+		@SuppressWarnings("unchecked")
+		ArrayList<MessageTextEntity> msgs = (ArrayList<MessageTextEntity>) this.messages.clone();
+		
+		SettingsManager sm = SettingsManager.getSettingsManager();
+
+		for (MessageTextEntity mte : this.messages) {
+			if((!sm.isPhoto_enabled()) && mte.getClass() == MessageImageEntity.class
+					|| (!sm.isMusic_enabled()) && mte.getClass() == MessageSoundEntity.class
+					|| (!sm.isVideo_enabled()) && mte.getClass() == MessageVideoEntity.class
+					|| (!sm.isText_enabled()) && mte.getClass() == MessageTextEntity.class) {
+				msgs.remove(mte);
+			}
+		}
+		
+		if(!msgs.isEmpty()) {
+			int random = (int)(Math.random() * msgs.size());
+			return msgs.get(random);
+		} else {
+			return null;
+		}
 	}
 
 	@SuppressWarnings("unchecked")

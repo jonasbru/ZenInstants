@@ -3,27 +3,19 @@ package com.majomi.zeninstants.messagescontroller;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 
 import com.majomi.zeninstants.AppLog;
 import com.majomi.zeninstants.R;
-import com.majomi.zeninstants.messagesentities.MessageImageEntity;
-import com.majomi.zeninstants.messagesentities.MessageTextEntity;
 
 public class ImageManager {
 	private Context context = null;

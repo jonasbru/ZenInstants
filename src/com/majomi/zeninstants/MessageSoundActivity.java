@@ -17,6 +17,7 @@ import com.actionbarsherlock.view.Menu;
 import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.settingscontroller.HistorialManager;
 
+
 public class MessageSoundActivity extends SherlockActivity {
 
 	private MessageSoundEntity entity;
@@ -41,7 +42,7 @@ public class MessageSoundActivity extends SherlockActivity {
 		new MessageButtonManager(this, entity);
 	}
 
-	public void fillView(){
+	public void fillView() {
 		TextView text = (TextView) this.findViewById(R.id.message_text);
 		text.setText(entity.getText());
 
