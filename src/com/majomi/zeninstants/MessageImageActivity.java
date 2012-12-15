@@ -105,7 +105,6 @@ public class MessageImageActivity extends SherlockActivity {
 		}
 
 		protected void onPostExecute(Bitmap result) {
-			AppLog.logString("plop");
 			loading = (ProgressBar) findViewById(R.id.message_loading);
 			loading.setVisibility(View.GONE);
 			if( result != null){

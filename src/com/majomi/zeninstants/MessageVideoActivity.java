@@ -20,7 +20,7 @@ public class MessageVideoActivity extends SherlockActivity {
 
 	private MessageVideoEntity entity;
 	private VideoView video;
-//	private ImageView startImage;
+//	private ImageView startImage; // image to show instead of black background
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -86,9 +86,7 @@ public class MessageVideoActivity extends SherlockActivity {
 		//startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.youtube.com/watch?feature=player_detailpage&v=ykwqXuMPsoc")));
 
 	}
-	public MediaPlayer.OnCompletionListener onCompletion ( MediaPlayer l) {
-		return null;
-	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getSupportMenuInflater().inflate(R.menu.activity_message_video, menu);
