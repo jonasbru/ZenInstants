@@ -82,6 +82,7 @@ public class MessageImageActivity extends SherlockActivity {
 		String file = entity.getLocalImage();
 
 		image = imgMgr.loadDataAsImage(file);
+		AppLog.logString("local: " + file);
 		if(image != null){  // if there is a local image
 			imageView.setImageBitmap(image);
 			if(imgMgr.isAnInternalFile(file)){// We have to move the file
@@ -121,12 +122,14 @@ public class MessageImageActivity extends SherlockActivity {
 				AppLog.logError("Impossible to store image from" + urldisplay);
 				e.printStackTrace();
 			}
+			AppLog.logString("return " + entity.getLocalImage());
 
 			return mIcon;
 		}
 
+		@Override
 		protected void onPostExecute(Bitmap result) {
-			AppLog.logString("plop");
+			AppLog.logString("post execute");
 			loading = (ProgressBar) findViewById(R.id.message_loading);
 			loading.setVisibility(View.GONE);
 			if( result != null){
@@ -137,6 +140,11 @@ public class MessageImageActivity extends SherlockActivity {
 			else {
 				AppLog.logString("Default image used");
 			}	
+		}
+		
+		@Override
+		protected void onCancelled (Bitmap res){
+			AppLog.logString("plop cancel");
 		}
 	}
 

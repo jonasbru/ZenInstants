@@ -81,7 +81,9 @@ public class MessageVideoActivity extends SherlockActivity {
 
 		video.setMediaController(mc);
 		mc.setAnchorView(video);
-		video.setVideoURI(Uri.parse( VideoManager.getUrlVideoRTSP(entity.getVideo())));
+		String rstp = VideoManager.getUrlVideoRTSP(entity.getVideo());
+		if (rstp.contains("://")) // hack if to check if it's a URL
+			video.setVideoURI(Uri.parse( VideoManager.getUrlVideoRTSP(entity.getVideo())));
 
 		//startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.youtube.com/watch?feature=player_detailpage&v=ykwqXuMPsoc")));
 

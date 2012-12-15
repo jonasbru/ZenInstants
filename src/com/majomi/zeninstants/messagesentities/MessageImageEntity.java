@@ -7,15 +7,12 @@ public class MessageImageEntity extends MessageTextEntity {
 	
 	private String imageURL;
 	
-	private String localImage = "plop";
-	public MessageImageEntity(){
-		localImage = "plop";
-	}
+	private String localImage;
+
 	
 	public MessageImageEntity(String txt, String imageURL) {
 		super();
 		setImageURL(imageURL);
-		setLocalImage("localImage");
 		setText(txt);
 		setSummary(txt);
 	}
