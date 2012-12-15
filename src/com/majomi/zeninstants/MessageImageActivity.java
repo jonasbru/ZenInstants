@@ -41,7 +41,6 @@ public class MessageImageActivity extends SherlockActivity {
 		imageView = (ImageView) findViewById(R.id.message_image);
 		fillView();
 		
-
 		new MessageButtonManager(this, entity);
 	}
 

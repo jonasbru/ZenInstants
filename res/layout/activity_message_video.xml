@@ -36,8 +36,7 @@
 	            android:background="@null"
 	             />
 		</RelativeLayout>
-		<!--style="?attr/selectableItemBackground" 	      
-		      android:background="@drawable/abs__list_selector_holo_dark.xml" -->
+
         <ScrollView
             android:id="@+id/message_scroll"
             android:layout_height="0dp"
@@ -51,7 +50,28 @@
 		        android:layout_height="wrap_content"
 		        android:layout_gravity="center_horizontal"
 		        android:orientation="vertical" >
-		        <!-- Video -->
+
+                 <RelativeLayout 
+		            android:layout_width="match_parent"
+				    android:layout_height="200dp" >
+				    
+	                <VideoView
+	                    android:id="@+id/message_video"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="match_parent" />
+	                <!-- <ImageView
+				        android:id="@+id/message_play_icon"
+				        android:layout_width="match_parent"
+				        android:layout_height="match_parent"
+				        android:contentDescription="Click to play"
+				        android:layout_gravity="center_vertical"    
+						android:scaleType="fitCenter"
+				        android:gravity="center"
+				        android:adjustViewBounds="true"
+				        android:src="@drawable/templo_cerezo" /> -->
+	                
+	             </RelativeLayout>
+
 	            <TextView
 	                android:id="@+id/message_text"
 	                android:layout_width="match_parent"
