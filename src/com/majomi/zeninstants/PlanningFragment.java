@@ -43,15 +43,7 @@ public class PlanningFragment extends SherlockFragment {
 	{
 		
 		ToggleButton b1 = (ToggleButton) v.findViewById(id);
-        boolean state = PlannerManager.getPlannerManager().getWeek().get(day).get(hour);
-        if(state)
-        {
-        	b1.setChecked(true);
-        }
-        else
-        {
-        	b1.setChecked(false);
-        }		 
+		b1.setChecked(PlannerManager.getPlannerManager().getWeek().get(day).get(hour));
 	}
 	
 		
