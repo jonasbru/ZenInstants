@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
+import com.majomi.zeninstants.messagesentities.MessageImageEntity;
 import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.settingscontroller.HistorialManager;
 
@@ -31,9 +32,8 @@ public class MessageSoundActivity extends SherlockActivity {
 		setContentView(R.layout.activity_message_sound);
 		getWindow().addFlags( WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
-		int msgId = getIntent().getExtras().getInt("MESSAGE_ID");
-		entity = (MessageSoundEntity) HistorialManager.getHistorialManager().getMessage(msgId);
-
+		entity = (MessageSoundEntity) getIntent().getExtras().getSerializable("MESSAGE");
+		
 		soundButton = (ImageButton)findViewById(R.id.message_sound);
 		soundButton.setOnClickListener(playListener);
 
