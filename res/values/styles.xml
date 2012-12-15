@@ -65,5 +65,7 @@
     <color name="dark_orange">#FF8800</color>
     <color name="light_orange">#FFBB33</color>
     <color name="gray">#F4F4F4</color>
+    <color name="light_gray">#55C4C4C4</color>
+    <color name="dark_gray">#55ADADAD</color>
   
 </resources>
