@@ -1,7 +1,5 @@
 package com.majomi.zeninstants;
 
-import android.app.ActivityManager;
-import android.app.ActivityManager.RunningServiceInfo;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -64,6 +62,8 @@ public class MessagesService extends Service {
 				MessageTextEntity message = MessageManager.getMessageManager().getRandomMessage();
 
 				if(message != null) {
+					Log.d("ZEN", "New message pop ! " + i);
+					
 					Class c = HistorialViewsManager.getHistorialViewsManager().getViewActionFromEntity(message);
 
 					Intent dialogIntent = new Intent(getBaseContext(), c);

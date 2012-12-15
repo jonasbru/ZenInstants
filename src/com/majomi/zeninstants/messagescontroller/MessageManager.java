@@ -45,6 +45,10 @@ public class MessageManager {
 		Utils.putObjectIntoSharedPreferences("messages", this.messages);
 	}
 	
+	public void saveMessages() {
+		Utils.putObjectIntoSharedPreferences("messages", this.messages);
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<MessageTextEntity> getMessagesCloned() {
 		return (List<MessageTextEntity>) this.messages.clone();
