@@ -53,7 +53,7 @@ public class MessagesService extends Service {
 	 */
 	@SuppressWarnings("rawtypes")
 	public void startSendingMessages() {
-		for(int i = 0; i < 2; i++){
+		for(int i = 0; i < 0; i++){
 			synchronized (this){
 				timer.noisyWait(10000);
 			}
