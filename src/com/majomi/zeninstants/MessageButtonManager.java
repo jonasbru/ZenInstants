@@ -59,7 +59,7 @@ public class MessageButtonManager {
 				favorite.setImageResource(R.drawable.rating_favorite);
 				FavoritesManager.getFavoritesManager().removeFavorite(entity);
 			}
-			
+
 			HistorialManager.getHistorialManager().saveMessages();
 		}
 	};

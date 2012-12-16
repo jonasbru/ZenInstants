@@ -9,7 +9,10 @@ import android.os.Vibrator;
 import android.util.Log;
 
 import com.majomi.zeninstants.messagescontroller.MessageManager;
+import com.majomi.zeninstants.messagesentities.MessageImageEntity;
+import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesentities.MessageVideoEntity;
 import com.majomi.zeninstants.messagesviews.HistorialViewsManager;
 import com.majomi.zeninstants.settingscontroller.HistorialManager;
 import com.majomi.zeninstants.settingscontroller.SettingsManager;
@@ -69,7 +72,19 @@ public class MessagesService extends Service {
 
 					Intent dialogIntent = new Intent(getBaseContext(), c);
 
-					dialogIntent.putExtra("MESSAGE", message);
+					dialogIntent.putExtra("msg_from", "m");
+					dialogIntent.putExtra("msg_id", message.getId());
+					if(message.getClass() == MessageTextEntity.class) {
+						dialogIntent.putExtra("msg_type", "t");
+					} else if(message.getClass() == MessageImageEntity.class) {
+						dialogIntent.putExtra("msg_type", "i");
+					} else if(message.getClass() == MessageSoundEntity.class) {
+						dialogIntent.putExtra("msg_type", "s");
+					} else if(message.getClass() == MessageVideoEntity.class) {
+						dialogIntent.putExtra("msg_type", "o");
+					}
+					
+//					dialogIntent.putExtra("MESSAGE", message);
 
 					dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 

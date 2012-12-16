@@ -7,6 +7,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 
+import com.majomi.zeninstants.messagescontroller.MessageManager;
+import com.majomi.zeninstants.messagesentities.MessageImageEntity;
+import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
+import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesentities.MessageVideoEntity;
+import com.majomi.zeninstants.settingscontroller.HistorialManager;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -121,5 +128,36 @@ public class Utils {
 		editor.putInt(key, value);
 
 		editor.commit();
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public static MessageTextEntity getOriginalEntity(String from, long id, String type) {
+		if(from.equals("m")) {
+			Class c = null;
+			if(type.equals("t")) {
+				c = MessageTextEntity.class;
+			} else if(type.equals("i")) {
+				c = MessageImageEntity.class;
+			} else if(type.equals("s")) {
+				c = MessageSoundEntity.class;
+			} else if(type.equals("v")) {
+				c = MessageVideoEntity.class;
+			}
+			return MessageManager.getMessageManager().getMessage(id, c);
+		} else if(from.equals("h")) {
+			Class c = null;
+			if(type.equals("t")) {
+				c = MessageTextEntity.class;
+			} else if(type.equals("i")) {
+				c = MessageImageEntity.class;
+			} else if(type.equals("s")) {
+				c = MessageSoundEntity.class;
+			} else if(type.equals("v")) {
+				c = MessageVideoEntity.class;
+			}
+			return HistorialManager.getHistorialManager().getMessage(id, c);
+		}
+		
+		return null;
 	}
 }

@@ -89,7 +89,7 @@ public class MessageTextEntity implements Cloneable, Serializable {
 	}
 	
 	public String toString() {
-		return "Text Message : " + this.getSummary();
+		return "Text Message : " + this.getSummary() + "  Fav:" + this.favorite;
 	}
 	
 	public boolean equals(Object obj) {

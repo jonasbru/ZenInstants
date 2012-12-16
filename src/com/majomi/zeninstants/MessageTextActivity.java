@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.utils.Utils;
 
 public class MessageTextActivity extends SherlockActivity {
 	
@@ -19,7 +20,9 @@ public class MessageTextActivity extends SherlockActivity {
 		setContentView(R.layout.activity_message_text);
 		getWindow().addFlags( WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 		
-		entity = (MessageTextEntity) getIntent().getExtras().getSerializable("MESSAGE");		
+		//entity = (MessageTextEntity) getIntent().getExtras().getSerializable("MESSAGE");		
+		
+		entity = Utils.getOriginalEntity(getIntent().getExtras().getString("msg_from"), getIntent().getExtras().getLong("msg_id"), getIntent().getExtras().getString("msg_type"));
 		
 		fillView();
 		

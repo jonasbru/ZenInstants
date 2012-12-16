@@ -33,8 +33,8 @@ import com.majomi.zeninstants.utils.Installation;
 
 public class NetworkManager {
 
-	public static final String MESSAGES_URL = "http://192.168.1.136/zenManagement/index.php";
-	public static final String PUSH_URL = "http://192.168.1.136/zenManagement/push.php";
+	public static final String MESSAGES_URL = "http://192.168.1.137/zenManagement/index.php";
+	public static final String PUSH_URL = "http://192.168.1.137/zenManagement/push.php";
 
 	public static boolean updatePhrases() {
 		AsyncTask<String, Integer, String> d = new UpdatePhrasesTask()

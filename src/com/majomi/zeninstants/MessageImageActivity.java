@@ -39,6 +39,7 @@ import android.widget.TextView;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.majomi.zeninstants.messagescontroller.ImageManager;
 import com.majomi.zeninstants.messagesentities.MessageImageEntity;
+import com.majomi.zeninstants.utils.Utils;
 
 public class MessageImageActivity extends SherlockActivity {
 
@@ -56,7 +57,9 @@ public class MessageImageActivity extends SherlockActivity {
 		setContentView(R.layout.activity_message_image);
 		getWindow().addFlags( WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
-		entity = (MessageImageEntity) getIntent().getExtras().getSerializable("MESSAGE");
+//		entity = (MessageImageEntity) getIntent().getExtras().getSerializable("MESSAGE");
+		entity = (MessageImageEntity) Utils.getOriginalEntity(getIntent().getExtras().getString("msg_from"), getIntent().getExtras().getLong("msg_id"), getIntent().getExtras().getString("msg_type"));
+
 
 		imageView = (ImageView) findViewById(R.id.message_image);
 		fillView();

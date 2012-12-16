@@ -10,12 +10,13 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-
-
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.majomi.zeninstants.messagesentities.MessageImageEntity;
+import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
+import com.majomi.zeninstants.messagesentities.MessageVideoEntity;
 import com.majomi.zeninstants.messagesviews.HistorialViewsManager;
 import com.majomi.zeninstants.settingscontroller.HistorialManager;
 import com.majomi.zeninstants.utils.Utils;
@@ -63,7 +64,19 @@ public class HistoricalActivity extends SherlockActivity{
 
 			Intent myIntent = new Intent(getApplicationContext(), c); 
 			
-			myIntent.putExtra("MESSAGE", msg);
+			myIntent.putExtra("msg_from", "h");
+			myIntent.putExtra("msg_id", msg.getId());
+			if(msg.getClass() == MessageTextEntity.class) {
+				myIntent.putExtra("msg_type", "t");
+			} else if(msg.getClass() == MessageImageEntity.class) {
+				myIntent.putExtra("msg_type", "i");
+			} else if(msg.getClass() == MessageSoundEntity.class) {
+				myIntent.putExtra("msg_type", "s");
+			} else if(msg.getClass() == MessageVideoEntity.class) {
+				myIntent.putExtra("msg_type", "o");
+			}
+			
+			//myIntent.putExtra("MESSAGE", msg);
 			
             startActivityForResult(myIntent, 0);
         }

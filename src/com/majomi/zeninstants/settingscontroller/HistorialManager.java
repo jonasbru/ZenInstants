@@ -2,6 +2,8 @@ package com.majomi.zeninstants.settingscontroller;
 
 import java.util.ArrayList;
 
+import android.util.Log;
+
 import com.majomi.zeninstants.messagesentities.MessageImageEntity;
 import com.majomi.zeninstants.messagesentities.MessageSoundEntity;
 import com.majomi.zeninstants.messagesentities.MessageTextEntity;
@@ -56,6 +58,20 @@ public class HistorialManager {
 
 	public MessageTextEntity getMessage(int index) {
 		return this.messages.get(this.messages.size() - 1 - index);
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public MessageTextEntity getMessage(long id, Class entityClass) {
+		MessageTextEntity ret = null;
+		
+		for(MessageTextEntity m : this.messages) {
+			if(m.getId() == id && m.getClass().equals(entityClass)) {
+				ret = m;
+				break;
+			}
+		}
+		
+		return ret;
 	}
 
 	public boolean contains(MessageTextEntity msg) {
