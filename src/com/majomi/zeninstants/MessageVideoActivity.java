@@ -3,6 +3,7 @@ package com.majomi.zeninstants;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.MediaController;
@@ -31,7 +32,7 @@ public class MessageVideoActivity extends SherlockActivity {
 //		entity = (MessageVideoEntity) getIntent().getExtras().getSerializable("MESSAGE");
 		
 		entity = (MessageVideoEntity) Utils.getOriginalEntity(getIntent().getExtras().getString("msg_from"), getIntent().getExtras().getLong("msg_id"), getIntent().getExtras().getString("msg_type"));
-
+Log.d("CACA", entity + "");
 //		startImage = (ImageView) findViewById(R.id.message_play_icon);
 		
 		fillView();
