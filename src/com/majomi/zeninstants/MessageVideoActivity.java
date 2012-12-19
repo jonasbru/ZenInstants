@@ -67,11 +67,19 @@ public class MessageVideoActivity extends SherlockActivity {
 
 		mc.setAnchorView(video);
 		video.setMediaController(mc);
+		video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+			@Override
+			public void onCompletion(MediaPlayer mp) {
+				//startImage.setVisibility(View.VISIBLE);
+				//mp.reset(); //
+				//video.setVideoURI(Uri.parse( VideoManager.getUrlVideoRTSP(urls[0])));
+			}
+		});
 		String rstp = VideoManager.getUrlVideoRTSP(entity.getVideo());
 
 		if (rstp.contains("://")) // hack if to check if it's a URL
 			video.setVideoURI(Uri.parse( rstp));
-
+		
 		//startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.youtube.com/watch?feature=player_detailpage&v=ykwqXuMPsoc")));
 
 	}
@@ -111,7 +119,7 @@ public class MessageVideoActivity extends SherlockActivity {
 		protected void onPostExecute(String rstp) {
 			if (rstp.contains("://")) // hack if to check if it's a URL
 				video.setVideoURI(Uri.parse( rstp));
-			mc.setAnchorView(video);
+			//mc.setAnchorView(video);
 		}
 		
 	}
