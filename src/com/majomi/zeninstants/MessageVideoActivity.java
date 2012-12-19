@@ -1,11 +1,20 @@
 package com.majomi.zeninstants;
 
+import java.io.InputStream;
+import java.net.URL;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.MediaController;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -19,6 +28,7 @@ public class MessageVideoActivity extends SherlockActivity {
 
 	private MessageVideoEntity entity;
 	private VideoView video;
+	MediaController mc;
 //	private ImageView startImage; // image to show instead of black background
 
 	@Override
@@ -51,26 +61,9 @@ public class MessageVideoActivity extends SherlockActivity {
 		}
 
 		video = (VideoView) findViewById(R.id.message_video);
-		MediaController mc = new MediaController(this,true);
-
-		video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-			@Override
-			public void onCompletion(MediaPlayer mp) {
-				//startImage.setVisibility(View.VISIBLE);
-				mp.reset(); //
-				video.setVideoURI(Uri.parse( VideoManager.getUrlVideoRTSP(entity.getVideo())));
-			}
-		});
+		mc = new MediaController(this,true);
 		
-		video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-			
-			@Override
-			public void onPrepared(MediaPlayer mp) {
-				// TODO Auto-generated method stub
-				//startImage.setVisibility(View.INVISIBLE);
-			}
-		});
-
+		new StreamVideo(video).execute(entity.getVideo());
 //		video.setOnTouchListener( new View.OnTouchListener() {
 //			
 //			@Override
@@ -80,19 +73,55 @@ public class MessageVideoActivity extends SherlockActivity {
 //			}
 //		});
 
-		video.setMediaController(mc);
-		mc.setAnchorView(video);
-		String rstp = VideoManager.getUrlVideoRTSP(entity.getVideo());
-		if (rstp.contains("://")) // hack if to check if it's a URL
-			video.setVideoURI(Uri.parse( VideoManager.getUrlVideoRTSP(entity.getVideo())));
+		
 
 		//startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.youtube.com/watch?feature=player_detailpage&v=ykwqXuMPsoc")));
 
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getSupportMenuInflater().inflate(R.menu.activity_message_video, menu);
-		return true;
+
+	
+	private class StreamVideo extends AsyncTask<String, Void, String> {
+		VideoView imgView;
+
+		public StreamVideo(VideoView imgView) {
+			this.imgView = imgView;
+		}
+
+
+		protected String doInBackground(final String... urls) {
+
+			video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+				@Override
+				public void onCompletion(MediaPlayer mp) {
+					//startImage.setVisibility(View.VISIBLE);
+					mp.reset(); //
+					video.setVideoURI(Uri.parse( VideoManager.getUrlVideoRTSP(urls[0])));
+				}
+			});
+			
+			video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+				
+				@Override
+				public void onPrepared(MediaPlayer mp) {
+					// TODO Auto-generated method stub
+					//startImage.setVisibility(View.INVISIBLE);
+				}
+			});
+
+			video.setMediaController(mc);
+			mc.setAnchorView(video);
+			String rstp = VideoManager.getUrlVideoRTSP(entity.getVideo());
+			if (rstp.contains("://")) // hack if to check if it's a URL
+				video.setVideoURI(Uri.parse( VideoManager.getUrlVideoRTSP(entity.getVideo())));
+			
+			return "";
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			
+		}
+		
 	}
 }
