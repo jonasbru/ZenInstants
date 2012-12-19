@@ -73,7 +73,7 @@ public class HistoricalActivity extends SherlockActivity{
 			} else if(msg.getClass() == MessageSoundEntity.class) {
 				myIntent.putExtra("msg_type", "s");
 			} else if(msg.getClass() == MessageVideoEntity.class) {
-				myIntent.putExtra("msg_type", "o");
+				myIntent.putExtra("msg_type", "v");
 			}
 			
 			//myIntent.putExtra("MESSAGE", msg);
