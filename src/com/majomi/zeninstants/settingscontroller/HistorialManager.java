@@ -30,11 +30,11 @@ public class HistorialManager {
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
 		this.messages.add(new MessageTextEntity("Roses are red\nViolets are blue\nThis is the first phrase\nYeah yeah youpi yeah"));
-		this.messages.add(new MessageVideoEntity("The quieter you become, the more you are able to hear.\n- Lao Tzu", "http://www.youtube.com/watch?feature=player_detailpage&v=ykwqXuMPsoc"));
 		this.messages.add(new MessageSoundEntity("Test exist Roses ar", "http://labs.4sultani.ro/muzica/_ALTELE/The%20Best%20Of%2080-90s/The%20Final%20Countdown%20-%20Europe.MP3"));
+		this.messages.add(new MessageVideoEntity("The quieter you become, the more you are able to hear.\n- Lao Tzu", "http://www.youtube.com/watch?v=i6ICFpKkA9M"));
 		this.messages.add(new MessageImageEntity("LONG TEXT HERE\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.","http://cache.20minutes.fr/img/photos/20mn/2009-10/2009-10-19/article_NicolasCage.jpg"));
 		this.messages.add(new MessageTextEntity("LONG TEXT HERE\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor enim eget sem pulvinar pretium. Donec suscipit consequat mi id commodo. Vestibulum semper volutpat odio, id luctus sapien malesuada eget. Quisque semper leo quis urna rhoncus at euismod orci malesuada. Quisque tortor arcu, condimentum vel cursus eu, consequat sit amet ante. Vestibulum sodales tincidunt urna, sit amet interdum diam sodales vitae. Curabitur ac enim erat. Quisque rhoncus venenatis orci, vitae ultricies arcu fermentum blandit. Aliquam malesuada ornare varius. Integer lobortis tempus porttitor. Aenean libero enim, adipiscing in pharetra eget, pellentesque eu nibh. Pellentesque eleifend faucibus suscipit. Maecenas ornare imperdiet bibendum."));
-		this.messages.add(new MessageVideoEntity("Test Rooupi yeah", "http://www.youtube.com/watch?feature=player_detailpage&v=ykwqXuMPsoc"));
+		this.messages.add(new MessageVideoEntity("Test Rooupi yeah", "http://www.youtube.com/watch?v=i6ICFpKkA9M"));
 		this.messages.add(new MessageImageEntity("Roses are red\nViolets","http://www.ecrans.fr/local/cache-vignettes/L450xH341/pub_cage_450-de1e1.jpg"));
 		this.messages.add(new MessageSoundEntity("In the beginner's mind there are many possibilities, but in the expert's mind there are few.","http://labs.4sultani.ro/muzica/_ALTELE/The%20Best%20Of%2080-90s/Eye%20Of%20The%20Tiger%20%28Rocky%20Theme%29%20-%20Survivor.MP3"));
 		this.messages.add(new MessageImageEntity("Do not permit the events of your daily life to bind you, but never withdraw yourself from them.","http://distilleryimage6.s3.amazonaws.com/1e5a6ef837d211e2b41022000a9f1899_7.jpg"));
@@ -59,18 +59,18 @@ public class HistorialManager {
 	public MessageTextEntity getMessage(int index) {
 		return this.messages.get(this.messages.size() - 1 - index);
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public MessageTextEntity getMessage(long id, Class entityClass) {
 		MessageTextEntity ret = null;
-		
+
 		for(MessageTextEntity m : this.messages) {
 			if(m.getId() == id && m.getClass().equals(entityClass)) {
 				ret = m;
 				break;
 			}
 		}
-		
+
 		return ret;
 	}
 
@@ -87,7 +87,7 @@ public class HistorialManager {
 	public MessageTextEntity getRandomMessage() {
 		@SuppressWarnings("unchecked")
 		ArrayList<MessageTextEntity> msgs = (ArrayList<MessageTextEntity>) this.messages.clone();
-		
+
 		SettingsManager sm = SettingsManager.getSettingsManager();
 
 		for (MessageTextEntity mte : this.messages) {
@@ -98,7 +98,7 @@ public class HistorialManager {
 				msgs.remove(mte);
 			}
 		}
-		
+
 		if(!msgs.isEmpty()) {
 			int random = (int)(Math.random() * msgs.size());
 			return msgs.get(random);
