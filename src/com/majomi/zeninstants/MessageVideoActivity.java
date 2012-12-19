@@ -27,7 +27,8 @@ public class MessageVideoActivity extends SherlockActivity {
 
 	private MessageVideoEntity entity;
 	private VideoView video;
-	MediaController mc;
+	private MediaController mc;
+	private SherlockActivity act = this;
 //	private ImageView startImage; // image to show instead of black background
 
 	@Override
@@ -60,19 +61,16 @@ public class MessageVideoActivity extends SherlockActivity {
 		}
 
 		video = (VideoView) findViewById(R.id.message_video);
-		mc = new MediaController(this,true);
+		mc = new MediaController(act,true);
 		
-		new StreamVideo(video).execute(entity.getVideo());
-//		video.setOnTouchListener( new View.OnTouchListener() {
-//			
-//			@Override
-//			public boolean onTouch(View v, MotionEvent event) {
-//				video.is
-//				return false;
-//			}
-//		});
+		//new StreamVideo(video).execute(entity.getVideo());
 
-		
+		mc.setAnchorView(video);
+		video.setMediaController(mc);
+		String rstp = VideoManager.getUrlVideoRTSP(entity.getVideo());
+
+		if (rstp.contains("://")) // hack if to check if it's a URL
+			video.setVideoURI(Uri.parse( rstp));
 
 		//startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.youtube.com/watch?feature=player_detailpage&v=ykwqXuMPsoc")));
 
@@ -90,36 +88,30 @@ public class MessageVideoActivity extends SherlockActivity {
 
 		protected String doInBackground(final String... urls) {
 
-			video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+			/*video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 				@Override
 				public void onCompletion(MediaPlayer mp) {
 					//startImage.setVisibility(View.VISIBLE);
 					mp.reset(); //
-					video.setVideoURI(Uri.parse( VideoManager.getUrlVideoRTSP(urls[0])));
+					//video.setVideoURI(Uri.parse( VideoManager.getUrlVideoRTSP(urls[0])));
 				}
 			});
 			
-			video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-				
-				@Override
-				public void onPrepared(MediaPlayer mp) {
-					// TODO Auto-generated method stub
-					//startImage.setVisibility(View.INVISIBLE);
-				}
-			});
+			*/
+
 
 			video.setMediaController(mc);
-			mc.setAnchorView(video);
 			String rstp = VideoManager.getUrlVideoRTSP(entity.getVideo());
-			if (rstp.contains("://")) // hack if to check if it's a URL
-				video.setVideoURI(Uri.parse( VideoManager.getUrlVideoRTSP(entity.getVideo())));
 			
-			return "";
+			
+			return rstp;
 		}
 
 		@Override
-		protected void onPostExecute(String result) {
-			
+		protected void onPostExecute(String rstp) {
+			if (rstp.contains("://")) // hack if to check if it's a URL
+				video.setVideoURI(Uri.parse( rstp));
+			mc.setAnchorView(video);
 		}
 		
 	}
